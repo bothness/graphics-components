@@ -1,7 +1,7 @@
-import '../src/scss/main.scss';
-import './preview.scss';
+import '../src/css/main.css';
 
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+// @ts-ignore
 import Wrapper from './Wrapper.svelte';
 import markdown from 'react-syntax-highlighter/dist/esm/languages/prism/markdown';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
@@ -48,7 +48,7 @@ export const parameters = {
         '*',
         'Utilities',
         ['Intro', '*'],
-        'SCSS',
+        'CSS',
         ['Intro', '*'],
         'Actions',
         ['Intro', '*'],
