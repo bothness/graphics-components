@@ -3,7 +3,6 @@ export { default as Accordion } from "./components/layout/Accordion/Accordion.sv
 export { default as Container } from "./components/layout/Container/Container.svelte";
 export { default as Footer } from "./components/layout/Footer/Footer.svelte";
 export { default as Header } from "./components/layout/Header/Header.svelte";
-export { default as Section } from "./components/layout/Section/Section.svelte";
 export { default as Theme } from "./components/layout/Theme/Theme.svelte";
 export { default as Twisty } from "./components/layout/Twisty/Twisty.svelte";
 
