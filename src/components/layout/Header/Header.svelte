@@ -1,6 +1,6 @@
 <script>
   import { onMount, getContext } from "svelte";
-  import Theme from "../Theme/Theme.svelte";
+  import Theme from "$lib/components/wrappers/Theme/Theme.svelte";
   import ONSLogo from "./ONSLogo.svelte";
 
   const page = getContext("page");

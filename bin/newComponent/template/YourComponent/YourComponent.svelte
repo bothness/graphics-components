@@ -1,44 +1,54 @@
-<!-- @component `YourComponent` [Read the docs.](https://reuters-graphics.github.io/graphics-components/?path=/docs/components-YourComponent--default) -->
-<script lang="ts">
-  /** ✏️ DOCUMENT your chart's props using TypeScript and JSDoc comments like below! */
-
+<script>
   /**
    * A source for the image.
+   * @type {string}
    * @required
    */
-  export let src: string;
+  export let src;
 
   /**
    * AltText for the image.
+   * @type {string}
    * @required
    */
-  export let altText: string;
+  export let altText;
 
-  /** Height of the image. */
-  export let height: number = 500;
+  /**
+   * Height of the image.
+   * @type {number}
+   */
+  export let height = 500;
 
-  // You can declare custom types to help users implement your component.
-  type ContainerWidth = 'normal' | 'wide' | 'wider' | 'widest' | 'fluid';
-  
-  /** Width of the component within the text well. */
-  export let width: ContainerWidth = 'normal';
+  /**
+   * Width of the component within the text well.
+   * @type {'narrow'|'medium'|'wide'|'full'}
+   */
+  export let width = "medium";
 
-  /** Add an ID to target with SCSS. */
-  export let id: string = '';
+  /**
+   * Add an ID to target with SCSS.
+   * @type {string}
+   */
+  export let id = "";
 
-  /** Add a class to target with SCSS. */
-  export let cls: string = '';
+  /**
+   * Add a class to target with SCSS.
+   * @type {string}
+   */
+  export let cls = "";
 
-  import Block from '../Block/Block.svelte';
+  import Container from "$lib/components/wrappers/Container/Container.svelte";
 </script>
 
-<Block {width} {id} cls="photo {cls}">
+<Container width="{width}">
   <div
-    style:background-image={`url(${src})`}
-    style:height={`${height}px`}
-  />
+    id="{id}"
+    class="{cls}"
+    style:background-image="{`url(${src})`}"
+    style:height="{`${height}px`}"
+  ></div>
   <p class="visually-hidden">{altText}</p>
-</Block>
+</Container>
 
 <style lang="scss">
   div {
