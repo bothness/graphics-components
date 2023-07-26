@@ -56,7 +56,7 @@
 </svelte:head>
 
 {#if style}
-  <div class="theme-wrapper" style="{style}">
+  <div class="theme-wrapper" style="{style}" style:display="content">
     <slot />
   </div>
 {:else}

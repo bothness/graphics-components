@@ -8,7 +8,7 @@
   import Grid from "$lib/layout/Grid/Grid.svelte";
   import Blockquote from "$lib/decorators/Blockquote/Blockquote.svelte";
   import Em from "$lib/decorators/Em/Em.svelte";
-  import Divider from "$lib/layout/Divider/Divider.svelte";
+  import Divider from "$lib/decorators/Divider/Divider.svelte";
   import Scroller from "$lib/layout/Scroller/Scroller.svelte";
   import ScrollerSection from "$lib/layout/Scroller/ScrollerSection.svelte";
   import Footer from "$lib/layout/Footer/Footer.svelte";

@@ -13,10 +13,12 @@
   });
 </script>
 
-<slot />
+<div class="embed-container" style:display="content">
+  <slot />
+</div>
 
 <style>
-  :global(.ons-container) {
+  .embed-container :global(.ons-container) {
     padding: 0 !important;
   }
 </style>
