@@ -1,5 +1,7 @@
-# ⚙️ graphics-components
+# @onsvisual/svelte-components
 
-[![npm version](https://badge.fury.io/js/@reuters-graphics%2Fgraphics-components.svg)](https://badge.fury.io/js/@reuters-graphics%2Fgraphics-components)
+[![npm version](https://badge.fury.io/js/@onsvisual%2Fsvelte-components.svg)](https://www.npmjs.com/package/@onsvisual/svelte-components)
 
-This is a fork of the Reuters [graphics-components](https://github.com/reuters-graphics/graphics-components) repo, for experimentation.
+A library of ONS Svelte components for projects large and small. Its codebase and docs borrow **heavily** from Reuters' fantastic [graphics-components](https://github.com/reuters-graphics/graphics-components) library.
+
+

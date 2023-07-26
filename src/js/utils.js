@@ -15,7 +15,9 @@ export const slugify = (str, suffix = true) =>
 // .concat(suffix ? `-${randomString()}` : "");
 
 export const validDate = (str) => {
+  if (!str) return false;
   const date = new Date(str);
+  // @ts-ignore
   return !isNaN(date);
 };
 
@@ -25,6 +27,7 @@ export const formatDate = (
   opts = { year: "numeric", month: "long", day: "2-digit" }
 ) => {
   const date = new Date(str);
+  // @ts-ignore
   return date.toLocaleDateString(locale, opts);
 };
 
