@@ -1,21 +1,21 @@
 <script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
-  import Header from "$lib/layout/Header/Header.svelte";
-  import Hero from "$lib/layout/Hero/Hero.svelte";
-  import Filler from "$lib/layout/Filler/Filler.svelte";
-  import Section from "$lib/layout/Section/Section.svelte";
-  import Grid from "$lib/layout/Grid/Grid.svelte";
-  import Blockquote from "$lib/decorators/Blockquote/Blockquote.svelte";
-  import Em from "$lib/decorators/Em/Em.svelte";
-  import Divider from "$lib/decorators/Divider/Divider.svelte";
-  import Scroller from "$lib/layout/Scroller/Scroller.svelte";
-  import ScrollerSection from "$lib/layout/Scroller/ScrollerSection.svelte";
-  import Footer from "$lib/layout/Footer/Footer.svelte";
+  import Header from "../../layout/Header/Header.svelte";
+  import Hero from "../../layout/Hero/Hero.svelte";
+  import Filler from "../../layout/Filler/Filler.svelte";
+  import Section from "../../layout/Section/Section.svelte";
+  import Grid from "../../layout/Grid/Grid.svelte";
+  import Blockquote from "../../decorators/Blockquote/Blockquote.svelte";
+  import Em from "../../decorators/Em/Em.svelte";
+  import Divider from "../../decorators/Divider/Divider.svelte";
+  import Scroller from "../../layout/Scroller/Scroller.svelte";
+  import ScrollerSection from "../../layout/Scroller/ScrollerSection.svelte";
+  import Footer from "../../layout/Footer/Footer.svelte";
 
   // @ts-ignore
   import componentDocs from "./docs/component.md?raw";
-  import { withComponentDocs } from "$lib/js/withParams.js";
+  import { withComponentDocs } from "../../js/withParams.js";
 
   const scrollerColors = ["#ddd", "#777", "#222"];
   let scrollerColor = scrollerColors[0];

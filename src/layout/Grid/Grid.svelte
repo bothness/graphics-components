@@ -1,5 +1,5 @@
 <script>
-  import Container from "$lib/wrappers/Container/Container.svelte";
+  import Container from "../../wrappers/Container/Container.svelte";
 
   /**
    * (Optional) Sets the unique ID of the section

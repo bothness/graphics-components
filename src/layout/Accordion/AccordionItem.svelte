@@ -1,6 +1,6 @@
 <script>
   import { onMount, getContext } from "svelte";
-  import { slugify } from "$lib/js/utils.js";
+  import { slugify } from "../../js/utils.js";
 
   /**
    * A title for the element

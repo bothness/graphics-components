@@ -1,15 +1,15 @@
 <script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
-  import Embed from "$lib/wrappers/Embed/Embed.svelte";
-  import Filler from "$lib/layout/Filler/Filler.svelte";
-  import Section from "$lib/layout/Section/Section.svelte";
-  import Grid from "$lib/layout/Grid/Grid.svelte";
-  import Select from "$lib/inputs/Select/Select.svelte";
+  import Embed from "../../wrappers/Embed/Embed.svelte";
+  import Filler from "../../layout/Filler/Filler.svelte";
+  import Section from "../../layout/Section/Section.svelte";
+  import Grid from "../../layout/Grid/Grid.svelte";
+  import Select from "../../inputs/Select/Select.svelte";
 
   // @ts-ignore
   import componentDocs from "./docs/component.md?raw";
-  import { withComponentDocs } from "$lib/js/withParams.js";
+  import { withComponentDocs } from "../../js/withParams.js";
 </script>
 
 <Meta

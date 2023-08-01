@@ -1,6 +1,6 @@
 <script>
-  import { validDate, formatDate } from "$lib/js/utils.js";
-  import Container from "$lib/wrappers/Container/Container.svelte";
+  import { validDate, formatDate } from "../../js/utils.js";
+  import Container from "../../wrappers/Container/Container.svelte";
 
   /**
    * (Optional) Sets the unique ID of the section

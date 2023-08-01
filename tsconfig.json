@@ -15,7 +15,7 @@
 		"outDir": "dist",
 		"paths": {
 			"$lib": ["src"],
-  		"$lib/*": ["src/*"],
+  		"../../*": ["src/*"],
 			"$docs": ["src/docs"],
 			"$docs/*": ["src/docs/*"]
 		},

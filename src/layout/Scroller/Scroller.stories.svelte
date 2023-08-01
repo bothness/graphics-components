@@ -5,9 +5,9 @@
   import componentDocs from "./docs/component.md?raw";
   import Scroller from "./Scroller.svelte";
   import ScrollerSection from "./ScrollerSection.svelte";
-  import Grid from "$lib/layout/Grid/Grid.svelte";
-  import Em from "$lib/decorators/Em/Em.svelte";
-  import { withComponentDocs } from "$lib/js/withParams.js";
+  import Grid from "../../layout/Grid/Grid.svelte";
+  import Em from "../../decorators/Em/Em.svelte";
+  import { withComponentDocs } from "../../js/withParams.js";
 
   const scrollerColors = ["#ddd", "#777", "#222"];
   let scrollerColor = scrollerColors[0];

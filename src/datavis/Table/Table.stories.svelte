@@ -4,7 +4,7 @@
   // @ts-ignore
   import componentDocs from "./docs/component.md?raw";
   import Table from "./Table.svelte";
-  import { withComponentDocs } from "$lib/js/withParams.js";
+  import { withComponentDocs } from "../../js/withParams.js";
 
   const data = [
     { country: "Scotland", mountain: "Ben Nevis", height: 1345 },

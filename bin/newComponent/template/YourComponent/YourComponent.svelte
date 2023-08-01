@@ -37,7 +37,7 @@
    */
   export let cls = "";
 
-  import Container from "$lib/wrappers/Container/Container.svelte";
+  import Container from "../wrappers/Container/Container.svelte";
 </script>
 
 <Container width="{width}">

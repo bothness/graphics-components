@@ -7,7 +7,7 @@
 
   import Divider from "./Divider.svelte";
 
-  import { withComponentDocs } from "$lib/js/withParams.js";
+  import { withComponentDocs } from "../../js/withParams.js";
 
   const metaProps = {
     ...withComponentDocs(componentDocs),

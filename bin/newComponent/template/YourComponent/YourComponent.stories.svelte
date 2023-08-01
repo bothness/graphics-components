@@ -7,7 +7,7 @@
 
   import YourComponent from "./YourComponent.svelte";
 
-  import { withComponentDocs } from "$lib/js/withParams.js";
+  import { withComponentDocs } from "../../js/withParams.js";
 
   // 🖼️ You can import images you need in stories directly in code!
   // @ts-ignore

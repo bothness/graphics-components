@@ -4,7 +4,7 @@
   // @ts-ignore
   import componentDocs from "./docs/component.md?raw";
   import Dropdown from "./Dropdown.svelte";
-  import { withComponentDocs } from "$lib/js/withParams.js";
+  import { withComponentDocs } from "../../js/withParams.js";
 
   const options = [
     { id: "1", label: "General" },

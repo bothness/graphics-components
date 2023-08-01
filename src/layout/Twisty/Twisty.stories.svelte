@@ -4,7 +4,7 @@
   // @ts-ignore
   import componentDocs from "./docs/component.md?raw";
   import Twisty from "./Twisty.svelte";
-  import { withComponentDocs } from "$lib/js/withParams.js";
+  import { withComponentDocs } from "../../js/withParams.js";
 </script>
 
 <Meta

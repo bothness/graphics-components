@@ -1,5 +1,5 @@
 <script>
-  import { validDate, formatDate } from "$lib/js/utils.js";
+  import { validDate, formatDate } from "../../js/utils.js";
   export let meta = null;
 </script>
 

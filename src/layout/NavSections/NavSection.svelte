@@ -1,6 +1,6 @@
 <script>
   import { onMount, onDestroy, getContext } from "svelte";
-  import { slugify } from "$lib/js/utils.js";
+  import { slugify } from "../../js/utils.js";
   import SectionBacklink from "./SectionBacklink.svelte";
 
   /**

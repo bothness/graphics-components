@@ -1,6 +1,6 @@
 <script>
-  import { slugify } from "$lib/js/utils.js";
-  import Container from "$lib/wrappers/Container/Container.svelte";
+  import { slugify } from "../../js/utils.js";
+  import Container from "../../wrappers/Container/Container.svelte";
 
   /**
    * Sets the unique ID of the section

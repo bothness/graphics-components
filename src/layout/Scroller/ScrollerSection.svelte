@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import Container from "$lib/wrappers/Container/Container.svelte";
+  import Container from "../../wrappers/Container/Container.svelte";
 
   /**
    * Sets the unique ID of the section

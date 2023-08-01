@@ -1,5 +1,5 @@
 <script>
-  import { commas, ascending, descending } from "$lib/js/utils.js";
+  import { commas, ascending, descending } from "../../js/utils.js";
 
   /**
    * An optional title for the table
