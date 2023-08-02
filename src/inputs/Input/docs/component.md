@@ -1,5 +1,6 @@
 A standard `<input>` element with Svelte bindings and events.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Input } from "@onsvisual/svelte-components";
@@ -11,5 +12,5 @@ A standard `<input>` element with Svelte bindings and events.
   const handleChange = (e) => console.log(e);
 </script>
 
-<input bind:value on:change="{handleChange}" />
+<Input bind:value on:change="{handleChange}" />
 ```

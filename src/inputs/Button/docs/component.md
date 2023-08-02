@@ -1,5 +1,6 @@
 A button/link component that can be styled in various ways. It will render as an `<a>` link if it has an `href` property defined.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Button } from "@onsvisual/svelte-components";
@@ -9,8 +10,8 @@ A button/link component that can be styled in various ways. It will render as an
 </script>
 
 <!-- Standard button with on:click function -->
-<button on:click="{handleClick}">Button text</button>
+<Button on:click="{handleClick}">Button text</Button>
 
 <!-- Button-styled link with href -->
-<button href="#">Link text</button>
+<Button href="#">Link text</Button>
 ```

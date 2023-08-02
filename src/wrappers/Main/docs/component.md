@@ -2,12 +2,13 @@ This component creates a styled `<main>` element to wrap the primary contents of
 
 This component is useful for screen readers, as the standard header component contains a visually hidden "Skip to content" link that will bring users to it.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Main } from "@onsvisual/svelte-components";
 </script>
 
 <!-- Header goes here -->
-<main>{child_components}</main>
+<Main>{child_components}</Main>
 <!-- Footer goes here -->
 ```

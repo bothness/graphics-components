@@ -14,16 +14,16 @@ Once you've setup the `Meta` and `Template` components as below, you can write a
 ```html
 <!-- YourComponent.stories.svelte -->
 <script>
-  import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
+  import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
-  import YourComponent from './YourComponent.svelte';
+  import YourComponent from "./YourComponent.svelte";
 </script>
 
-<Meta title="Components/YourComponent" component="{YourComponent}"></Meta>
+<meta title="Components/YourComponent" component="{YourComponent}" />
 
-<Template let:args>
+<template let:args>
   <YourComponent {...args} />
-</Template>
+</template>
 
 <Story
   name="Default"

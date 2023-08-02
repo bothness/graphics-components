@@ -1,5 +1,6 @@
 A list component with multiple modes.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { List } from "@onsvisual/svelte-components";

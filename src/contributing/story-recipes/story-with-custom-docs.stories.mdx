@@ -28,23 +28,23 @@ Now, import your markdown file in your story page component and attach it to eit
 ```html
 <!-- YourComponent.stories.svelte -->
 <script>
-  import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
+  import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
-  import YourComponent from './YourComponent.svelte';
+  import YourComponent from "./YourComponent.svelte";
 
   // Import markdown files.
   // Note: the "?raw" in the imports below is important!!
-  import componentDocs from './stories/docs/component.md?raw';
-  import someStoryDocs from './stories/docs/someStory.md?raw';
+  import componentDocs from "./stories/docs/component.md?raw";
+  import someStoryDocs from "./stories/docs/someStory.md?raw";
 
-  import { withComponentDocs, withStoryDocs } from '$docs/utils/withParams';
+  import { withComponentDocs, withStoryDocs } from "$docs/utils/withParams";
 
   const meta = {
     ...withComponentDocs(componentDocs),
   };
 </script>
 
-<Meta title="Components/YourComponent" component="{YourComponent}" {...meta}></Meta>
+<meta title="Components/YourComponent" component="{YourComponent}" {...meta} />
 
 <template let:args>
   <YourComponent {...args} />
@@ -54,11 +54,7 @@ Now, import your markdown file in your story page component and attach it to eit
 <Story name="Basic" args="{{ width: 'normal' }}" />
 
 <!-- Additional stories can use other docs now. -->
-<Story
-  name="Another story"
-  args="{{ width: 'normal' }}"
-  {...withStoryDocs(someStoryDocs)}
-/>
+<Story name="Another story" args="{{ width: 'normal' }}" {...withStoryDocs(someStoryDocs)} />
 ```
 
 ## Customising copyable source code

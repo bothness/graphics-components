@@ -2,6 +2,7 @@ An extended alternative to a `<select>` component (see Dropdown), with auto-comp
 
 This component is a wrapper for [svelte-select](https://github.com/rob-balfre/svelte-select).
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Select } from "@onsvisual/svelte-components";
@@ -19,5 +20,5 @@ This component is a wrapper for [svelte-select](https://github.com/rob-balfre/sv
   const handleChange = (e) => console.log(e);
 </script>
 
-<select {options} bind:value on:change="{handleChange}" />
+<Select {options} bind:value on:change="{handleChange}" />
 ```

@@ -1,5 +1,6 @@
 An table component with various customisation options.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Table } from "@onsvisual/svelte-components";
@@ -15,5 +16,5 @@ An table component with various customisation options.
   ];
 </script>
 
-<table {data} {columns} />
+<Table {data} {columns} />
 ```

@@ -13,6 +13,7 @@
 
 ---
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { YourComponent } from '@onsvisual/svelte-components';

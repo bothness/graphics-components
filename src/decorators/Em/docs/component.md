@@ -1,9 +1,10 @@
 A `<mark>` element with a custom background color, where the highlighted text will automatically appear black or white to maximise contrast.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Em } from "@onsvisual/svelte-components";
 </script>
 
-<em color="steelblue">Highlighted text</em>
+<Em color="steelblue">Highlighted text</Em>
 ```

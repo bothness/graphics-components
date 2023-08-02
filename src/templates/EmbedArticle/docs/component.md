@@ -2,6 +2,7 @@ A full page article template with compact header and footer, suitable for scroll
 
 Note: The scroller in this example will not preview correctly in the iframe on this page. You can select the example from the menu instead.
 
+<!-- prettier-ignore -->
 ```html
 <!-- +page.svelte -->
 <script>

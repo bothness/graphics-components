@@ -1,5 +1,6 @@
 An expandable `<details>` ("twisty") component, which can be open or closed by default.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Twisty } from "@onsvisual/svelte-components";

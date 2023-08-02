@@ -2,6 +2,7 @@ A full page article template with compact header and footer, suitable for scroll
 
 Note: The scroller in this example will not preview correctly in the iframe on this page. You can select the example from the menu instead.
 
+<!-- prettier-ignore -->
 ```html
 <!-- +page.svelte -->
 <script>
@@ -24,7 +25,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
   let scrollerColor = scrollerColors[0];
 </script>
 
-<header compact />
+<Header compact />
 
 <Hero
   title="This is an article title"
@@ -39,7 +40,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
   <p>This is another test paragraph.</p>
 </Filler>
 
-<section title="Section title" marginTop="{true}">
+<Section title="Section title" marginTop="{true}">
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -47,9 +48,9 @@ Note: The scroller in this example will not preview correctly in the iframe on t
     voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <blockquote attribution="A. Person">
+  <Blockquote attribution="A. Person">
     This is a blockquote, white comprises of a large block of inset text.
-  </blockquote>
+  </Blockquote>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -57,7 +58,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
     voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-</section>
+</Section>
 
 <Grid colwidth="medium" caption="This is a caption text">
   <div class="grid-cell"></div>
@@ -67,7 +68,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
 
 <Divider />
 
-<section title="Another section title">
+<Section title="Another section title">
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -75,7 +76,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
     voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-</section>
+</Section>
 
 <Scroller
   id="scroller"
@@ -109,7 +110,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
   </div>
 </Scroller>
 
-<section title="Yet another section title">
+<Section title="Yet another section title">
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -117,7 +118,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
     voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-</section>
+</Section>
 
-<footer compact />
+<Footer compact />
 ```

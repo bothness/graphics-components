@@ -1,5 +1,6 @@
 An accordion component.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Accordion } from "@onsvisual/svelte-components";

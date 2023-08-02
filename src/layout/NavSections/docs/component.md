@@ -4,6 +4,7 @@ As the user scrolls down the page, the table of contents will remain accessible 
 
 Note: These examples will not preview correctly in the iframes on this page. You can select the examples from the menu instead.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { NavSections, NavSection } from "@onsvisual/svelte-components";

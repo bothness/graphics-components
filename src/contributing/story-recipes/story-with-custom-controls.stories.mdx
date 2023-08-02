@@ -12,20 +12,20 @@ You can customise the controls in Storybook's built-in [controls panel](https://
 ```html
 <!-- YourComponent.stories.svelte -->
 <script>
-  import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
+  import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
-  import YourComponent from './YourComponent.svelte';
+  import YourComponent from "./YourComponent.svelte";
 
   const meta = {
     argTypes: {
       // A colour picker for the component's "colour" prop
-      colour: { control: 'color' },
+      colour: { control: "color" },
       // A range picker for the "height" prop
-      height: { control: { type: 'range', min: 5, max: 100, step: 5 } },
+      height: { control: { type: "range", min: 5, max: 100, step: 5 } },
       // A custom dropdown for the "width" prop
       width: {
-        control: 'select',
-        options: ['normal', 'wide', 'wider', 'widest', 'fluid'],
+        control: "select",
+        options: ["normal", "wide", "wider", "widest", "fluid"],
       },
       // Turn off control for the "data" prop
       data: { control: false },
@@ -33,7 +33,7 @@ You can customise the controls in Storybook's built-in [controls panel](https://
   };
 </script>
 
-<Meta title="Components/YourComponent" component="{YourComponent}" {...meta}></Meta>
+<meta title="Components/YourComponent" component="{YourComponent}" {...meta} />
 
 <template let:args>
   <YourComponent {...args} />

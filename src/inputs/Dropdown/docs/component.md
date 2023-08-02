@@ -1,5 +1,6 @@
 A standard `<select>` component with Svelte bindings and events.
 
+<!-- prettier-ignore -->
 ```html
 <script>
   import { Dropdown } from "@onsvisual/svelte-components";
