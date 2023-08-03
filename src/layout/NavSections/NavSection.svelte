@@ -41,8 +41,8 @@
 </script>
 
 <section id="{id}" aria-label="{title}" bind:this="{section}">
-  {#if title && !hideTitle}
-    <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no">{title}</h2>
+  {#if title}
+    <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no" class:ons-u-vh="{hideTitle}">{title}</h2>
   {/if}
   <slot />
   {#if tocId}

@@ -469,7 +469,7 @@
                 class="search__button col--md-3 col--lg-3"
                 id="nav-search-submit"
               >
-                <span class="visuallyhidden">{i18n("Search")}</span>
+                <span class="hidden">{i18n("Search")}</span>
                 <span class="icon-search--light">
                   <svg
                     class="ons-svg-icon ons-svg-icon--m"

@@ -35,8 +35,8 @@
 <section data-id="{id}" bind:this="{section}">
   <Container theme="{theme}" width="narrow" background="none">
     <div class="ons-scroller-section" style:--background="{background}">
-      {#if title && !hideTitle}
-        <h2 class="section-title">{title}</h2>
+      {#if title}
+        <h2 class="section-title" class:ons-u-vh="{hideTitle}">{title}</h2>
       {/if}
       <slot />
     </div>

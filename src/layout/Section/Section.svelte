@@ -52,8 +52,8 @@
   marginBottom="{marginBottom}"
 >
   <section id="{id ? id : slugify(title)}" aria-label="{title}" class="ons-feature__section">
-    {#if title && !hideTitle}
-      <h2 class="section-title">{title}</h2>
+    {#if title}
+      <h2 class="section-title" class:ons-u-vh="{hideTitle}">{title}</h2>
     {/if}
     <slot />
   </section>

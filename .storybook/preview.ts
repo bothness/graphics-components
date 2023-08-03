@@ -48,7 +48,7 @@ export const parameters = {
         'Decorators',
         ['Intro', '*'],
         '*',
-        'CSS',
+        'Styling',
         ['Intro', '*'],
         'Contributing',
         [
