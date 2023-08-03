@@ -102,14 +102,14 @@
       </ScrollerSection>
       <ScrollerSection>
         <p>
-          When this first caption is visible, the background will appear <Em
+          When this section caption is visible, the background will appear <Em
             color="{scrollerColors[1]}">dark grey</Em
           >.
         </p>
       </ScrollerSection>
       <ScrollerSection>
         <p>
-          When this first caption is visible, the background will appear <Em
+          When this third caption is visible, the background will appear <Em
             color="{scrollerColors[2]}">black</Em
           >.
         </p>

@@ -92,19 +92,19 @@ Note: The scroller in this example will not preview correctly in the iframe on t
     <ScrollerSection>
       <p>
         When this first caption is visible, the background will appear
-        <em color="{scrollerColors[0]}">light grey</em>.
+        <Em color="{scrollerColors[0]}">light grey</Em>.
       </p>
     </ScrollerSection>
     <ScrollerSection>
       <p>
-        When this first caption is visible, the background will appear
-        <em color="{scrollerColors[1]}">dark grey</em>.
+        When this second caption is visible, the background will appear
+        <Em color="{scrollerColors[1]}">dark grey</Em>.
       </p>
     </ScrollerSection>
     <ScrollerSection>
       <p>
-        When this first caption is visible, the background will appear
-        <em color="{scrollerColors[2]}">black</em>.
+        When this third caption is visible, the background will appear
+        <Em color="{scrollerColors[2]}">black</Em>.
       </p>
     </ScrollerSection>
   </div>
