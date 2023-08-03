@@ -7,7 +7,7 @@ Note: This component is part of the **@onsvisual/svelte-charts** library. See [m
 <script>
   import { BarChart } from "@onsvisual/svelte-charts";
 
-  export default [
+  const data = [
     { year: 2017, value: 320 },
     { year: 2018, value: 640 },
     { year: 2019, value: 1600 },
