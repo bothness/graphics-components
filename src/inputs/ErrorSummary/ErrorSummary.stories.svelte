@@ -3,9 +3,14 @@
 
   // @ts-ignore
   import componentDocs from "./docs/component.md?raw";
+  import exampleDocs from "./docs/example.md?raw";
   import ErrorSummary from "./ErrorSummary.svelte";
-  import List from "../../layout/List/List.svelte";
-  import { withComponentDocs } from "../../js/withParams.js";
+  import { withComponentDocs, withStoryDocs } from "../../js/withParams.js";
+
+  const items = [
+    { label: "First issue description.", href: "#0" },
+    { label: "Second issue description." },
+  ];
 </script>
 
 <Meta
@@ -17,13 +22,14 @@
 
 <Template let:args>
   <div style:padding="12px">
-    <ErrorSummary {...args}>
-      <List mode="number">
-        <li>The first issue</li>
-        <li>The second issue</li>
-      </List>
-    </ErrorSummary>
+    <ErrorSummary {...args} />
   </div>
 </Template>
 
-<Story name="Default" args="{{ title: 'There are 2 problems with your answer' }}" />
+<Story name="Default" args="{{ title: 'There are 2 problems with your answer', items }}" />
+
+<Story name="Error defined as text" {...withStoryDocs(exampleDocs)}>
+  <div style:padding="12px">
+    <ErrorSummary title="There was an error">This is a text to describe the error.</ErrorSummary>
+  </div>
+</Story>

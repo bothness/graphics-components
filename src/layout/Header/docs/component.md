@@ -7,4 +7,5 @@ A header component with compact mode and theming options.
 </script>
 
 <Header />
+<!-- page body -->
 ```
