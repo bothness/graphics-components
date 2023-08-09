@@ -33,6 +33,11 @@
    */
   export let themeOverrides = null;
   /**
+   * Overrides the background CSS for the section
+   * @type {string}
+   */
+  export let background = null;
+  /**
    * Optional margin above section
    * @type {boolean}
    */
@@ -50,6 +55,7 @@
   width="{width}"
   marginTop="{marginTop}"
   marginBottom="{marginBottom}"
+  background="{background}"
 >
   <section id="{id ? id : slugify(title)}" aria-label="{title}" class="ons-feature__section">
     {#if title}

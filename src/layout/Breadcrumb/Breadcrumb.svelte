@@ -1,12 +1,39 @@
 <script>
+  import Container from "../../wrappers/Container/Container.svelte";
+
   /**
    * An array of links in the format {label, href}
    * @type {array}
    */
   export let links = [];
+  /**
+   * Sets the width of the container
+   * @type {"narrow"|"medium"|"wide"|"full"}
+   */
+  export let width = "medium";
+  /**
+   * Sets a predefined theme
+   * @type {"light"|"dark"|"lightblue"}
+   */
+  export let theme = null;
+  /**
+   * Define additional props to override the base theme
+   * @type {object}
+   */
+  export let themeOverrides = null;
+  /**
+   * Overrides the background CSS for the section
+   * @type {string}
+   */
+  export let background = null;
 </script>
 
-<div class="ons-page__container ons-container">
+<Container
+  theme="{theme}"
+  themeOverrides="{themeOverrides}"
+  width="{width}"
+  background="{background}"
+>
   <nav class="ons-breadcrumb print--hide" aria-label="Breadcrumbs">
     <ol class="ons-breadcrumb__items ons-u-fs-s">
       {#each links as link}
@@ -30,7 +57,7 @@
       {/each}
     </ol>
   </nav>
-</div>
+</Container>
 
 <style>
   .ons-svg-icon {

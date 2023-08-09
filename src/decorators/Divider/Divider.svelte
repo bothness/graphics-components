@@ -40,15 +40,14 @@
   marginTop="{marginTop}"
   marginBottom="{marginBottom}"
 >
-  <hr style:border="{hr ? null : "none"}" />
+  <hr style:border-top="{hr ? null : "none"}" />
 </Container>
 
 <style>
   hr {
     width: 75px;
     border: none;
-    border-top: 2px solid;
+    border-top: 2px solid var(--muted, #777);
     margin: -10px auto 0;
-    color: var(--muted, #777);
   }
 </style>

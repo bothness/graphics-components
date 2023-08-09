@@ -19,7 +19,7 @@ export { default as NavSections } from "./layout/NavSections/NavSections.svelte"
 export { default as Scroller } from "./layout/Scroller/Scroller.svelte";
 export { default as ScrollerSection } from "./layout/Scroller/ScrollerSection.svelte";
 export { default as Section } from "./layout/Section/Section.svelte";
-export { default as TitleBlock } from "./layout/TitleBlock/TitleBlock.svelte";
+export { default as Titleblock } from "./layout/Titleblock/Titleblock.svelte";
 export { default as Twisty } from "./layout/Twisty/Twisty.svelte";
 
 // Inputs

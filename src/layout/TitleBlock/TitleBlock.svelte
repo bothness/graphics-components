@@ -21,7 +21,7 @@
    * Array of {key, value} objects containing page metadata
    * @type {array}
    */
-  export let meta = [];
+  export let meta = null;
   /**
    * Sets a predefined theme
    * @type {"light"|"dark"|"lightblue"}

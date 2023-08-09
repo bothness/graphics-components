@@ -6,7 +6,7 @@ Displays a breadcrumb with the current page's parents.
   import { Breadcrumb } from "@onsvisual/svelte-components";
 </script>
 
-<Breadcrumb analyticsId="{[
+<Breadcrumb links="{[
   {label: 'Home', href: '/'},
   {label: 'Parent page', href: '/parent'}
 ]}" />

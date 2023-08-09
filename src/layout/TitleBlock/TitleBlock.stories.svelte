@@ -3,13 +3,13 @@
 
   // @ts-ignore
   import componentDocs from "./docs/component.md?raw";
-  import TitleBlock from "./TitleBlock.svelte";
+  import Titleblock from "./Titleblock.svelte";
   import { withComponentDocs } from "../../js/withParams.js";
 </script>
 
 <Meta
-  title="Layout/TitleBlock"
-  component="{TitleBlock}"
+  title="Layout/Titleblock"
+  component="{Titleblock}"
   argTypes="{{
     theme: {
       options: ['light', 'dark', 'lightblue'],
@@ -20,7 +20,7 @@
 />
 
 <Template let:args>
-  <TitleBlock {...args} />
+  <Titleblock {...args} />
 </Template>
 
 <Story

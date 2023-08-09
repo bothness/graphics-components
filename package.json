@@ -1,6 +1,6 @@
 {
   "name": "@onsvisual/svelte-components",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "type": "module",
   "private": false,
   "homepage": "https://onsvisual.github.io/svelte-components",
@@ -167,8 +167,8 @@
     "./layout/Survey/init-survey": "./dist/layout/Survey/init-survey.js",
     "./layout/Tabs/Tab.svelte": "./dist/layout/Tabs/Tab.svelte",
     "./layout/Tabs/Tabs.svelte": "./dist/layout/Tabs/Tabs.svelte",
-    "./layout/TitleBlock/Meta.svelte": "./dist/layout/TitleBlock/Meta.svelte",
-    "./layout/TitleBlock/TitleBlock.svelte": "./dist/layout/TitleBlock/TitleBlock.svelte",
+    "./layout/Titleblock/Meta.svelte": "./dist/layout/Titleblock/Meta.svelte",
+    "./layout/Titleblock/Titleblock.svelte": "./dist/layout/Titleblock/Titleblock.svelte",
     "./layout/Twisty/Twisty.svelte": "./dist/layout/Twisty/Twisty.svelte",
     "./wrappers/Container/Container.svelte": "./dist/wrappers/Container/Container.svelte",
     "./wrappers/Embed/Embed.svelte": "./dist/wrappers/Embed/Embed.svelte",
