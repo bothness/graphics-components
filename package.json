@@ -1,6 +1,6 @@
 {
   "name": "@onsvisual/svelte-components",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "type": "module",
   "private": false,
   "homepage": "https://onsvisual.github.io/svelte-components",
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "storybook dev -p 3000",
     "new": "node ./bin/newComponent/index.cjs",
-    "build:package": "node ./bin/buildPackage/index.js && node ./bin/postprocess/css-merge.js",
+    "build:package": "node ./bin/buildPackage/index.js",
     "build:chromatic": "storybook build -o docs",
     "build:docs": "storybook build -o docs && touch ./docs/.nojekyll",
     "build": "npm-run-all build:package build:docs",
