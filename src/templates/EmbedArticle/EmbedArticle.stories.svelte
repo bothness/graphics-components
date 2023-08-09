@@ -2,7 +2,7 @@
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
   import Embed from "../../wrappers/Embed/Embed.svelte";
-  import Filler from "../../layout/Filler/Filler.svelte";
+  import Highlight from "../../layout/Highlight/Highlight.svelte";
   import Section from "../../layout/Section/Section.svelte";
   import Grid from "../../layout/Grid/Grid.svelte";
   import Select from "../../inputs/Select/Select.svelte";
@@ -21,13 +21,13 @@
 
 <Template let:args>
   <Embed>
-    <Filler height="auto" marginBottom="{false}">
+    <Highlight height="auto" marginBottom="{false}">
       <div style:padding="0 12px">
         <h2>This is a sub-headline</h2>
         <p style:font-size="1rem">This is a description for the selector below</p>
         <Select floatingConfig="{{ strategy: 'fixed' }}" hideLabel />
       </div>
-    </Filler>
+    </Highlight>
 
     <Section title="Section title" marginTop="{true}">
       <p>

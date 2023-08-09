@@ -7,15 +7,15 @@ Note: The scroller in this example will not preview correctly in the iframe on t
 <!-- +page.svelte -->
 <script>
   import "@onsvisual/svelte-components/css/main.css"; // This is more typically imported in the global +layout.svelte
-  import { Embed, Filler, Select, Section, Grid } from "@onsvisual/svelte-components";
+  import { Embed, Highlight, Select, Section, Grid } from "@onsvisual/svelte-components";
 </script>
 
 <Embed>
-  <Filler height="auto">
+  <Highlight height="auto">
     <h2>This is a sub-headline</h2>
     <p style:font-size="1rem">This is a description for the selector below</p>
     <Select floatingConfig="{{ strategy: 'fixed' }}" hideLabel />
-  </Filler>
+  </Highlight>
 
   <Section title="Section title">
     <p>

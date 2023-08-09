@@ -3,7 +3,7 @@
 
   import Header from "../../layout/Header/Header.svelte";
   import Hero from "../../layout/Hero/Hero.svelte";
-  import Filler from "../../layout/Filler/Filler.svelte";
+  import Highlight from "../../layout/Highlight/Highlight.svelte";
   import Section from "../../layout/Section/Section.svelte";
   import Grid from "../../layout/Grid/Grid.svelte";
   import Blockquote from "../../decorators/Blockquote/Blockquote.svelte";
@@ -39,10 +39,10 @@
     <!-- <Checkbox label="Enable animation" variant="ghost" checked={animation} noBorder/> -->
   </Hero>
 
-  <Filler marginBottom="{false}">
+  <Highlight marginBottom="{false}">
     <p>This is a test paragraph.</p>
     <p>This is another test paragraph.</p>
-  </Filler>
+  </Highlight>
 
   <Section title="Section title" marginTop="{true}">
     <p>

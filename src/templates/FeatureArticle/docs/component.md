@@ -10,7 +10,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
   import {
     Header,
     Hero,
-    Filler,
+    Highlight,
     Section,
     Grid,
     Divider,
@@ -35,10 +35,10 @@ Note: The scroller in this example will not preview correctly in the iframe on t
   <!-- <Checkbox label="Enable animation" variant="ghost" checked={animation} noBorder/> -->
 </Hero>
 
-<Filler marginBottom="{false}">
+<Highlight marginBottom="{false}">
   <p>This is a test paragraph.</p>
   <p>This is another test paragraph.</p>
-</Filler>
+</Highlight>
 
 <Section title="Section title" marginTop="{true}">
   <p>
