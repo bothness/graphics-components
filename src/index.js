@@ -7,7 +7,7 @@ export { default as Theme } from "./wrappers/Theme/Theme.svelte";
 // Layout
 export { default as Accordion } from "./layout/Accordion/Accordion.svelte";
 export { default as AnalyticsBanner } from "./layout/AnalyticsBanner/AnalyticsBanner.svelte";
-export { AnalyticsEvent } from "./layout/AnalyticsBanner/AnalyticsBanner.svelte";
+export { analyticsEvent } from "./layout/AnalyticsBanner/AnalyticsBanner.svelte";
 export { default as Highlight } from "./layout/Highlight/Highlight.svelte";
 export { default as Footer } from "./layout/Footer/Footer.svelte";
 export { default as Grid } from "./layout/Grid/Grid.svelte";
