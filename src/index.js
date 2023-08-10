@@ -33,8 +33,14 @@ export { default as Twisty } from "./layout/Twisty/Twisty.svelte";
 
 // Inputs
 export { default as Button } from "./inputs/Button/Button.svelte";
+export { default as Checkbox } from "./inputs/Checkbox/Checkbox.svelte";
+export { default as Checkboxes } from "./inputs/Checkboxes/Checkboxes.svelte";
 export { default as Dropdown } from "./inputs/Dropdown/Dropdown.svelte";
+export { default as ErrorPanel } from "./inputs/ErrorPanel/ErrorPanel.svelte";
+export { default as ErrorSummary } from "./inputs/ErrorSummary/ErrorSummary.svelte";
 export { default as Input } from "./inputs/Input/Input.svelte";
+export { default as Radio } from "./inputs/Radios/Radio.svelte";
+export { default as Radios } from "./inputs/Radios/Radios.svelte";
 export { default as Select } from "./inputs/Select/Select.svelte";
 export { default as Textarea } from "./inputs/Textarea/Textarea.svelte";
 
