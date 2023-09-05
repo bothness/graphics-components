@@ -3,7 +3,7 @@
 
   const theme = getContext("theme");
 
-  $: primary = $theme === "dark" ? "white" : "#003c57";
+  $: primary = theme === "dark" ? "white" : "#003c57";
   const secondary = "#a8bd3a";
 
   export let compact = false;
