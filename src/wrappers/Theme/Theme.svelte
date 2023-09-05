@@ -15,7 +15,10 @@
    * Sets a predefined theme
    * @type {"light"|"dark"|"lightblue"}
    */
-  export let theme = null;
+  export let theme = themeParent || null;
+
+  if (!themeParent) setContext("theme", theme);
+
   /**
    * Define additional props to override the base theme
    * @type {object}
@@ -27,13 +30,8 @@
    */
   export let background = overrides?.background || themes[theme]?.background || null;
 
-  const _theme = writable(theme || $themeParent);
-  $: _theme.set(theme || $themeParent);
-
-  setContext("theme", _theme);
-
   function makeStyle(theme, overrides, background) {
-    if (theme && theme !== $themeParent) {
+    if (theme) {
       const _theme = themes[theme] || themes.light;
       if (overrides) Object.keys(overrides).forEach((key) => (_theme[key] = overrides[key]));
       if (background) _theme.background = background;
@@ -46,7 +44,7 @@
     return null;
   }
 
-  $: style = makeStyle($_theme, overrides, background);
+  $: style = makeStyle(theme, overrides, background);
 </script>
 
 <svelte:head>
