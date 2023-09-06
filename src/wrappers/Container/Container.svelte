@@ -71,7 +71,8 @@
 <style>
   .ons-page__container {
     background: var(--background, "none");
-    overflow: auto;
+    padding-top: 0.05px;
+    padding-bottom: 0.05px;
   }
   .ons-page__container--narrow {
     max-width: 640px;

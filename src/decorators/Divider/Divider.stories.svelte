@@ -13,6 +13,10 @@
     ...withComponentDocs(componentDocs),
     // https://storybook.js.org/docs/svelte/essentials/controls
     argTypes: {
+      hr: {
+        options: ["narrow", "full", null],
+        control: { type: "select" },
+      },
       width: {
         options: ["narrow", "medium", "width", "full"],
         control: { type: "select" },
@@ -28,7 +32,7 @@
 <Meta title="Decorators/Divider" component="{Divider}" {...metaProps} />
 
 <Template let:args>
-  <div style:padding="26px 0 0">
+  <div style:padding="26px 12px 0">
     <Divider {...args} />
   </div>
 </Template>

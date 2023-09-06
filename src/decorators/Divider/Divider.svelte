@@ -3,9 +3,9 @@
 
   /**
    * (Optional) Include a horizontal rule
-   * @type {boolean}
+   * @type {"narrow"|"full"|null}
    */
-  export let hr = true;
+  export let hr = "narrow";
   /**
    * Sets the width of the container
    * @type {"narrow"|"medium"|"wide"|"full"}
@@ -40,14 +40,22 @@
   marginTop="{marginTop}"
   marginBottom="{marginBottom}"
 >
-  <hr style:border-top="{hr ? null : "none"}" />
+  <hr class:hr-full="{hr === 'full'}" class:hr-narrow="{hr === 'narrow'}" />
 </Container>
 
 <style>
   hr {
-    width: 75px;
     border: none;
+    margin: -10px 0 0;
+  }
+  hr.hr-full,
+  hr.hr-narrow {
     border-top: 2px solid var(--muted, #777);
-    margin: -10px auto 0;
+  }
+  hr.hr-full {
+    width: 100%;
+  }
+  hr.hr-narrow {
+    width: 75px;
   }
 </style>
