@@ -21,7 +21,7 @@ export { default as List } from "./layout/List/List.svelte";
 export { default as NavSection } from "./layout/NavSections/NavSection.svelte";
 export { default as NavSections } from "./layout/NavSections/NavSections.svelte";
 export { default as Notice } from "./layout/Notice/Notice.svelte";
-export { default as PhaseBanner } from "./layout/NavSections/PhaseBanner.svelte";
+export { default as PhaseBanner } from "./layout/PhaseBanner/PhaseBanner.svelte";
 export { default as Scroller } from "./layout/Scroller/Scroller.svelte";
 export { default as ScrollerSection } from "./layout/Scroller/ScrollerSection.svelte";
 export { default as Section } from "./layout/Section/Section.svelte";
