@@ -9,7 +9,14 @@
   export let pymChild = null;
 
   onMount(() => {
-    pymChild = new pym.Child({ polling: 1000 });
+    pymChild = new pym.Child();
+
+    setInterval(() => {
+      pymChild.sendMessage(
+        "height",
+        Math.max(document.body.scrollHeight, document.body.offsetHeight)
+      );
+    }, 1000);
   });
 </script>
 
