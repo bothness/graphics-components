@@ -1,4 +1,6 @@
 <script>
+  import { setContext } from "svelte";
+  import { writable } from "svelte/store";
   import Container from "../../wrappers/Container/Container.svelte";
 
   /**
@@ -13,9 +15,9 @@
   export let cls = null;
   /**
    * Sets the width of the section
-   * @type {"narrow"|"medium"|"wide"|"wider"|"full"}
+   * @type {"narrow"|"medium"|"wide"|"full"}
    */
-  export let width = "wide";
+  export let width = "medium";
   /**
    * Sets the title of the section
    * @type {string}
@@ -70,9 +72,30 @@
   let gridClass = !colwidth || colwidth === "full" ? "" : `grid-${colwidth}`;
   let rowHeight = height === "full" ? "100vh" : !Number.isNaN(height) ? height + "px" : height;
   let gridGap = !Number.isNaN(gap) ? gap + "px" : gap;
+
+  const defs = {
+    narrow: { w: 180, c: 4 },
+    medium: { w: 280, c: 3 },
+    wide: { w: 400, c: 2 },
+    full: { w: "100%", c: 1 },
+  };
+
+  let w;
+
+  const cols = writable(defs[colwidth].c);
+
+  $: columns =
+    colwidth == "full"
+      ? 1
+      : w
+      ? Math.floor((w + gap) / (defs[colwidth].w + gap))
+      : defs[colwidth].c;
+  $: cols.set(columns);
+
+  setContext("cols", cols);
 </script>
 
-<figure aria-label="{caption}">
+<figure aria-label="{caption}" bind:clientWidth="{w}">
   <Container
     id="{id}"
     cls="{cls}"
@@ -122,10 +145,10 @@
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
   }
   .grid-medium {
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
   }
   .grid-wide {
-    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
   }
   :global(.grid > div) {
     min-height: inherit;
