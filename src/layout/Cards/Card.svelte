@@ -2,12 +2,12 @@
   import { getContext } from "svelte";
   import { slugify } from "../../js/utils";
 
-  export let title = "Card title";
+  export let title = null;
   export let id = slugify(title);
   export let hideTitle = false;
-  export let image = "";
-  export let imageAlt = "";
-  export let href = "";
+  export let image = null;
+  export let imageAlt = null;
+  export let href = null;
 
   export let colspan = 1; // 1, 2 or 3
   export let noBackground = getContext("noBackground") || false;
@@ -28,8 +28,8 @@
   style:grid-column-end="{grow ? $cols + 1 : null}"
 >
   <div id="{id}" class="ons-card" aria-describedBy="{id}_text">
-    {#if href && title && !hideTitle}
-      <a href="{href}" class="ons-card__link ons-u-db">
+    {#if href && title}
+      <a href="{href}" class="ons-card__link ons-u-db" class:ons-u-vh="{hideTitle}">
         {#if image}
           <img
             class="ons-card__image ons-u-mb-s"
@@ -46,9 +46,10 @@
           {title}
         </h3>
       </a>
-    {:else if title && !hideTitle}
+    {:else if title}
       <h3
         class="ons-card__title ons-u-fs-m"
+        class:ons-u-vh="{hideTitle}"
         style:padding="{!noBackground ? "8px 16px 0" : ""}"
         style:margin-bottom="5px"
       >
