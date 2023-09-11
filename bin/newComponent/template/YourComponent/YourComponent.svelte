@@ -21,9 +21,9 @@
 
   /**
    * Width of the component within the text well.
-   * @type {'narrow'|'medium'|'wide'|'full'}
+   * @type {'narrow'|'medium'|'wide'|'wider'|'full'}
    */
-  export let width = "medium";
+  export let width = "wide";
 
   /**
    * Add an ID to target with SCSS.

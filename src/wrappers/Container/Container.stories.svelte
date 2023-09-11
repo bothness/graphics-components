@@ -12,7 +12,7 @@
   component="{Container}"
   argTypes="{{
     width: {
-      options: ['narrow', 'medium', 'width', 'full'],
+      options: ['narrow', 'medium', 'wide', 'wider', 'full'],
       control: { type: 'select' },
     },
     height: {
@@ -39,6 +39,10 @@
 
 <Story name="Narrow" args="{{ width: 'narrow' }}" />
 
+<Story name="Medium" args="{{ width: 'medium' }}" />
+
 <Story name="Wide" args="{{ width: 'wide' }}" />
+
+<Story name="Wider" args="{{ width: 'wider' }}" />
 
 <Story name="Full" args="{{ width: 'full' }}" />

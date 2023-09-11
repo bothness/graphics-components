@@ -14,9 +14,9 @@
   export let cls = "ons-cards";
   /**
    * Sets the width of the section
-   * @type {"narrow"|"medium"|"wide"|"full"}
+   * @type {"narrow"|"medium"|"wide"|"wider"|"full"}
    */
-  export let width = "medium";
+  export let width = "wide";
   /**
    * Sets the title of the section
    * @type {string}

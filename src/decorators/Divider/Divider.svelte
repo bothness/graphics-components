@@ -8,9 +8,9 @@
   export let hr = "narrow";
   /**
    * Sets the width of the container
-   * @type {"narrow"|"medium"|"wide"|"full"}
+   * @type {"narrow"|"medium"|"wide"|"wider"|"full"}
    */
-  export let width = "medium";
+  export let width = "wide";
   /**
    * Sets a predefined theme
    * @type {"light"|"dark"|"lightblue"}

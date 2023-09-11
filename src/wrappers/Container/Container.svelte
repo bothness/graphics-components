@@ -13,9 +13,9 @@
   export let cls = null;
   /**
    * Sets the width of the container
-   * @type {"narrow"|"medium"|"wide"|"full"}
+   * @type {"narrow"|"medium"|"wide"|"wider"|"full"}
    */
-  export let width = "medium";
+  export let width = "wide";
   /**
    * Sets the minimum height of the container relative to the height of the viewport
    * @type {"auto"|"tall"|"full"}
@@ -51,7 +51,7 @@
   $: _cls = cls && !(theme || background) ? cls : "";
 </script>
 
-{#if width === "narrow"}
+{#if ["narrow", "medium"].includes(width)}
   <Theme
     id="{id}"
     cls="{cls}"
@@ -66,7 +66,10 @@
       class:ons-page__container--full-height="{height === 'full'}"
     >
       {#if marginTop}<div class="ons-spacer"></div>{/if}
-      <div class="ons-page__container--narrow">
+      <div
+        class:ons-page__container--narrow="{width === 'narrow'}"
+        class:ons-page__container--medium="{width === 'medium'}"
+      >
         <slot />
       </div>
       {#if marginBottom}<div class="ons-spacer"></div>{/if}
@@ -83,7 +86,7 @@
     <div
       id="{_id}"
       class="ons-page__container ons-container {_cls}"
-      class:ons-page__container--wide="{width === 'wide'}"
+      class:ons-page__container--wider="{width === 'wider'}"
       class:ons-page__container--full="{width === 'full'}"
       class:ons-page__container--tall-height="{height === 'tall'}"
       class:ons-page__container--full-height="{height === 'full'}"
@@ -102,10 +105,14 @@
     padding-bottom: 0.05px;
   }
   .ons-page__container--narrow {
-    max-width: 640px;
+    max-width: 608px;
     margin: 0 auto 0 0;
   }
-  .ons-page__container--wide {
+  .ons-page__container--medium {
+    max-width: 800px;
+    margin: 0 auto 0 0;
+  }
+  .ons-page__container--wider {
     max-width: 1240px;
   }
   .ons-page__container--full {

@@ -26,9 +26,9 @@
   export let usageCookies = false;
   /**
    * Set the width of the banner
-   * @type {"medium"|"wide"}
+   * @type {"wide"|"wider"}
    */
-  export let width = "medium";
+  export let width = "wide";
 
   let live; // Don't run analytics unless page is live on ONS site (re-set in the onMount function)
   let showBanner = false;
@@ -163,7 +163,7 @@
       >
         <div
           class="ons-container ons-cookies-banner__primary"
-          class:ons-page__container--wide="{width === 'wide'}"
+          class:ons-page__container--wider="{width === 'wider'}"
         >
           <div class="ons-grid">
             <div class="ons-grid__col ons-col-8@m">
@@ -217,7 +217,7 @@
     {:else}
       <div
         class="ons-container ons-cookies-banner__confirmation"
-        class:ons-page__container--wide="{width === 'wide'}"
+        class:ons-page__container--wider="{width === 'wider'}"
       >
         <div
           class="ons-grid ons-grid--flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center"
@@ -251,7 +251,7 @@
     /* padding: 0; */
     background: none !important;
   }
-  .ons-page__container--wide {
+  .ons-page__container--wider {
     max-width: 1240px;
   }
 </style>

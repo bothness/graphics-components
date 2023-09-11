@@ -9,7 +9,7 @@
   export let title = "Share this page";
   /**
    * Sets the width of the container
-   * @type {"narrow"|"medium"|"wide"|"full"}
+   * @type {"narrow"|"medium"|"wide"|"wider"|"full"}
    */
   export let width = "narrow";
   /**

@@ -1,26 +1,62 @@
 <script>
   import { onMount, setContext } from "svelte";
   import { writable } from "svelte/store";
+  import Container from "../../wrappers/Container/Container.svelte";
 
+  /**
+   * ID for back-linking to table of contents
+   * @type {string}
+   */
+  export let id = "toc";
+  /**
+   * (Optional) Sets a css class for the section
+   * @type {string}
+   */
+  export let cls = null;
+  /**
+   * Sets the width of the container
+   * @type {"narrow"|"medium"|"wide"|"wider"|"full"}
+   */
+  export let width = "wide";
   /**
    * A label for the page contents nav
    * @type {string}
    */
   export let contentsLabel = "Page contents";
   /**
-   * ID for contents nav section (for back links)
-   * @type {string}
-   */
-  export let tocId = "toc";
-  /**
    * Don't include table of contents (allows for custom uses of nav panel)
    * @type {boolean}
    */
   export let noContents = false;
+  /**
+   * Sets a predefined theme
+   * @type {"light"|"dark"|"lightblue"}
+   */
+  export let theme = null;
+  /**
+   * Define additional props to override the base theme
+   * @type {object}
+   */
+  export let themeOverrides = null;
+  /**
+   * Overrides the background CSS for the section
+   * @type {string}
+   */
+  export let background = null;
+  /**
+   * Optional margin above section
+   * @type {boolean}
+   */
+  export let marginTop = false;
+  /**
+   * Optional margin below section
+   * @type {boolean}
+   */
+  export let marginBottom = true;
 
   let active;
 
-  setContext("tocId", tocId);
+  setContext("tocId", id);
 
   const sections = writable([]);
   setContext("sections", sections);
@@ -49,10 +85,18 @@
   });
 </script>
 
-<div class="ons-page__container ons-container">
+<Container
+  cls="{cls}"
+  theme="{theme}"
+  themeOverrides="{themeOverrides}"
+  width="{width}"
+  marginTop="{marginTop}"
+  marginBottom="{marginBottom}"
+  background="{background}"
+>
   <div class="ons-grid ons-js-toc-container ons-u-ml-no">
     <slot name="header" />
-    <div class="ons-grid__col ons-col-4@m ons-u-pl-no ons-grid__col--sticky@m" id="{tocId}">
+    <div class="ons-grid__col ons-col-4@m ons-u-pl-no ons-grid__col--sticky@m" id="{id}">
       <aside class="ons-toc-container" role="complementary">
         <nav class="ons-toc" aria-label="Pages in this guide">
           <slot name="before-nav" />
@@ -89,4 +133,17 @@
     </div>
     <slot name="footer" />
   </div>
-</div>
+</Container>
+
+<style>
+  @media (min-width: 740px) {
+    .ons-col-4\@m {
+      max-width: 280px;
+      width: 280px;
+    }
+    .ons-col-8\@m {
+      max-width: calc(100% - 280px);
+      width: calc(100% - 280px);
+    }
+  }
+</style>
