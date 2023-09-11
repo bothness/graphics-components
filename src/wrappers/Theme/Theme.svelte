@@ -1,8 +1,17 @@
 <script>
   import { setContext, getContext } from "svelte";
-  import { writable } from "svelte/store";
   import themes from "./themes.js";
 
+  /**
+   * (Optional) Sets the unique ID of the container
+   * @type {string}
+   */
+  export let id = null;
+  /**
+   * (Optional) Sets a css class for the container
+   * @type {string}
+   */
+  export let cls = null;
   /**
    * Sets the body background to match this theme (only use this at the top level)
    * @type {boolean}
@@ -54,7 +63,7 @@
 </svelte:head>
 
 {#if style}
-  <div class="theme-wrapper" style="{style}">
+  <div id="{id}" class="{cls ? `theme-wrapper ${cls}` : 'theme-wrapper'}" style="{style}">
     <slot />
   </div>
 {:else}

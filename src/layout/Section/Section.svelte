@@ -8,6 +8,11 @@
    */
   export let id = null;
   /**
+   * (Optional) Sets a css class for the section
+   * @type {string}
+   */
+  export let cls = null;
+  /**
    * Sets the width of the container
    * @type {"narrow"|"medium"|"wide"|"full"}
    */
@@ -50,6 +55,8 @@
 </script>
 
 <Container
+  id="{id ? id : slugify(title)}"
+  cls="{cls}"
   theme="{theme}"
   themeOverrides="{themeOverrides}"
   width="{width}"
@@ -57,7 +64,7 @@
   marginBottom="{marginBottom}"
   background="{background}"
 >
-  <section id="{id ? id : slugify(title)}" aria-label="{title}" class="ons-feature__section">
+  <section aria-label="{title}" class="ons-feature__section">
     {#if title}
       <h2 class="section-title" class:ons-u-vh="{hideTitle}">{title}</h2>
     {/if}

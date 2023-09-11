@@ -7,10 +7,25 @@
    */
   export let id = null;
   /**
+   * (Optional) Sets a css class for the component
+   * @type {string}
+   */
+  export let cls = null;
+  /**
    * Sets the width of the section
    * @type {"narrow"|"medium"|"wide"|"full"}
    */
   export let width = "medium";
+  /**
+   * Sets the title of the section
+   * @type {string}
+   */
+  export let title = "";
+  /**
+   * Allows the h2 title tag for the section to be visually hidden
+   * @type {boolean}
+   */
+  export let hideTitle = false;
   /**
    * Sets a predefined theme
    * @type {"light"|"dark"|"lightblue"}
@@ -57,8 +72,10 @@
   let gridGap = !Number.isNaN(gap) ? gap + "px" : gap;
 </script>
 
-<figure id="{id}" aria-label="{caption}">
+<figure aria-label="{caption}">
   <Container
+    id="{id}"
+    cls="{cls}"
     theme="{theme}"
     themeOverrides="{themeOverrides}"
     width="{width}"
@@ -66,6 +83,9 @@
     marginTop="{marginTop}"
     marginBottom="{!caption ? marginBottom : false}"
   >
+    {#if title}
+      <h2 class="section-title" class:ons-u-vh="{hideTitle}">{title}</h2>
+    {/if}
     <div class="grid {gridClass}" style:grid-gap="{gridGap}" style:min-height="{rowHeight}">
       <slot />
     </div>
@@ -73,6 +93,7 @@
   {#if caption}
     <figcaption>
       <Container
+        cls="{cls}"
         theme="{theme}"
         themeOverrides="{themeOverrides}"
         width="narrow"
@@ -98,10 +119,10 @@
     margin: 0;
   }
   .grid-narrow {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
   }
   .grid-medium {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)) !important;
   }
   .grid-wide {
     grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)) !important;

@@ -8,6 +8,11 @@
    */
   export let id = null;
   /**
+   * (Optional) Sets a css class for the section
+   * @type {string}
+   */
+  export let cls = null;
+  /**
    * Sets the width of the section
    * @type {"narrow"|"medium"|"wide"|"full"}
    */
@@ -50,13 +55,15 @@
 </script>
 
 <Container
+  id="{id}"
+  cls="{cls}"
   theme="{theme}"
   themeOverrides="{themeOverrides}"
   width="{width}"
   background="{background}"
   height="{height}"
 >
-  <div id="{id}" class="ons-hero__details ons-grid__col ons-col-8@m ons-col-10@s@m">
+  <div class="ons-hero__details ons-grid__col ons-col-8@m ons-col-10@s@m">
     {#if title}
       <header>
         <h1 class="ons-hero__title ons-u-fs-xxxl">{title}</h1>

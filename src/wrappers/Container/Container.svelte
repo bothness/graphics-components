@@ -2,6 +2,16 @@
   import Theme from "../Theme/Theme.svelte";
 
   /**
+   * (Optional) Sets the unique ID of the container
+   * @type {string}
+   */
+  export let id = null;
+  /**
+   * (Optional) Sets a css class for the container
+   * @type {string}
+   */
+  export let cls = null;
+  /**
    * Sets the width of the container
    * @type {"narrow"|"medium"|"wide"|"full"}
    */
@@ -36,12 +46,22 @@
    * @type {string}
    */
   export let background = null;
+
+  $: _id = id && !(theme || background) ? id : null;
+  $: _cls = cls && !(theme || background) ? cls : "";
 </script>
 
 {#if width === "narrow"}
-  <Theme theme="{theme}" background="{background}" overrides="{themeOverrides}">
+  <Theme
+    id="{id}"
+    cls="{cls}"
+    theme="{theme}"
+    background="{background}"
+    overrides="{themeOverrides}"
+  >
     <div
-      class="ons-page__container ons-container"
+      id="{_id}"
+      class="ons-page__container ons-container {_cls}"
       class:ons-page__container--tall-height="{height === 'tall'}"
       class:ons-page__container--full-height="{height === 'full'}"
     >
@@ -53,9 +73,16 @@
     </div>
   </Theme>
 {:else}
-  <Theme theme="{theme}" background="{background}" overrides="{themeOverrides}">
+  <Theme
+    id="{id}"
+    cls="{cls}"
+    theme="{theme}"
+    background="{background}"
+    overrides="{themeOverrides}"
+  >
     <div
-      class="ons-page__container ons-container"
+      id="{_id}"
+      class="ons-page__container ons-container {_cls}"
       class:ons-page__container--wide="{width === 'wide'}"
       class:ons-page__container--full="{width === 'full'}"
       class:ons-page__container--tall-height="{height === 'tall'}"

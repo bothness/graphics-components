@@ -10,6 +10,8 @@ export { default as AnalyticsBanner } from "./layout/AnalyticsBanner/AnalyticsBa
 export { analyticsEvent } from "./layout/AnalyticsBanner/AnalyticsBanner.svelte";
 export { default as Backlink } from "./layout/Backlink/Backlink.svelte";
 export { default as Breadcrumb } from "./layout/Breadcrumb/Breadcrumb.svelte";
+export { default as Cards } from "./layout/Cards/Cards.svelte";
+export { default as Card } from "./layout/Cards/Card.svelte";
 export { default as Contents } from "./layout/Contents/Contents.svelte";
 export { default as ErrorPage } from "./layout/ErrorPage/ErrorPage.svelte";
 export { default as Footer } from "./layout/Footer/Footer.svelte";
