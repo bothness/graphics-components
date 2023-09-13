@@ -18,7 +18,7 @@
         control: { type: "select" },
       },
       width: {
-        options: ["narrow", "medium", "width", "full"],
+        options: ["narrow", "medium", "wide", "wider", "full"],
         control: { type: "select" },
       },
       theme: {

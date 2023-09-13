@@ -19,7 +19,7 @@
     argTypes: {
       width: {
         control: "select",
-        options: ["normal", "wide", "wider", "widest", "fluid"],
+        options: ["narrow", "medium", "wide", "wider", "full"],
       },
     },
   };
