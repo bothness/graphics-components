@@ -1,18 +1,20 @@
-// const randomString = () => {
-//   return Math.random().toString(16).slice(2, 8);
-// };
+const randomString = () => {
+  return Math.random().toString(16).slice(2, 8);
+};
 
-export const slugify = (str, suffix = true) =>
-  str
-    .toString()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]+/g, "")
-    .replace(/--+/g, "-");
-// .concat(suffix ? `-${randomString()}` : "");
+export const slugify = (str, suffix = false) =>
+  typeof str === "string"
+    ? str
+        .toString()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]+/g, "")
+        .replace(/--+/g, "-")
+        .concat(suffix ? `-${randomString()}` : "")
+    : randomString();
 
 export const validDate = (str) => {
   if (!str) return false;
