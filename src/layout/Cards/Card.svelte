@@ -8,8 +8,8 @@
   export let image = null;
   export let imageAlt = null;
   export let href = null;
-
   export let colspan = 1; // 1, 2 or 3
+  export let rowspan = 1;
   export let noBackground = getContext("noBackground") || false;
   export let grow = false;
 
@@ -26,6 +26,7 @@
     ? $cols
     : colspan}"
   style:grid-column-end="{grow ? $cols + 1 : null}"
+  style:grid-row="{rowspan > 1 ? `span ${rowspan}` : null}"
 >
   <div id="{id}" class="ons-card" aria-describedBy="{id}_text">
     {#if href && title}
