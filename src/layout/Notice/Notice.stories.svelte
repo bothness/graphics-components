@@ -10,7 +10,12 @@
 <Meta
   title="Layout/Notice"
   component="{Notice}"
-  argTypes="{{}}"
+  argTypes="{{
+    mode: {
+      options: ['info', 'success', 'pending', 'error', 'warning'],
+      control: { type: 'select' },
+    },
+  }}"
   {...withComponentDocs(componentDocs)}
 />
 
