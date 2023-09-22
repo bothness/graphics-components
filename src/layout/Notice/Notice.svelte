@@ -13,7 +13,7 @@
    * Adds an exclamation mark icon
    * @type {boolean}
    */
-  export let important = mode !== "warning";
+  export let important = mode === "warning";
 
   $: style =
     mode === "success"
@@ -37,9 +37,7 @@
     <div class="ons-panel__body">
       <div class="default-line-height" class:ons-u-fs-r="{mode !== 'warning'}">
         {#if title}<p><strong>{title}</strong></p>{/if}
-        <p class="ons-u-mb-no">
-          <slot />
-        </p>
+        <slot />
       </div>
     </div>
   </div>
@@ -55,5 +53,8 @@
   :global(.ons-panel__body a:hover) {
     color: rgb(0, 60, 87) !important;
     text-decoration: underline solid rgb(0, 60, 87) 2px !important;
+  }
+  :global(.ons-panel__body p:last-of-type) {
+    margin-bottom: 0;
   }
 </style>
