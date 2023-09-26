@@ -20,6 +20,11 @@
    */
   export let analyticsProps = {};
   /**
+   * Use this to hide the banner (only initialises analytics if cookies already accepted)
+   * @type {boolean}
+   */
+  export let hideBanner = false;
+  /**
    * Bind to this value if you need to know if cookies have been accepted
    * @type {boolean}
    */
@@ -147,7 +152,7 @@
   const i18n = (text) => (lang == "cy" && texts[text] ? texts[text] : text);
 </script>
 
-{#if showBanner}
+{#if showBanner && !hideBanner}
   <div
     class="ons-cookies-banner"
     role="region"

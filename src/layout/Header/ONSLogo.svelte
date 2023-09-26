@@ -147,5 +147,6 @@
 <style>
   svg {
     overflow: visible;
+    width: auto;
   }
 </style>
