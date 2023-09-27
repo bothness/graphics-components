@@ -1,5 +1,7 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import SelectInner from "svelte-select";
+  import { sleep } from "../../js/utils";
 
   /**
    * Unique id for the element
@@ -26,6 +28,11 @@
    * @type {boolean}
    */
   export let clearable = true;
+  /**
+   * Clear value on selection (default for "search" mode)
+   * @type {boolean}
+   */
+  export let autoClear = mode === "search";
   /**
    * A label to describe the element (expected for accessibility)
    * @type {string}
@@ -110,6 +117,16 @@
       : "No options available";
 
   let filterText = "";
+
+  const dispatch = createEventDispatcher();
+
+  async function handleChange(e) {
+    dispatch("change", e.detail);
+    if (autoClear) {
+      await sleep(100);
+      value = null;
+    }
+  }
 </script>
 
 <div class="ons-field" style="{style}">
@@ -131,8 +148,8 @@
       showChevron="{!value}"
       multiple="{multiple}"
       clearable="{clearable}"
+      on:change="{handleChange}"
       on:input
-      on:change
       on:focus
       on:blur
       on:clear
