@@ -67,6 +67,7 @@
         </div>
       {/if}
     </div>
+    <slot />
     <slot name="brand" />
     {#if censusLogo}
       <div class="ons-grid ons-u-mb-m">
