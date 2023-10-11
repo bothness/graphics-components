@@ -1,5 +1,4 @@
 <script>
-  import { setContext, getContext } from "svelte";
   import themes from "./themes.js";
 
   /**
@@ -17,17 +16,11 @@
    * @type {boolean}
    */
   export let global = false;
-
-  let themeParent = global ? null : getContext("theme");
-
   /**
    * Sets a predefined theme
    * @type {"light"|"dark"|"lightblue"}
    */
-  export let theme = themeParent || null;
-
-  if (!themeParent) setContext("theme", theme);
-
+  export let theme = null;
   /**
    * Define additional props to override the base theme
    * @type {object}
@@ -37,7 +30,7 @@
    * Overrides the base theme background (accepts any valid CSS background value)
    * @type {string}
    */
-  export let background = overrides?.background || themes[theme]?.background || null;
+  export let background = null;
 
   function makeStyle(theme, overrides, background) {
     if (theme) {
@@ -57,12 +50,12 @@
 </script>
 
 <svelte:head>
-  {#if global && background}
-    {@html "<st" + `yle>body{background:${background}}</st` + "yle>"}
+  {#if global}
+    {@html "<st" + `yle>${style}</st` + "yle>"}
   {/if}
 </svelte:head>
 
-{#if style}
+{#if style && !global}
   <div id="{id}" class="{cls ? `theme-wrapper ${cls}` : 'theme-wrapper'}" style="{style}">
     <slot />
   </div>

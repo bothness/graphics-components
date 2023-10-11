@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  // import { onMount } from "svelte";
   import Container from "../../wrappers/Container/Container.svelte";
 
   /**
@@ -24,17 +24,17 @@
   export let hideTitle = false;
 
   let section;
-  let background;
+  // let background;
 
-  onMount(() => {
-    background = getComputedStyle(section).getPropertyValue("--background").replaceAll('"', "");
-    console.log(section, getComputedStyle(section), background);
-  });
+  // onMount(() => {
+  //   background = getComputedStyle(section).getPropertyValue("--background").replaceAll('"', "");
+  //   console.log(section, getComputedStyle(section), background);
+  // });
 </script>
 
 <section data-id="{id}" bind:this="{section}">
-  <Container theme="{theme}" width="narrow" background="none">
-    <div class="ons-scroller-section" style:--background="{background}">
+  <Container theme="{theme}" width="narrow">
+    <div class="ons-scroller-section">
       {#if title}
         <h2 class="section-title" class:ons-u-vh="{hideTitle}">{title}</h2>
       {/if}

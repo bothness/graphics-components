@@ -100,7 +100,6 @@
 
 <style>
   .ons-page__container {
-    background: var(--background, "none");
     padding-top: 0.05px;
     padding-bottom: 0.05px;
   }
