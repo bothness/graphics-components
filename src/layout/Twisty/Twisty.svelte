@@ -11,7 +11,7 @@
   export let open = false;
 </script>
 
-<details class="ons-collapsible ons-js-collapsible" open="{open}">
+<details class="ons-collapsible ons-js-collapsible" bind:open="{open}">
   <summary
     class="ons-collapsible__heading ons-js-collapsible-heading"
     data-ga-action="{open ? 'Close panel' : 'Open panel'}"
