@@ -77,7 +77,9 @@
     width: 100%;
     height: 100%;
     background-color: var(--hinted, hsl(240, 5%, 96%));
-    filter: contrast(calc(1 / 4)) brightness(1.6);
+    --opacity: 0.35;
+    filter: contrast(calc(var(--opacity, 1) / (2 - var(--opacity, 1))))
+      brightness(calc(2 - var(--opacity, 1)));
   }
   .tile__body {
     padding: 0 16px 16px;
