@@ -45,11 +45,13 @@
       },
 
       remove: ({ outer, update }) => {
-        const index = handlers.indexOf(update);
-        if (index !== -1) handlers.splice(index, 1);
+        if (map.get(outer)) {
+          const index = handlers.indexOf(update);
+          if (index !== -1) handlers.splice(index, 1);
 
-        map.delete(outer);
-        observer.unobserve(outer);
+          map.delete(outer);
+          observer.unobserve(outer);
+        }
       },
     };
   } else {
@@ -67,7 +69,9 @@
 </script>
 
 <script>
-  import { onMount, createEventDispatcher } from "svelte";
+  import { onMount, setContext, createEventDispatcher } from "svelte";
+  import { writable } from "svelte/store";
+
   const dispatch = createEventDispatcher();
 
   // config
@@ -94,7 +98,6 @@
 
   let top = 0;
   let bottom = 1;
-  let query = "section";
   let parallax = false;
 
   // bindings
@@ -129,11 +132,14 @@
    */
   export let visible = false;
 
+  const sections = writable([]);
+  setContext("sections", sections);
+
+  let scroller;
   let outer;
   let foreground;
   let background;
   let left;
-  let sections;
   let wh = 0;
   let fixed;
   let offset_top = 0;
@@ -156,17 +162,20 @@
 
   $: widthStyle = fixed ? `width:${width}px;` : "";
 
-  onMount(() => {
-    sections = foreground.querySelectorAll(query);
+  function initSections(sections) {
+    console.log("updating scroller", sections.length);
+    if (scroller) manager.remove(scroller);
+
     count = sections.length;
 
     update();
 
-    const scroller = { outer, update };
+    scroller = { outer, update };
 
     manager.add(scroller);
     return () => manager.remove(scroller);
-  });
+  }
+  $: outer && initSections($sections);
 
   function update() {
     if (!foreground) return;
@@ -203,11 +212,11 @@
       fixed = true;
     }
 
-    for (let i = 0; i < sections.length; i++) {
-      const section = sections[i];
+    for (let i = 0; i < $sections.length; i++) {
+      const section = $sections[i];
       const { top } = section.getBoundingClientRect();
 
-      const next = sections[i + 1];
+      const next = $sections[i + 1];
       const bottom = next ? next.getBoundingClientRect().top : fg.bottom;
 
       offset = (threshold_px - top) / (bottom - top);

@@ -1,5 +1,5 @@
 <script>
-  // import { onMount } from "svelte";
+  import { onMount, onDestroy, getContext } from "svelte";
   import Container from "../../wrappers/Container/Container.svelte";
 
   /**
@@ -24,12 +24,20 @@
   export let hideTitle = false;
 
   let section;
-  // let background;
 
-  // onMount(() => {
-  //   background = getComputedStyle(section).getPropertyValue("--background").replaceAll('"', "");
-  //   console.log(section, getComputedStyle(section), background);
-  // });
+  const sections = getContext("sections");
+
+  onMount(() => {
+    if (sections) {
+      $sections = [...$sections, section];
+    }
+  });
+
+  onDestroy(() => {
+    if (sections) {
+      $sections = $sections.filter((s) => s !== section);
+    }
+  });
 </script>
 
 <section data-id="{id}" bind:this="{section}">
