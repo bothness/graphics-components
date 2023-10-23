@@ -8,8 +8,8 @@
 
   export let compact = false;
   export let className = "ons-svg-logo";
-  export let width = "auto";
-  export let height = "auto";
+  export let width = null;
+  export let height = null;
 </script>
 
 {#if !compact}
