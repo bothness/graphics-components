@@ -194,8 +194,8 @@
             <svg
               class="ons-footer__ogl-img"
               xmlns="http://www.w3.org/2000/svg"
-              width="60px"
-              height="24px"
+              width="60"
+              height="24"
               viewBox="0 0 60 24"
               focusable="false"
               aria-hidden="true"
