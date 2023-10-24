@@ -163,7 +163,6 @@
   $: widthStyle = fixed ? `width:${width}px;` : "";
 
   function initSections(sections) {
-    console.log("updating scroller", sections.length);
     if (scroller) manager.remove(scroller);
 
     count = sections.length;
@@ -189,7 +188,10 @@
     const fg = foreground.getBoundingClientRect();
     const bg = background.getBoundingClientRect();
 
-    visible = fg.top < wh && fg.bottom > 0;
+    const visible_new = fg.top < wh && fg.bottom > 0;
+    const entered = visible_new && !visible;
+    const exited = !visible_new && visible;
+    visible = visible_new;
 
     const foreground_height = fg.bottom - fg.top;
     const background_height = bg.bottom - bg.top;
@@ -221,7 +223,7 @@
 
       offset = (threshold_px - top) / (bottom - top);
       if (bottom >= threshold_px) {
-        if (index !== i) {
+        if (index !== i || entered) {
           index = i;
           sectionId = section.dataset.id ? section.dataset.id : null;
           dispatch("change", { id, index, sectionId });
@@ -229,6 +231,9 @@
         break;
       }
     }
+
+    if (entered) dispatch("enter", { id, index, sectionId });
+    if (exited) dispatch("exit", { id, index, sectionId });
   }
 </script>
 
