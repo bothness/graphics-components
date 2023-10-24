@@ -287,10 +287,10 @@
               <div class="ons-grid__col ons-col-auto">
                 <a class="ons-header__org-logo-link" href="#0"
                   ><div class="ons-header__org-logo ons-header__org-logo--large">
-                    <ONSLogo width="{197}" height="{19}" />
+                    <ONSLogo theme="{theme}" width="{197}" height="{19}" />
                   </div>
                   <div class="ons-header__org-logo ons-header__org-logo--small">
-                    <ONSLogo width="{120}" height="{27}" compact />
+                    <ONSLogo theme="{theme}" width="{120}" height="{27}" compact />
                   </div></a
                 >
               </div>
@@ -302,7 +302,7 @@
           <div class="header col-wrap">
             <div class="col col--lg-one-third col--md-one-third">
               <a href="{baseurl}/">
-                <ONSLogo className="logo" height="{39}" compact />
+                <ONSLogo theme="{theme}" className="logo" height="{39}" compact />
               </a>
             </div>
             <div

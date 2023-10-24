@@ -1,15 +1,12 @@
 <script>
-  import { getContext } from "svelte";
-
-  const theme = getContext("theme");
-
-  $: primary = theme === "dark" ? "white" : "#003c57";
-  const secondary = "#a8bd3a";
-
   export let compact = false;
   export let className = "ons-svg-logo";
   export let width = null;
   export let height = null;
+  export let theme = null;
+
+  $: primary = theme === "dark" ? "white" : "#003c57";
+  const secondary = "#a8bd3a";
 </script>
 
 {#if !compact}
