@@ -110,7 +110,7 @@
    * Binding: Current section index (number)
    * @type {number}
    */
-  export let index = 0;
+  export let index = null;
   /**
    * Binding: Current section id, if it has one set
    * @type {string}
