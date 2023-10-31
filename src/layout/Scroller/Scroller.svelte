@@ -223,7 +223,7 @@
 
       offset = (threshold_px - top) / (bottom - top);
       if (bottom >= threshold_px) {
-        if (index !== i || entered) {
+        if (index !== i) {
           index = i;
           sectionId = section.dataset.id ? section.dataset.id : null;
           dispatch("change", { id, index, sectionId });
@@ -232,7 +232,10 @@
       }
     }
 
-    if (entered) dispatch("enter", { id, index, sectionId });
+    if (entered) {
+      dispatch("enter", { id, index, sectionId });
+      dispatch("change", { id, index, sectionId });
+    }
     if (exited) dispatch("exit", { id, index, sectionId });
   }
 </script>

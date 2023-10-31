@@ -85,7 +85,12 @@
   <Scroller
     id="scroller"
     splitscreen
-    on:change="{(e) => (scrollerColor = scrollerColors[e.detail.index])}"
+    on:change="{(e) => {
+      scrollerColor = scrollerColors[e.detail.index];
+      console.debug('change', e);
+    }}"
+    on:enter="{(e) => console.debug('enter', e)}"
+    on:exit="{(e) => console.debug('exit', e)}"
   >
     <div slot="background">
       <Grid width="full" height="full">
