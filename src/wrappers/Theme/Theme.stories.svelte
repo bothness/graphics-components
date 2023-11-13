@@ -44,3 +44,11 @@
     theme: 'lightblue',
   }}"
 />
+
+<Story
+  name="Overrides"
+  args="{{
+    theme: 'light',
+    overrides: { background: 'yellow' },
+  }}"
+/>
