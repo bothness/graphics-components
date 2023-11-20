@@ -254,7 +254,7 @@
 <style>
   .ons-cookies-banner {
     /* padding: 0; */
-    background: none !important;
+    background: var(--pale, #f0f0f0) !important;
   }
   .ons-page__container--wider {
     max-width: 1240px;
