@@ -14,6 +14,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
     Section,
     Grid,
     Divider,
+    Main,
     Blockquote,
     Em,
     Scroller,
@@ -26,7 +27,7 @@ Note: The scroller in this example will not preview correctly in the iframe on t
 </script>
 
 <Header compact />
-
+<Main>
 <Hero
   title="This is an article title"
   lede="This is a short, introductory sentence"
@@ -119,6 +120,6 @@ Note: The scroller in this example will not preview correctly in the iframe on t
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
 </Section>
-
+</Main>
 <Footer compact />
 ```
