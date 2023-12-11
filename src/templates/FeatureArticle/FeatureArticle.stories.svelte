@@ -1,6 +1,7 @@
 <script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
+  import Main from "../../wrappers/Main/Main.svelte";
   import Header from "../../layout/Header/Header.svelte";
   import Hero from "../../layout/Hero/Hero.svelte";
   import Highlight from "../../layout/Highlight/Highlight.svelte";
@@ -30,108 +31,108 @@
 
 <Template let:args>
   <Header compact />
-
-  <Hero
-    title="This is an article title"
-    lede="This is a short, introductory sentence"
-    date="2023-07-04"
-  >
-    <!-- <Checkbox label="Enable animation" variant="ghost" checked={animation} noBorder/> -->
-  </Hero>
-
-  <Highlight marginBottom="{false}">
-    <p>This is a test paragraph.</p>
-    <p>This is another test paragraph.</p>
-  </Highlight>
-
-  <Section title="Section title" marginTop="{true}">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-      non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <Blockquote attribution="A. Person"
-      >This is a blockquote, white comprises of a large block of inset text.</Blockquote
+  <Main>
+    <Hero
+      title="This is an article title"
+      lede="This is a short, introductory sentence"
+      date="2023-07-04"
     >
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-      non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </Section>
+      <!-- <Checkbox label="Enable animation" variant="ghost" checked={animation} noBorder/> -->
+    </Hero>
 
-  <Grid colwidth="medium" caption="This is a caption text">
-    <div class="grid-cell"></div>
-    <div class="grid-cell"></div>
-    <div class="grid-cell"></div>
-  </Grid>
+    <Highlight marginBottom="{false}">
+      <p>This is a test paragraph.</p>
+      <p>This is another test paragraph.</p>
+    </Highlight>
 
-  <Divider />
+    <Section title="Section title" marginTop="{true}">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <Blockquote attribution="A. Person"
+        >This is a blockquote, white comprises of a large block of inset text.</Blockquote
+      >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </Section>
 
-  <Section title="Another section title">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-      non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </Section>
+    <Grid colwidth="medium" caption="This is a caption text">
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+    </Grid>
 
-  <Scroller
-    id="scroller"
-    splitscreen
-    on:change="{(e) => {
-      scrollerColor = scrollerColors[e.detail.index];
-      console.debug('change', e);
-    }}"
-    on:enter="{(e) => console.debug('enter', e)}"
-    on:exit="{(e) => console.debug('exit', e)}"
-  >
-    <div slot="background">
-      <Grid width="full" height="full">
-        <div class="placeholder-block" style:background-color="{scrollerColor}"></div>
-      </Grid>
-    </div>
-    <div slot="foreground">
-      <ScrollerSection>
-        <p>
-          When this first caption is visible, the background will appear <Em
-            color="{scrollerColors[0]}">light grey</Em
-          >.
-        </p>
-      </ScrollerSection>
-      <ScrollerSection>
-        <p>
-          When this section caption is visible, the background will appear <Em
-            color="{scrollerColors[1]}">dark grey</Em
-          >.
-        </p>
-      </ScrollerSection>
-      <ScrollerSection>
-        <p>
-          When this third caption is visible, the background will appear <Em
-            color="{scrollerColors[2]}">black</Em
-          >.
-        </p>
-      </ScrollerSection>
-    </div>
-  </Scroller>
+    <Divider />
 
-  <Section title="Yet another section title">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-      non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </Section>
+    <Section title="Another section title">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </Section>
 
+    <Scroller
+      id="scroller"
+      splitscreen
+      on:change="{(e) => {
+        scrollerColor = scrollerColors[e.detail.index];
+        console.debug('change', e);
+      }}"
+      on:enter="{(e) => console.debug('enter', e)}"
+      on:exit="{(e) => console.debug('exit', e)}"
+    >
+      <div slot="background">
+        <Grid width="full" height="full">
+          <div class="placeholder-block" style:background-color="{scrollerColor}"></div>
+        </Grid>
+      </div>
+      <div slot="foreground">
+        <ScrollerSection>
+          <p>
+            When this first caption is visible, the background will appear <Em
+              color="{scrollerColors[0]}">light grey</Em
+            >.
+          </p>
+        </ScrollerSection>
+        <ScrollerSection>
+          <p>
+            When this section caption is visible, the background will appear <Em
+              color="{scrollerColors[1]}">dark grey</Em
+            >.
+          </p>
+        </ScrollerSection>
+        <ScrollerSection>
+          <p>
+            When this third caption is visible, the background will appear <Em
+              color="{scrollerColors[2]}">black</Em
+            >.
+          </p>
+        </ScrollerSection>
+      </div>
+    </Scroller>
+
+    <Section title="Yet another section title">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </Section>
+  </Main>
   <Footer compact />
 </Template>
 
