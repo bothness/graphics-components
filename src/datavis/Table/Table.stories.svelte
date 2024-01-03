@@ -34,4 +34,9 @@
 
 <Story name="Default" args="{{ data, columns }}" />
 
+<Story
+  name="Fixed height 200px with sticky header"
+  args="{{ data, columns, height: 200, stickyHeader: true }}"
+/>
+
 <Story name="Compact mode" args="{{ data, columns, compact: true }}" />

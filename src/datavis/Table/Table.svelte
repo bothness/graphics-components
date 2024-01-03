@@ -22,6 +22,16 @@
    */
   export let rowHover = false;
   /**
+   * Sticky header when table is longer than screen height
+   * @type {boolean}
+   */
+  export let stickyHeader = false;
+  /**
+   * Sticky header when table is longer than screen height
+   * @type {number|"auto"}
+   */
+  export let height = "auto";
+  /**
    * Rows of data
    * @type {array}
    */
@@ -39,84 +49,91 @@
   $: sortable = columns.map((d) => d.sortable).includes(true);
 </script>
 
-<table
-  class="ons-table"
-  class:ons-table--sortable="{sortable}"
-  class:ons-table--compact="{compact}"
-  class:ons-table--responsive="{responsive}"
-  class:ons-table--row-hover="{rowHover}"
-  data-aria-sort="{sortable ? 'Sort by' : null}"
-  data-aria-asc="{sortable ? 'ascending' : null}"
-  data-aria-desc="{sortable ? 'descending' : null}"
+<div
+  style:overflow="{typeof height === "number" ? "auto" : null}"
+  style:height="{typeof height === "number" ? `${height}px` : null}"
+  style:display="{typeof height !== "number" ? "contents" : null}"
 >
-  {#if title}<caption class="ons-table__caption">{title}</caption>{/if}
-  <thead class="ons-table__head">
-    <tr class="ons-table__row">
-      {#each columns as col, i}
-        {#if col.sortable}
-          <th
-            scope="col"
-            class="ons-table__header"
-            class:ons-table__header--numeric="{col.numeric}"
-            aria-sort="{sort[i]}"
-          >
-            <button
-              aria-label="Sort by {col.label}"
-              type="button"
-              data-index="{i}"
-              class="ons-table__sort-button"
-              on:click="{() => {
-                sort = sort.map((c, j) =>
-                  j === i && c === 'ascending' ? 'descending' : j === i ? 'ascending' : 'none'
-                );
-                _data = _data.sort((a, b) =>
-                  sort[i] === 'ascending'
-                    ? ascending(a[col.key], b[col.key])
-                    : descending(a[col.key], b[col.key])
-                );
-              }}"
-            >
-              {col.label}<svg
-                class="ons-svg-icon"
-                viewBox="0 0 12 19"
-                xmlns="http://www.w3.org/2000/svg"
-                focusable="false"
-                fill="currentColor"
-              >
-                <path
-                  class="ons-topTriangle"
-                  d="M6 0l6 7.2H0L6 0zm0 18.6l6-7.2H0l6 7.2zm0 3.6l6 7.2H0l6-7.2z"></path>
-                <path class="ons-bottomTriangle" d="M6 18.6l6-7.2H0l6 7.2zm0 3.6l6 7.2H0l6-7.2z"
-                ></path>
-              </svg>
-            </button>
-          </th>
-        {:else}
-          <th
-            scope="col"
-            class="ons-table__header"
-            class:ons-table__header--numeric="{col.numeric}"
-          >
-            <span class="ons-table__header-text">{col.label}</span>
-          </th>
-        {/if}
-      {/each}
-    </tr>
-  </thead>
-  <tbody class="ons-table__body">
-    {#each _data as row}
+  <table
+    class="ons-table"
+    class:ons-table--sortable="{sortable}"
+    class:ons-table--compact="{compact}"
+    class:ons-table--responsive="{responsive}"
+    class:ons-table--row-hover="{rowHover}"
+    class:sticky-header="{stickyHeader}"
+    data-aria-sort="{sortable ? 'Sort by' : null}"
+    data-aria-asc="{sortable ? 'ascending' : null}"
+    data-aria-desc="{sortable ? 'descending' : null}"
+  >
+    {#if title}<caption class="ons-table__caption">{title}</caption>{/if}
+    <thead class="ons-table__head">
       <tr class="ons-table__row">
-        {#each columns as col}
-          <td
-            class="ons-table__cell"
-            class:ons-table__cell--numeric="{col.numeric}"
-            data-th="{col.label}">{format(row[col.key], col.numeric)}</td
-          >
+        {#each columns as col, i}
+          {#if col.sortable}
+            <th
+              scope="col"
+              class="ons-table__header"
+              class:ons-table__header--numeric="{col.numeric}"
+              aria-sort="{sort[i]}"
+            >
+              <button
+                aria-label="Sort by {col.label}"
+                type="button"
+                data-index="{i}"
+                class="ons-table__sort-button"
+                on:click="{() => {
+                  sort = sort.map((c, j) =>
+                    j === i && c === 'ascending' ? 'descending' : j === i ? 'ascending' : 'none'
+                  );
+                  _data = _data.sort((a, b) =>
+                    sort[i] === 'ascending'
+                      ? ascending(a[col.key], b[col.key])
+                      : descending(a[col.key], b[col.key])
+                  );
+                }}"
+              >
+                {col.label}<svg
+                  class="ons-svg-icon"
+                  viewBox="0 0 12 19"
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                  fill="currentColor"
+                >
+                  <path
+                    class="ons-topTriangle"
+                    d="M6 0l6 7.2H0L6 0zm0 18.6l6-7.2H0l6 7.2zm0 3.6l6 7.2H0l6-7.2z"></path>
+                  <path class="ons-bottomTriangle" d="M6 18.6l6-7.2H0l6 7.2zm0 3.6l6 7.2H0l6-7.2z"
+                  ></path>
+                </svg>
+              </button>
+            </th>
+          {:else}
+            <th
+              scope="col"
+              class="ons-table__header"
+              class:ons-table__header--numeric="{col.numeric}"
+            >
+              <span class="ons-table__header-text">{col.label}</span>
+            </th>
+          {/if}
         {/each}
       </tr>
-    {/each}
-  </tbody>
-</table>
+    </thead>
+    <tbody class="ons-table__body">
+      {#each _data as row}
+        <tr class="ons-table__row">
+          {#each columns as col}
+            <td
+              class="ons-table__cell"
+              class:ons-table__cell--numeric="{col.numeric}"
+              data-th="{col.label}">{format(row[col.key], col.numeric)}</td
+            >
+          {/each}
+        </tr>
+      {/each}
+    </tbody>
+  </table>
+</div>
 
 <style>
   .ons-table__sort-button {
@@ -125,5 +142,15 @@
   .ons-table__sort-button:hover {
     color: var(--link-hover, --ons-color-text-link-hover) !important;
     text-decoration: underline solid var(--link-hover, --ons-color-text-link-hover) 2px !important;
+  }
+  table.sticky-header thead.ons-table__head {
+    position: sticky;
+    top: 0;
+    background: var(--background, white);
+    border-bottom: none;
+  }
+  table.sticky-header thead.ons-table__head th {
+    box-shadow: 0px -2px #707071 inset;
+    border-bottom: none;
   }
 </style>
