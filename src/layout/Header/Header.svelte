@@ -285,7 +285,7 @@
               class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap"
             >
               <div class="ons-grid__col ons-col-auto">
-                <a class="ons-header__org-logo-link" href="#0"
+                <a class="ons-header__org-logo-link" href="{baseurl}/"
                   ><div class="ons-header__org-logo ons-header__org-logo--large">
                     <ONSLogo theme="{theme}" width="{197}" height="{19}" />
                   </div>
