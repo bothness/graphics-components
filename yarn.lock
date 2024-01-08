@@ -1319,10 +1319,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@onsvisual/svelte-charts@^0.2.17":
-  version "0.2.17"
-  resolved "https://registry.npmjs.org/@onsvisual/svelte-charts/-/svelte-charts-0.2.17.tgz"
-  integrity sha512-32yvm6SLJn6KsyJOT5dVxUIpukVPT2k4LOvBQh2U6AfK9u9yzxLsAUDDOrPK2UI9PH9Fe9RUzSa1UxzwB2hy1Q==
+"@onsvisual/svelte-charts@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.npmjs.org/@onsvisual/svelte-charts/-/svelte-charts-0.3.1.tgz"
+  integrity sha512-L7Toa/T0yMkTNBh54fEO2tXjJbFfNg6AM5SQxY6/mRU5BggQMM/8lTWxOdarpJSFIsZx2x3JUXpsXo8FTRjVFA==
   dependencies:
     clean-css "^4.2.3"
     d3-delaunay "^6.0.2"
