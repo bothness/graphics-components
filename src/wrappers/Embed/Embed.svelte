@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
   import pym from "pym.js";
 
   /**
@@ -7,6 +7,8 @@
    * @type {object}
    */
   export let pymChild = null;
+
+  const dispatch = createEventDispatcher();
 
   onMount(() => {
     pymChild = new pym.Child();
@@ -17,6 +19,9 @@
         Math.max(document.body.scrollHeight, document.body.offsetHeight)
       );
     }, 1000);
+
+    const parentUrl = new URLSearchParams(document.location.search).get("parentUrl");
+    dispatch("load", { parentUrl });
   });
 </script>
 
