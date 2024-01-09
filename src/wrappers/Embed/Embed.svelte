@@ -7,22 +7,25 @@
    * @type {object}
    */
   export let pymChild = null;
+  export let polling = true;
 
   const dispatch = createEventDispatcher();
 
   onMount(() => {
     pymChild = new pym.Child();
 
-    setInterval(() => {
-      pymChild.sendMessage(
-        "height",
-        Math.max(document.body.scrollHeight, document.body.offsetHeight)
-      );
-    }, 500);
+    if (polling) {
+      setInterval(() => {
+        pymChild.sendMessage(
+          "height",
+          Math.max(document.body.scrollHeight, document.body.offsetHeight)
+        );
+      }, 500);
+    }
 
     const href = document.location.href;
     const parentUrl = new URLSearchParams(document.location.search).get("parentUrl");
-    dispatch("load", { href, parentUrl });
+    dispatch("load", { href, parentUrl, pymChild });
   });
 </script>
 
