@@ -180,3 +180,4 @@ dist/
 graphics-pack/
 !dist/package.json
 project-files
+/docs/
