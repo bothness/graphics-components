@@ -11,14 +11,7 @@
   const dispatch = createEventDispatcher();
 
   onMount(() => {
-    pymChild = new pym.Child();
-
-    setInterval(() => {
-      pymChild.sendMessage(
-        "height",
-        Math.max(document.body.scrollHeight, document.body.offsetHeight)
-      );
-    }, 1000);
+    pymChild = new pym.Child({ polling: 500 });
 
     const href = document.location.href;
     const parentUrl = new URLSearchParams(document.location.search).get("parentUrl");
