@@ -20,8 +20,9 @@
       );
     }, 1000);
 
+    const href = document.location.href;
     const parentUrl = new URLSearchParams(document.location.search).get("parentUrl");
-    dispatch("load", { parentUrl });
+    dispatch("load", { href, parentUrl });
   });
 </script>
 
