@@ -7,7 +7,11 @@
    * @type {object}
    */
   export let pymChild = null;
-  export let polling = true;
+  /**
+   * Frequency (in milliseconds) of iframe height updates. Set as "false" to disable polling.
+   * @type {number|false}
+   */
+  export let polling = 500;
 
   const dispatch = createEventDispatcher();
 
@@ -20,7 +24,7 @@
           "height",
           Math.max(document.body.scrollHeight, document.body.offsetHeight)
         );
-      }, 500);
+      }, polling);
     }
 
     const href = document.location.href;
