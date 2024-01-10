@@ -1,6 +1,6 @@
 {
   "name": "@onsvisual/svelte-components",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "type": "module",
   "private": false,
   "homepage": "https://onsvisual.github.io/svelte-components",
@@ -178,6 +178,7 @@
     "./wrappers/Container/Container.svelte": "./dist/wrappers/Container/Container.svelte",
     "./wrappers/Embed/Embed.svelte": "./dist/wrappers/Embed/Embed.svelte",
     "./wrappers/Main/Main.svelte": "./dist/wrappers/Main/Main.svelte",
+    "./wrappers/Observe/Observe.svelte": "./dist/wrappers/Observe/Observe.svelte",
     "./wrappers/Theme/Theme.svelte": "./dist/wrappers/Theme/Theme.svelte",
     "./wrappers/Theme/themes": "./dist/wrappers/Theme/themes.js",
     ".": "./dist/index.js"
