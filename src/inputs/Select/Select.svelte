@@ -14,6 +14,11 @@
    */
   export let mode = "default";
   /**
+   * Binding for the filter text entered
+   * @type {string}
+   */
+  export let filterText = "";
+  /**
    * Enable multi-select mode
    * @type {boolean}
    */
@@ -115,8 +120,6 @@
       : filterText
       ? `No options match <b>${filterText}</b>`
       : "No options available";
-
-  let filterText = "";
 
   const dispatch = createEventDispatcher();
 
