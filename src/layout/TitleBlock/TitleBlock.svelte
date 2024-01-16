@@ -45,7 +45,7 @@
     <div class="ons-grid">
       <div class="ons-grid__col ons-col-10@m">
         <h1 class="ons-u-fs-xxxl ons-u-mt-s ons-u-mb-m ons-u-pb-no ons-u-pt-no">
-          {title}
+          {@html title}
         </h1>
       </div>
       {#if natStatBadge}
