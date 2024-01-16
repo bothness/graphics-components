@@ -64,15 +64,20 @@
    */
   export let options = [];
   /**
-   * The attribute of an option defines its ID
+   * The attribute of an option that defines its ID
    * @type {string}
    */
   export let idKey = "id";
   /**
-   * The attribute of an option defines its label/name
+   * The attribute of an option that defines its label/name
    * @type {string}
    */
   export let labelKey = "label";
+  /**
+   * The attribute of an option that defines its group (optional)
+   * @type {string|null}
+   */
+  export let groupKey = null;
   /**
    * Defines the width of the input in characters
    * @type {number}
@@ -162,6 +167,7 @@
           new RegExp(`\\b${filterText}`, "i"),
           (str) => `<b>${str}</b>`
         )}
+        {#if groupKey}<span class="item-group">{item[groupKey]}</span>{/if}
       </div>
       <div slot="empty">{@html noOptionsMessage}</div>
       <div slot="chevron-icon" style:transform="{mode === "search" ? "translateY(2px)" : null}">
@@ -274,5 +280,9 @@
   }
   .ons-field {
     overflow: visible;
+  }
+  span.item-group {
+    font-size: smaller;
+    opacity: 0.7;
   }
 </style>
