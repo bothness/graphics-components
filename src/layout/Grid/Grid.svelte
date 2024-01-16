@@ -70,8 +70,8 @@
   export let gap = 12;
 
   let gridClass = !colwidth || colwidth === "full" ? "" : `grid-${colwidth}`;
-  let rowHeight = height === "full" ? "100vh" : !Number.isNaN(height) ? height + "px" : height;
-  let gridGap = !Number.isNaN(gap) ? gap + "px" : gap;
+  let rowHeight = height === "full" ? "100vh" : typeof height === "number" ? height + "px" : height;
+  let gridGap = typeof gap === "number" ? gap + "px" : gap;
 
   const defs = {
     narrow: { w: 180, c: 4 },
