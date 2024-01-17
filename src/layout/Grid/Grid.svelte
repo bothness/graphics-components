@@ -95,7 +95,7 @@
   setContext("cols", cols);
 </script>
 
-<figure aria-label="{caption}" bind:clientWidth="{w}">
+<figure aria-label="{caption}">
   <Container
     id="{id}"
     cls="{cls}"
@@ -109,7 +109,12 @@
     {#if title}
       <h2 class="section-title" class:ons-u-vh="{hideTitle}">{title}</h2>
     {/if}
-    <div class="grid {gridClass}" style:grid-gap="{gridGap}" style:min-height="{rowHeight}">
+    <div
+      class="grid {gridClass}"
+      style:grid-gap="{gridGap}"
+      style:min-height="{rowHeight}"
+      bind:clientWidth="{w}"
+    >
       <slot />
     </div>
   </Container>
