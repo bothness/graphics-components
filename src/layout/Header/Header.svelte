@@ -30,6 +30,11 @@
    * @type {object}
    */
   export let themeOverrides = null;
+  /**
+   * Set to true to include an English/Welsh language link
+   * @type {boolean}
+   */
+  export let bilingual = false;
 
   let lang = "en";
   let baseurl = "//www.ons.gov.uk";
@@ -41,11 +46,8 @@
     if (mounted) {
       const url = page?.url || document.location;
       lang = url.host.startsWith("cy") ? "cy" : "en";
-      baseurl = `//${url.host}`;
-      baseother =
-        lang === "en"
-          ? `//cy.${url.host.replace("www.", "")}`
-          : `//www.${url.host.replace("cy.", "")}`;
+      baseurl = lang === "cy" ? "//cy.ons.gov.uk" : "//www.ons.gov.uk";
+      baseother = lang === "cy" ? "//www.ons.gov.uk" : "//cy.ons.gov.uk";
       path = url.pathname;
     }
   }
@@ -257,7 +259,7 @@
     "Search for a keyword(s) or time series ID": "Chwilio am allweddair neu ID cyfres amser",
   };
 
-  const i18n = (text) => (lang == "cy" && texts[text] ? texts[text] : text);
+  const i18n = (text) => (lang === "cy" && texts[text] ? texts[text] : text);
 
   function toggle_sm(e, i) {
     if (window.matchMedia("(max-width:767px)").matches) {
@@ -308,11 +310,11 @@
             <div
               class="col col--lg-two-thirds col--md-two-thirds hide--sm print--hide language--js__container"
             >
-              <div class="language">
-                {#if lang == "en"}
+              <div class="language" style:min-height="20px">
+                {#if bilingual && lang == "en"}
                   <span>English (EN) | </span>
                   <a href="{baseother}{path}" class="language__link" lang="cy">Cymraeg (CY)</a>
-                {:else}
+                {:else if bilingual}
                   <a href="{baseother}{path}" class="language__link" lang="en">English (EN)</a>
                   <span> | Cymraeg (EN)</span>
                 {/if}

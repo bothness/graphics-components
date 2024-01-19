@@ -29,7 +29,7 @@
     if (mounted) {
       const url = page?.url || document.location;
       lang = url.host.startsWith("cy") ? "cy" : "en";
-      baseurl = `//${url.host}`;
+      baseurl = lang === "cy" ? "//cy.ons.gov.uk" : "//www.ons.gov.uk";
       path = url.pathname;
     }
   }
