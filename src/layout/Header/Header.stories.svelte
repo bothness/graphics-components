@@ -23,6 +23,6 @@
   <Header {...args} />
 </Template>
 
-<Story name="Default" args="{{ bilingual: true }}" />
+<Story name="Default" args="{{}}" />
 
 <Story name="Compact with page title" args="{{ compact: true, title: 'Page title' }}" />

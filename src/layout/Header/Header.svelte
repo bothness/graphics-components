@@ -34,7 +34,7 @@
    * Set to true to include an English/Welsh language link
    * @type {boolean}
    */
-  export let bilingual = false;
+  export let bilingual = true;
 
   let lang = "en";
   let baseurl = "//www.ons.gov.uk";
