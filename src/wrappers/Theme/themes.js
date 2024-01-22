@@ -5,6 +5,8 @@ export default {
     hinted: "#e2e2e3",
     pale: "#f0f0f0",
     background: "#fff",
+    link: "#206095",
+    "link-hover": "#003c57",
   },
   dark: {
     text: "#fff",
@@ -20,5 +22,7 @@ export default {
     muted: "#707070",
     pale: "#f0f0f0",
     background: "rgb(233, 239, 244)",
+    link: "#206095",
+    "link-hover": "#003c57",
   },
 };
