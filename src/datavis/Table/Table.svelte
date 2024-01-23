@@ -126,7 +126,8 @@
             <td
               class="ons-table__cell"
               class:ons-table__cell--numeric="{col.numeric}"
-              data-th="{col.label}">{format(row[col.key], col.numeric)}</td
+              data-th="{col.label}"
+              >{@html row[col.key] ? format(row[col.key], col.numeric) : "&ndash;"}</td
             >
           {/each}
         </tr>

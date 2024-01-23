@@ -50,7 +50,7 @@
       <option value="{null}" selected disabled>{placeholder}</option>
     {/if}
     {#each options as option}
-      <option value="{option}">{option.label}</option>
+      <option value="{option}">{option?.label || option}</option>
     {/each}
   </select>
 </div>
