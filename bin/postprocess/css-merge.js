@@ -25,9 +25,13 @@ async function merge(css) {
   if (imports) {
     for (const imp of imports) {
       const url = imp.match(/(?<=^@import url\(["'])(.*)(?=["']\);)/)[0];
-      const str = await fetch(url);
+      const str = await fetch(
+        url.replace("cdn.ons.gov.uk", "ons-dp-prod-cdn.s3.eu-west-2.amazonaws.com")
+      );
       css = css.replace(imp, str);
     }
+    const base = imports[0].match(/https:.+(?=\/css)/)?.[0];
+    if (base) css = css.replace(/\.\.\/fonts/gm, `${base}/fonts`);
   }
   return minify(css, { restructure: true }).css;
 }
@@ -39,6 +43,7 @@ async function cssMerge() {
     let css = readFileSync(filepath, "utf8");
     const merged = await merge(css);
     writeFileSync(filepath, merged);
+    console.log(`Merged and minified ${filepath}`);
   }
 }
 
