@@ -9,6 +9,11 @@
    */
   export let id;
   /**
+   * Name of checkbox group
+   * @type {string}
+   */
+  export let name = "name";
+  /**
    * Value for input element (defaults to ID)
    * @type {string|object}
    */
@@ -25,9 +30,9 @@
   export let checked = false;
   /**
    * Binding for checked state of input
-   * @type {boolean}
+   * @type {array}
    */
-  export let group = null;
+  export let group = [];
   /**
    * (Optional) Extended description for element
    * @type {string}
@@ -60,6 +65,7 @@
       <input
         type="checkbox"
         id="{id}"
+        name="{name}"
         value="{value}"
         bind:group="{group}"
         class="ons-checkbox__input ons-js-checkbox"
@@ -71,6 +77,7 @@
       <input
         type="checkbox"
         id="{id}"
+        name="{name}"
         value="{value}"
         bind:checked="{checked}"
         class="ons-checkbox__input ons-js-checkbox"
