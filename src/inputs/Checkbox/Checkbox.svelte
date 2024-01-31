@@ -30,9 +30,9 @@
   export let checked = false;
   /**
    * Binding for checked state of input
-   * @type {array}
+   * @type {array|null}
    */
-  export let group = [];
+  export let group = null;
   /**
    * (Optional) Extended description for element
    * @type {string}
