@@ -9,6 +9,11 @@
    */
   export let id;
   /**
+   * Value for input element (defaults to ID)
+   * @type {string|object}
+   */
+  export let value = id;
+  /**
    * Label for input
    * @type {string}
    */
@@ -55,7 +60,7 @@
       <input
         type="checkbox"
         id="{id}"
-        value="{id}"
+        value="{value}"
         bind:group="{group}"
         class="ons-checkbox__input ons-js-checkbox"
         disabled="{disabled}"
@@ -66,7 +71,7 @@
       <input
         type="checkbox"
         id="{id}"
-        value="{id}"
+        value="{value}"
         bind:checked="{checked}"
         class="ons-checkbox__input ons-js-checkbox"
         disabled="{disabled}"
