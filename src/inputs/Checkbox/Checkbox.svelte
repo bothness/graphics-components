@@ -9,10 +9,10 @@
    */
   export let id;
   /**
-   * Name of checkbox group
-   * @type {string}
+   * Name of checkbox group (optional)
+   * @type {string|null}
    */
-  export let name = "name";
+  export let name = null;
   /**
    * Value for input element (defaults to ID)
    * @type {string|object}
