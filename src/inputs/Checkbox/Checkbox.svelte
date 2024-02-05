@@ -53,6 +53,14 @@
    * @type {boolean}
    */
   export let compact = false;
+
+  function doChange(e) {
+    if (Array.isArray(group)) {
+      if (checked) group = [...group, value];
+      else group = group.filter((d) => d != value);
+    }
+    dispatch("change", e);
+  }
 </script>
 
 <span
@@ -61,31 +69,17 @@
   class:ons-checkboxes__item--no-border="{compact}"
 >
   <span class="ons-checkbox" class:ons-checkbox--no-border="{compact}">
-    {#if Array.isArray(group)}
-      <input
-        type="checkbox"
-        id="{id}"
-        name="{name}"
-        value="{value}"
-        bind:group="{group}"
-        class="ons-checkbox__input ons-js-checkbox"
-        disabled="{disabled}"
-        aria-disabled="{disabled}"
-        on:change="{(e) => dispatch('change', e)}"
-      />
-    {:else}
-      <input
-        type="checkbox"
-        id="{id}"
-        name="{name}"
-        value="{value}"
-        bind:checked="{checked}"
-        class="ons-checkbox__input ons-js-checkbox"
-        disabled="{disabled}"
-        aria-disabled="{disabled}"
-        on:change="{(e) => dispatch('change', e)}"
-      />
-    {/if}
+    <input
+      type="checkbox"
+      id="{id}"
+      name="{name}"
+      value="{value}"
+      bind:checked="{checked}"
+      class="ons-checkbox__input ons-js-checkbox"
+      disabled="{disabled}"
+      aria-disabled="{disabled}"
+      on:change="{doChange}"
+    />
     <label
       class="ons-checkbox__label"
       class:ons-label--with-description="{description}"

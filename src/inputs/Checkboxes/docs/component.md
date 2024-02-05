@@ -8,7 +8,7 @@ Based on [this ONS Design System component](https://service-manual.ons.gov.uk/de
   import { Checkboxes } from "@onsvisual/svelte-components";
 
   let items = [
-    { id: "ice-cream", label: "Ice cream", checked: false },
+    { id: "ice-cream", label: "Ice cream", checked: true },
     { id: "sprinkles", label: "Sprinkles", description: "Highly recommended!", checked: false },
     { id: "disabled", label: "Disabled option", checked: false, disabled: true },
   ];

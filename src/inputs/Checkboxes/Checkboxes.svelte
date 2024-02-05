@@ -27,7 +27,7 @@
   <slot />
   {#if items}
     {#each items as item, i}
-      <Checkbox {...item} group="{value}" compact="{compact}" on:change />
+      <Checkbox {...item} bind:group="{value}" compact="{compact}" on:change />
     {/each}
   {/if}
 </div>
