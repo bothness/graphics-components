@@ -33,10 +33,13 @@ export const formatDate = (
   return date.toLocaleDateString(locale, opts);
 };
 
-export const commas = (num) => {
-  const parts = String(num).split(".");
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return parts.join(".");
+export const format = (val, dp = null) => {
+  return dp
+    ? val.toLocaleString("en-GB", {
+        minimumFractionDigits: dp,
+        maximumFractionDigits: dp,
+      })
+    : val.toLocaleString("en-GB");
 };
 
 export const ascending = (a, b) =>

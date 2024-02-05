@@ -1,5 +1,5 @@
 <script>
-  import { commas, ascending, descending } from "../../js/utils.js";
+  import { format, ascending, descending } from "../../js/utils.js";
 
   /**
    * An optional title for the table
@@ -37,7 +37,7 @@
    */
   export let data = [];
   /**
-   * Optional metadata for formatting columns. Array of {key, label, sortable?, numeric?} objects
+   * Optional metadata for formatting columns. Array of {key, label, sortable?, numeric?, dp?} objects
    * @type {array}
    */
   export let columns =
@@ -45,7 +45,6 @@
   let _data = [...data];
   let sort = columns.map((c) => "none");
 
-  const format = (val, numeric) => (numeric ? commas(val) : val);
   $: sortable = columns.map((d) => d.sortable).includes(true);
 </script>
 
@@ -127,7 +126,11 @@
               class="ons-table__cell"
               class:ons-table__cell--numeric="{col.numeric}"
               data-th="{col.label}"
-              >{@html row[col.key] ? format(row[col.key], col.numeric) : "&ndash;"}</td
+              >{@html row[col.key] && col.numeric
+                ? format(row[col.key], col.dp)
+                : row[col.key]
+                ? row[col.key]
+                : "&ndash;"}</td
             >
           {/each}
         </tr>
