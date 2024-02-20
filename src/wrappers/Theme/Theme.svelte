@@ -31,6 +31,11 @@
    * @type {string}
    */
   export let background = null;
+  /**
+   * Allows client imported CSS for embeddable content
+   * @type {boolean}
+   */
+  export let allowClientOverride = false;
 
   function makeStyle(theme, overrides, background) {
     if (theme) {
@@ -41,7 +46,7 @@
         .map((key) => `--${key}: ${_theme[key]};`)
         .join("");
     } else if (background) {
-      return `--background:${background}`;
+      return `--background:${background};`;
     }
     return null;
   }
@@ -56,8 +61,22 @@
 </svelte:head>
 
 {#if style && !global}
-  <div id="{id}" class="{cls ? `theme-wrapper ${cls}` : 'theme-wrapper'}" style="{style}">
-    <slot />
+  <div
+    id="{id}"
+    class="{cls ? `theme-wrapper ${cls}` : 'theme-wrapper'}"
+    style="{style} display: contents"
+  >
+    {#if allowClientOverride}
+      <div class="client-css-override" style:display="contents">
+        <div class="theme-internal">
+          <slot />
+        </div>
+      </div>
+    {:else}
+      <div class="theme-internal">
+        <slot />
+      </div>
+    {/if}
   </div>
 {:else}
   <slot />
@@ -65,9 +84,6 @@
 
 <style>
   .theme-wrapper {
-    position: relative;
-    color: var(--text, #222);
-    background: var(--background, none);
     --ons-color-text: var(--text, --ons-color-text);
     --ons-color-text-light: var(--muted, --ons-color-text-light);
     --ons-color-borders: var(--muted, --ons-color-borders);
@@ -88,5 +104,10 @@
     background: none;
     border-color: var(--text, #222);
     color: var(--text, #222);
+  }
+  .theme-internal {
+    position: relative;
+    color: var(--text, #222);
+    background: var(--background, none);
   }
 </style>
