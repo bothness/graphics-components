@@ -26,11 +26,17 @@
    * @type {string}
    */
   export let background = null;
+  /**
+   * Allows client imported CSS for embeddable content
+   * @type {boolean}
+   */
+  export let allowClientOverrides = false;
 </script>
 
 <Container
   theme="{theme}"
   themeOverrides="{themeOverrides}"
+  allowClientOverrides="{allowClientOverrides}"
   width="{width}"
   background="{background}"
 >

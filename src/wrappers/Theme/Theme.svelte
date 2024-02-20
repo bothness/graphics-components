@@ -35,7 +35,7 @@
    * Allows client imported CSS for embeddable content
    * @type {boolean}
    */
-  export let allowClientOverride = false;
+  export let allowClientOverrides = false;
 
   function makeStyle(theme, overrides, background) {
     if (theme) {
@@ -66,7 +66,7 @@
     class="{cls ? `theme-wrapper ${cls}` : 'theme-wrapper'}"
     style="{style} display: contents"
   >
-    {#if allowClientOverride}
+    {#if allowClientOverrides}
       <div class="client-css-override" style:display="contents">
         <div class="theme-internal">
           <slot />

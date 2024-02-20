@@ -13,6 +13,16 @@
    */
   export let theme = null;
   /**
+   * Define additional props to override the base theme
+   * @type {object}
+   */
+  export let themeOverrides = null;
+  /**
+   * Allows client imported CSS for embeddable content
+   * @type {boolean}
+   */
+  export let allowClientOverrides = false;
+  /**
    * Sets the title of the section
    * @type {string}
    */
@@ -41,7 +51,12 @@
 </script>
 
 <section data-id="{id}" bind:this="{section}">
-  <Container theme="{theme}" width="narrow">
+  <Container
+    theme="{theme}"
+    themeOverrides="{themeOverrides}"
+    allowClientOverrides="{allowClientOverrides}"
+    width="narrow"
+  >
     <div class="ons-scroller-section">
       {#if title}
         <h2 class="section-title" class:ons-u-vh="{hideTitle}">{title}</h2>

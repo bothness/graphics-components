@@ -39,6 +39,11 @@
    */
   export let themeOverrides = null;
   /**
+   * Allows client imported CSS for embeddable content
+   * @type {boolean}
+   */
+  export let allowClientOverrides = false;
+  /**
    * Optional margin above section
    * @type {boolean}
    */
@@ -101,6 +106,7 @@
     cls="{cls}"
     theme="{theme}"
     themeOverrides="{themeOverrides}"
+    allowClientOverrides="{allowClientOverrides}"
     width="{width}"
     height="{['tall', 'full'].includes(height) ? height : 'auto'}"
     marginTop="{marginTop}"
@@ -124,6 +130,7 @@
         cls="{cls}"
         theme="{theme}"
         themeOverrides="{themeOverrides}"
+        allowClientOverrides="{allowClientOverrides}"
         width="narrow"
         marginBottom="{marginBottom}"
       >

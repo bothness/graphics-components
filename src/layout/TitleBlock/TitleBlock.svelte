@@ -37,9 +37,19 @@
    * @type {string}
    */
   export let background = null;
+  /**
+   * Allows client imported CSS for embeddable content
+   * @type {boolean}
+   */
+  export let allowClientOverrides = false;
 </script>
 
-<Container theme="{theme}" themeOverrides="{themeOverrides}" background="{background}">
+<Container
+  theme="{theme}"
+  themeOverrides="{themeOverrides}"
+  allowClientOverrides="{allowClientOverrides}"
+  background="{background}"
+>
   <section class="ons-u-mb-xl">
     <slot name="before" />
     <div class="ons-grid">

@@ -46,6 +46,11 @@
    * @type {string}
    */
   export let background = null;
+  /**
+   * Allows client imported CSS for embeddable content
+   * @type {boolean}
+   */
+  export let allowClientOverrides = false;
 
   $: _id = id && !(theme || background) ? id : null;
   $: _cls = cls && !(theme || background) ? cls : "";
@@ -58,6 +63,7 @@
     theme="{theme}"
     background="{background}"
     overrides="{themeOverrides}"
+    allowClientOverrides="{allowClientOverrides}"
   >
     <div
       id="{_id}"
@@ -82,6 +88,7 @@
     theme="{theme}"
     background="{background}"
     overrides="{themeOverrides}"
+    allowClientOverrides="{allowClientOverrides}"
   >
     <div
       id="{_id}"

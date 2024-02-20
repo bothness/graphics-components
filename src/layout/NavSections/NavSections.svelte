@@ -44,6 +44,11 @@
    */
   export let background = null;
   /**
+   * Allows client imported CSS for embeddable content
+   * @type {boolean}
+   */
+  export let allowClientOverrides = false;
+  /**
    * Optional margin above section
    * @type {boolean}
    */
@@ -89,6 +94,7 @@
   cls="{cls}"
   theme="{theme}"
   themeOverrides="{themeOverrides}"
+  allowClientOverrides="{allowClientOverrides}"
   width="{width}"
   marginTop="{marginTop}"
   marginBottom="{marginBottom}"

@@ -48,6 +48,11 @@
    */
   export let themeOverrides = null;
   /**
+   * Allows client imported CSS for embeddable content
+   * @type {boolean}
+   */
+  export let allowClientOverrides = false;
+  /**
    * Overrides the background CSS for the section
    * @type {string}
    */
@@ -59,6 +64,7 @@
   cls="{cls}"
   theme="{theme}"
   themeOverrides="{themeOverrides}"
+  allowClientOverrides="{allowClientOverrides}"
   width="{width}"
   background="{background}"
   height="{height}"
