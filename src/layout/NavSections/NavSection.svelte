@@ -18,6 +18,11 @@
    * @type {boolean}
    */
   export let hideTitle = false;
+  /**
+   * Treat a section as sub-section. It will have an h3 title, and will be indented in the contents table
+   * @type {boolean}
+   */
+  export let subsection = false;
 
   const sections = getContext("sections");
   const observer = getContext("observer");
@@ -27,7 +32,7 @@
 
   onMount(() => {
     if (sections && observer) {
-      $sections = [...$sections, { title, id }];
+      $sections = [...$sections, { title, id, subsection }];
       $observer.observe(section);
     }
   });
@@ -42,7 +47,13 @@
 
 <section id="{id}" aria-label="{title}" bind:this="{section}">
   {#if title}
-    <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no" class:ons-u-vh="{hideTitle}">{title}</h2>
+    {#if subsection}
+      <h3 class="subsection-title ons-u-fs-m" class:ons-u-vh="{hideTitle}">{title}</h3>
+    {:else}
+      <h2 class="section-title ons-u-mt-l ons-u-pb-no ons-u-pt-no" class:ons-u-vh="{hideTitle}">
+        {title}
+      </h2>
+    {/if}
   {/if}
   <slot />
   {#if tocId}

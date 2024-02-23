@@ -14,10 +14,13 @@ Note: These examples will not preview correctly in the iframes on this page. You
   <NavSection title="Section one">
     <p>Contents of first section.</p>
   </NavSection>
-  <NavSection title="Section two">
-    <p>Contents of second section.</p>
+  <NavSection title="Subsection A" subsection>
+    <p>Contents of subsection.</p>
   </NavSection>
-  <NavSection title="Section three">
+  <NavSection title="Subsection B" subsection>
+    <p>Contents of subsection.</p>
+  </NavSection>
+  <NavSection title="Section two">
     <p>Contents of third section.</p>
   </NavSection>
 </NavSections>

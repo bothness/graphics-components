@@ -114,7 +114,7 @@
             {/if}
             <ol class="ons-list ons-u-mb-m ons-list--dashed">
               {#each $sections as section}
-                <li class="ons-list__item">
+                <li class="ons-list__item" class:ons-list__item-indented="{section.subsection}">
                   <a
                     href="#{section.id}"
                     class="ons-list__link"
@@ -130,7 +130,7 @@
         </nav>
       </aside>
     </div>
-    <div class="ons-grid__col ons-col-8@m ons-u-pl-no">
+    <div class="ons-nav-sections ons-grid__col ons-col-8@m ons-u-pl-no">
       <slot name="before" />
       {#if $observer}
         <slot />
@@ -151,5 +151,11 @@
       max-width: calc(100% - 280px);
       width: calc(100% - 280px);
     }
+  }
+  .ons-list__item-indented {
+    margin-left: 50px !important;
+  }
+  .ons-nav-sections :global(section:first-of-type h2) {
+    margin-top: 27px !important;
   }
 </style>
