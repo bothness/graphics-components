@@ -159,7 +159,7 @@
       itemId="{idKey}"
       label="{labelKey}"
       groupBy="{groupKey && clusterByGroup ? (item) => item[groupKey] : null}"
-      showChevron="{!value}"
+      showChevron="{true}"
       multiple="{multiple}"
       clearable="{clearable}"
       on:change="{handleChange}"
