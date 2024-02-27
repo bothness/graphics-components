@@ -79,6 +79,11 @@
    */
   export let groupKey = null;
   /**
+   * Cluster results by group. If {false}, the group name will be the suffix
+   * @type {boolean}
+   */
+  export let clusterByGroup = false;
+  /**
    * Defines the width of the input in characters
    * @type {number}
    */
@@ -153,6 +158,7 @@
       items="{options}"
       itemId="{idKey}"
       label="{labelKey}"
+      groupBy="{groupKey && clusterByGroup ? (item) => item[groupKey] : null}"
       showChevron="{!value}"
       multiple="{multiple}"
       clearable="{clearable}"
@@ -167,7 +173,7 @@
           new RegExp(`\\b${filterText}`, "i"),
           (str) => `<b>${str}</b>`
         )}
-        {#if groupKey}<span class="item-group">{item[groupKey]}</span>{/if}
+        {#if groupKey && !clusterByGroup}<span class="item-group">{item[groupKey]}</span>{/if}
       </div>
       <div slot="empty">{@html noOptionsMessage}</div>
       <div slot="chevron-icon" style:transform="{mode === "search" ? "translateY(2px)" : null}">
@@ -226,6 +232,7 @@
     --multi-item-height: 30px;
     --value-container-padding: 3px 0;
     --multi-select-padding: 0 0 0 6px;
+    --group-item-padding-left: 24px;
   }
   :global(.ons-themed-select > .svelte-select:focus-within) {
     outline: 3px solid #fbc900;

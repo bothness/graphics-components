@@ -7,14 +7,14 @@
   import { withComponentDocs } from "../../js/withParams.js";
 
   const options = [
-    { id: "1", label: "General" },
-    { id: "people-who-live-here", label: "People who live here" },
-    { id: "visitors", label: "Visitors" },
-    { id: "household-accommodation", label: "Household and accommodation" },
-    { id: "personal-details", label: "Personal details" },
-    { id: "health", label: "Health" },
-    { id: "qualifications", label: "Qualifications" },
-    { id: "employment", label: "Employment" },
+    { id: "1", label: "General", group: "Group A" },
+    { id: "people-who-live-here", label: "People who live here", group: "Group A" },
+    { id: "visitors", label: "Visitors", group: "Group A" },
+    { id: "household-accommodation", label: "Household and accommodation", group: "Group A" },
+    { id: "personal-details", label: "Personal details", group: "Group B" },
+    { id: "health", label: "Health", group: "Group B" },
+    { id: "qualifications", label: "Qualifications", group: "Group B" },
+    { id: "employment", label: "Employment", group: "Group B" },
   ];
 </script>
 
@@ -40,7 +40,7 @@
   name="Default"
   args="{{
     id: 'topic',
-    label: 'Question topic',
+    label: 'Select a topic',
     options,
   }}"
 />
@@ -49,7 +49,7 @@
   name="Hidden label"
   args="{{
     id: 'topic',
-    label: 'Question topic',
+    label: 'Select a topic',
     hideLabel: true,
     options,
   }}"
@@ -60,7 +60,7 @@
   args="{{
     id: 'topic',
     mode: 'search',
-    label: 'Question topic',
+    label: 'Find a topic',
     hideLabel: true,
     placeholder: 'Type to select an option',
     options,
@@ -71,10 +71,35 @@
   name="Multi-select mode"
   args="{{
     id: 'topic',
-    label: 'Question topic',
+    label: 'Select one or more topics',
     hideLabel: true,
     placeholder: 'Select one or more',
     multiple: true,
+    options,
+  }}"
+/>
+
+<Story
+  name="Options clustered by group"
+  args="{{
+    id: 'topic',
+    label: 'Select a topic',
+    hideLabel: true,
+    placeholder: 'Type to select an option',
+    groupKey: 'group',
+    clusterByGroup: true,
+    options,
+  }}"
+/>
+
+<Story
+  name="Options with group as suffix"
+  args="{{
+    id: 'topic',
+    label: 'Select a topic',
+    hideLabel: true,
+    placeholder: 'Type to select an option',
+    groupKey: 'group',
     options,
   }}"
 />
