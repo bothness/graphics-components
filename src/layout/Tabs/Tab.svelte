@@ -20,15 +20,14 @@
 
   const sections = getContext("sections");
   const selected = getContext("selected");
+  const border = getContext("border");
 
   let el;
-  let border;
 
   onMount(() => {
     if (sections) {
       if (!$sections[0] && ($selected || $selected === null)) $selected = id;
       $sections = [...$sections, { title, id, el }];
-      border = getContext("border");
     }
   });
 
@@ -44,7 +43,7 @@
   class="ons-tabs__panel"
   bind:this="{el}"
   class:ons-tabs__panel--hidden="{$selected !== id}"
-  class:tab-border="{border}"
+  class:tab-border="{$border}"
 >
   <h2 id="{id}-content-title" class="ons-u-vh" class:ons-u-vh="{hideTitle}">{title}</h2>
   <slot />

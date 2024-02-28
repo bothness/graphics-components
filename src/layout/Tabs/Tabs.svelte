@@ -18,7 +18,8 @@
   const selected = writable(null);
   setContext("selected", selected);
 
-  setContext("border", border);
+  const _border = writable(border);
+  setContext("border", _border);
 
   function showSection(id) {
     $selected = id;
