@@ -20,17 +20,19 @@
   const sections = writable([]);
   setContext("sections", sections);
 
-  const _selected = writable(selected);
+  const _selected = writable(null);
   setContext("selected", _selected);
 
   function showSection(id) {
-    $_selected = selected = id;
+    $_selected = id;
     [...$sections].forEach(
       (s) =>
         (s.el.className =
           s.id === id ? "ons-tabs__panel" : "ons-tabs__panel ons-tabs__panel--hidden")
     );
   }
+
+  $: if (selected !== $_selected) selected = $_selected;
 </script>
 
 <section class="ons-tabs" class:ons-tabs__border="{border}">
