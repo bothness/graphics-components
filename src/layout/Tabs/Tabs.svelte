@@ -52,7 +52,7 @@
             data-ga-category="tabs"
             data-ga-action="Show: {section.title}"
             data-ga-label="Show: {section.title}"
-            aria-selected="{section.id === $selected ? 'true' : 'false'}"
+            aria-selected="{section.id === selected ? 'true' : 'false'}"
             on:click|preventDefault="{() => showSection(section.id)}">{section.title}</a
           >
         </li>
