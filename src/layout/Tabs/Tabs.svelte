@@ -13,9 +13,9 @@
   export let border = false;
   /**
    * The ID of selected tab (for binding)
-   * @type {string}
+   * @type {string|null}
    */
-  export let selected = "";
+  export let selected = null;
 
   const sections = writable([]);
   setContext("sections", sections);
