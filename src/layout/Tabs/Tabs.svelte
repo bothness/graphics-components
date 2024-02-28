@@ -18,9 +18,6 @@
   const selected = writable(null);
   setContext("selected", selected);
 
-  const _border = writable(border);
-  setContext("border", _border);
-
   function showSection(id) {
     $selected = id;
     [...$sections].forEach(
@@ -31,9 +28,9 @@
   }
 </script>
 
-<section class="ons-tabs">
+<section class="ons-tabs" class:ons-tabs__border="{border}">
   <h2 class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no ons-u-vh">Contents</h2>
-  <div class="ons-tabs__container" class:tabs-no-border="{border}">
+  <div class="ons-tabs__container">
     <ul class="ons-tabs__list ons-tabs__list--row" role="tablist">
       {#each $sections as section}
         <li
@@ -91,7 +88,14 @@
   .ons-tab[aria-selected="true"]:not(:focus) {
     background-color: var(--background, white);
   }
-  .tabs-no-border {
+  .ons-tabs__border > .ons-tabs__container {
     border: none;
+  }
+  .ons-tabs__border :global(.ons-tabs__panel) {
+    border: 1px solid var(--ons-color-borders);
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 </style>
