@@ -27,4 +27,6 @@
 
 <Story name="Default" args="{{}}" />
 
+<Story name="Tab panel border" args="{{ border: true }}" />
+
 <Story name="Compact, hidden titles" args="{{ compact: true, hideTitle: true }}" />

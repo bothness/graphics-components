@@ -20,6 +20,7 @@
 
   const sections = getContext("sections");
   const selected = getContext("selected");
+  const border = getContext("border");
 
   let el;
 
@@ -42,7 +43,18 @@
   class="ons-tabs__panel"
   bind:this="{el}"
   class:ons-tabs__panel--hidden="{$selected !== id}"
+  class:tab-border="{border}"
 >
   <h2 id="{id}-content-title" class="ons-u-vh" class:ons-u-vh="{hideTitle}">{title}</h2>
   <slot />
 </section>
+
+<style>
+  section.tab-border {
+    border: 1px solid var(--ons-color-borders);
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+</style>

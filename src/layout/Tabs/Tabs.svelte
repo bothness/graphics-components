@@ -6,12 +6,19 @@
    * Make tabs smaller/more compact
    */
   export let compact = false;
+  /**
+   * Include a border around the tab panel
+   * @type {boolean}
+   */
+  export let border = false;
 
   const sections = writable([]);
   setContext("sections", sections);
 
   const selected = writable(null);
   setContext("selected", selected);
+
+  setContext("border", border);
 
   function showSection(id) {
     $selected = id;
@@ -25,7 +32,7 @@
 
 <section class="ons-tabs">
   <h2 class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no ons-u-vh">Contents</h2>
-  <div class="ons-tabs__container">
+  <div class="ons-tabs__container" class:tabs-no-border="{border}">
     <ul class="ons-tabs__list ons-tabs__list--row" role="tablist">
       {#each $sections as section}
         <li
@@ -82,5 +89,8 @@
   }
   .ons-tab[aria-selected="true"]:not(:focus) {
     background-color: var(--background, white);
+  }
+  .tabs-no-border {
+    border: none;
   }
 </style>
