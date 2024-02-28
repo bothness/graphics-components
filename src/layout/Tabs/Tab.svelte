@@ -20,14 +20,15 @@
 
   const sections = getContext("sections");
   const selected = getContext("selected");
-  const border = getContext("border");
 
   let el;
+  let border;
 
   onMount(() => {
     if (sections) {
       if (!$sections[0] && ($selected || $selected === null)) $selected = id;
       $sections = [...$sections, { title, id, el }];
+      border = getContext("border");
     }
   });
 
