@@ -11,15 +11,20 @@
    * @type {boolean}
    */
   export let border = false;
+  /**
+   * The ID of selected tab (for binding)
+   * @type {string}
+   */
+  export let selected = "";
 
   const sections = writable([]);
   setContext("sections", sections);
 
-  const selected = writable(null);
-  setContext("selected", selected);
+  const _selected = writable(selected);
+  setContext("selected", _selected);
 
   function showSection(id) {
-    $selected = id;
+    $_selected = selected = id;
     [...$sections].forEach(
       (s) =>
         (s.el.className =
