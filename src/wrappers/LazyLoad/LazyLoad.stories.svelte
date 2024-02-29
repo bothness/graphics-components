@@ -15,10 +15,10 @@
 />
 
 <Template let:args>
-  {#each Array(20) as section, i}
+  {#each Array.from(Array(15).keys()) as i}
     <LazyLoad>
       <div class="img-container">
-        <img src="https://cataas.com/cat?{i}" alt="" />
+        <img src="https://placekitten.com/400/300?image={i}" alt="" />
       </div>
     </LazyLoad>
   {/each}
@@ -31,11 +31,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 500px;
     background: #eee;
     margin-bottom: 10px;
-  }
-  img {
-    width: 200px;
   }
 </style>
