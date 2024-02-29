@@ -3,6 +3,10 @@
 
   const dispatch = createEventDispatcher();
 
+  /**
+   * Bind to this variable to monitor visiblity (boolean true/false).
+   * @type {boolean}
+   */
   export let visible = false;
 
   let el, observer;
