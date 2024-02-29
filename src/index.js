@@ -1,6 +1,7 @@
 // Wrappers
 export { default as Container } from "./wrappers/Container/Container.svelte";
 export { default as Embed } from "./wrappers/Embed/Embed.svelte";
+export { default as LazyLoad } from "./wrappers/LazyLoad/LazyLoad.svelte";
 export { default as Main } from "./wrappers/Main/Main.svelte";
 export { default as Observe } from "./wrappers/Observe/Observe.svelte";
 export { default as Theme } from "./wrappers/Theme/Theme.svelte";
