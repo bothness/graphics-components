@@ -10,7 +10,7 @@
    * Set the initial "placeholder" height of the component in pixels.
    * @type {number}
    */
-  export let initialHeight = 200;
+  export let initialHeight = 400;
   /**
    * Set how many pixels from the viewport you want lazy loading to kick in.
    * @type {number}
