@@ -54,12 +54,20 @@
     on:click="{(e) => dispatch('click', e)}"
   >
     <span class="ons-btn__inner">
-      {#if icon && iconPosition === "before"}
-        <Icon type="{icon}" marginRight />
+      {#if iconPosition === "before"}
+        <slot name="icon">
+          {#if icon}
+            <Icon type="{icon}" marginRight />
+          {/if}
+        </slot>
       {/if}
       <span class="ons-btn__text"><slot /></span>
-      {#if icon && iconPosition === "after"}
-        <Icon type="{icon}" marginLeft />
+      {#if iconPosition === "after"}
+        <slot name="icon">
+          {#if icon}
+            <Icon type="{icon}" marginLeft />
+          {/if}
+        </slot>
       {/if}
     </span>
   </a>
@@ -75,12 +83,20 @@
     on:click="{(e) => dispatch('click', e)}"
   >
     <span class="ons-btn__inner">
-      {#if icon && iconPosition === "before"}
-        <Icon type="{icon}" marginRight />
+      {#if iconPosition === "before"}
+        <slot name="icon">
+          {#if icon}
+            <Icon type="{icon}" marginRight />
+          {/if}
+        </slot>
       {/if}
       <span class="ons-btn__text"><slot /></span>
-      {#if icon && iconPosition === "after"}
-        <Icon type="{icon}" marginLeft />
+      {#if iconPosition === "after"}
+        <slot name="icon">
+          {#if icon}
+            <Icon type="{icon}" marginLeft />
+          {/if}
+        </slot>
       {/if}
     </span>
   </button>
