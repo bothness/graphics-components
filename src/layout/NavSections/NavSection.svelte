@@ -14,6 +14,11 @@
    */
   export let id = slugify(title);
   /**
+   * (Optional) Sets a css class for the section
+   * @type {string}
+   */
+  export let cls = null;
+  /**
    * Allows the h2 title tag for the section to be visually hidden
    * @type {boolean}
    */
@@ -45,7 +50,7 @@
   });
 </script>
 
-<section id="{id}" aria-label="{title}" bind:this="{section}">
+<section id="{id}" class="{cls}" aria-label="{title}" bind:this="{section}">
   {#if title}
     {#if subsection}
       <h3 class="subsection-title ons-u-fs-m" class:ons-u-vh="{hideTitle}">{title}</h3>
