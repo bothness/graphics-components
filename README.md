@@ -10,7 +10,7 @@ A library of ONS Svelte components for projects large and small. Its codebase an
 2. Commit changes locally
 3. Increment version number in package.json
 4. ```npm run build``` (build the package + docs)
-5. Commit + push changes to GitHub
+5. Commit + push changes to GitHub (use version number eg. "v1.0.0" as commit message)
 6. ```npm run deploy``` (publish docs to GitHub Pages)
 7. ```npm publish``` (publish new version to NPM)
 
