@@ -4,7 +4,7 @@
 
 A library of ONS Svelte components for projects large and small. You can find documentation and examples of how to use these components on the [Storybook pages](https://onsvisual.github.io/svelte-components).
 
-Its codebase and docs borrow **heavily** from Reuters' fantastic [graphics-components](https://github.com/reuters-graphics/graphics-components) library.
+This component library is inspired by Reuters' fantastic [graphics-components](https://github.com/reuters-graphics/graphics-components) library. The components are adapted from the [ONS Design System](https://service-manual.ons.gov.uk/design-system/).
 
 **To update the components:**
 
