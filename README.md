@@ -7,7 +7,7 @@ A library of ONS Svelte components for projects large and small. Its codebase an
 **To update the components:**
 
 1. Make changes to components
-2. Commit changes locally
+2. Commit changes locally (describe your changes in the commit message)
 3. Increment version number in package.json
 4. ```npm run build``` (build the package + docs)
 5. Commit + push changes to GitHub (use version number eg. "v1.0.0" as commit message)
