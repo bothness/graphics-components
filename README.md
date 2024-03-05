@@ -16,7 +16,7 @@ Its codebase and docs borrow **heavily** from Reuters' fantastic [graphics-compo
 6. ```npm run deploy``` (publish docs to GitHub Pages)
 7. ```npm publish``` (publish new version to NPM)
 
-**To update docs only:**
+**To update the docs only:**
 
 1. Update story files (.stories.svelte .stories.mdx etc)
 2. Commit + push changes to GitHub
