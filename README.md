@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/@onsvisual%2Fsvelte-components.svg)](https://www.npmjs.com/package/@onsvisual/svelte-components)
 
-A library of ONS Svelte components for projects large and small. Its codebase and docs borrow **heavily** from Reuters' fantastic [graphics-components](https://github.com/reuters-graphics/graphics-components) library.
+A library of ONS Svelte components for projects large and small. You can find documentation and examples of how to use these components on the [Storybook pages](https://onsvisual.github.io/svelte-components).
+
+Its codebase and docs borrow **heavily** from Reuters' fantastic [graphics-components](https://github.com/reuters-graphics/graphics-components) library.
 
 **To update the components:**
 
