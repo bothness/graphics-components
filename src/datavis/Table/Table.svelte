@@ -1,5 +1,5 @@
 <script>
-  import { format, ascending, descending } from "../../js/utils.js";
+  import { format, isNumeric, ascending, descending } from "../../js/utils.js";
 
   /**
    * An optional title for the table
@@ -126,7 +126,7 @@
               class="ons-table__cell"
               class:ons-table__cell--numeric="{col.numeric}"
               data-th="{col.label}"
-              >{@html row[col.key] && col.numeric
+              >{@html col.numeric && isNumeric(row[col.key])
                 ? format(row[col.key], col.dp)
                 : row[col.key]
                 ? row[col.key]

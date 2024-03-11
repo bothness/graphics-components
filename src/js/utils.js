@@ -16,6 +16,8 @@ export const slugify = (str, suffix = false) =>
         .concat(suffix ? `-${randomString()}` : "")
     : randomString();
 
+export const isNumeric = (val) => isFinite(val) && val !== null;
+
 export const validDate = (str) => {
   if (!str) return false;
   const date = new Date(str);
@@ -34,7 +36,7 @@ export const formatDate = (
 };
 
 export const format = (val, dp = null) => {
-  return dp
+  return Number.isInteger(dp)
     ? val.toLocaleString("en-GB", {
         minimumFractionDigits: dp,
         maximumFractionDigits: dp,
