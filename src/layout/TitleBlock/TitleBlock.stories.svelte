@@ -39,3 +39,16 @@
     ],
   }}"
 />
+
+<Story
+  name="With title badge"
+  args="{{
+    title: `Some much longer page headline`,
+    meta: [
+      { key: 'Dataset ID', value: 'RM169' },
+      { key: 'Released', value: '2023-04-04', col: 4 },
+    ],
+    titleBadge: 'Education and skills',
+    titleBadgeAriaLabel: 'Topic: Education and skills',
+  }}"
+/>

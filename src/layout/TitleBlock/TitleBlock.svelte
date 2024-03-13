@@ -42,6 +42,16 @@
    * @type {boolean}
    */
   export let allowClientOverrides = false;
+  /**
+   * Optional badge to show next to the title
+   * @type {string}
+   */
+  export let titleBadge = null;
+  /**
+   * Aria-label for the optional badge to show next to the title
+   * @type {string}
+   */
+  export let titleBadgeAriaLabel = null;
 </script>
 
 <Container
@@ -54,9 +64,18 @@
     <slot name="before" />
     <div class="ons-grid">
       <div class="ons-grid__col ons-col-10@m">
-        <h1 class="ons-u-fs-xxxl ons-u-mt-s ons-u-mb-m ons-u-pb-no ons-u-pt-no">
-          {@html title}
-        </h1>
+        <div class="title-container">
+          <h1 class="ons-u-fs-xxxl ons-u-mt-s ons-u-mb-m ons-u-pb-no ons-u-pt-no">
+            {#if titleBadge}
+              <span style="margin-right: 6px">{@html title}</span>
+              <span class="title-badge" aria-label="{titleBadgeAriaLabel ?? titleBadge}"
+                >{titleBadge}</span
+              >
+            {:else}
+              {@html title}
+            {/if}
+          </h1>
+        </div>
       </div>
       {#if natStatBadge}
         <div class="ons-grid__col ons-col-2@m">
@@ -87,7 +106,6 @@
             title="Census 2021"
             alt="Census 2021"
             class="header__svg-logo margin-right--1"
-            focusable="false"
             width="167"
             height="32"
           />
@@ -105,5 +123,16 @@
 	} */
   .ons-grid__col {
     vertical-align: bottom;
+  }
+
+  .title-badge {
+    vertical-align: 6px;
+    white-space: nowrap;
+    font-size: 40%;
+    font-weight: bold;
+    color: white;
+    background-color: #003c57;
+    padding: 2px 8px 4px 8px;
+    border-radius: 4px;
   }
 </style>
