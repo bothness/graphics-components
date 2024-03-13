@@ -33,7 +33,7 @@ async function merge(css) {
     const base = imports[0].match(/https:.+(?=\/css)/)?.[0];
     if (base) css = css.replace(/\.\.\/fonts/gm, `${base}/fonts`);
   }
-  return minify(css, { restructure: false }).css;
+  return minify(css, { restructure: true }).css;
 }
 
 async function cssMerge() {

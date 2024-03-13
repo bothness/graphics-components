@@ -132,6 +132,7 @@
   }
   .ons-checkboxes__item input::after {
     border-color: currentColor;
+    border-width: 0 0 3px 3px !important;
   }
 
   .ons-checkboxes__item--no-border .ons-checkbox__input:focus {
