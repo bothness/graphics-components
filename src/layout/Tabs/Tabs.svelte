@@ -20,7 +20,7 @@
   const sections = writable([]);
   setContext("sections", sections);
 
-  const _selected = writable(null);
+  const _selected = writable(selected);
   setContext("selected", _selected);
 
   function showSection(id) {

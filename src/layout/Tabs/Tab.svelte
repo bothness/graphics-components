@@ -25,7 +25,7 @@
 
   onMount(() => {
     if (sections) {
-      if (!$sections[0] && ($selected || $selected === null)) $selected = id;
+      if (!$selected) $selected = id;
       $sections = [...$sections, { title, id, el }];
     }
   });
