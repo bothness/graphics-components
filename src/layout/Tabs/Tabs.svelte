@@ -1,6 +1,8 @@
 <script>
-  import { setContext } from "svelte";
+  import { setContext, createEventDispatcher } from "svelte";
   import { writable } from "svelte/store";
+
+  const dispatch = createEventDispatcher();
 
   /**
    * Make tabs smaller/more compact
@@ -30,6 +32,7 @@
         (s.el.className =
           s.id === id ? "ons-tabs__panel" : "ons-tabs__panel ons-tabs__panel--hidden")
     );
+    dispatch("change", { id });
   }
 
   $: if (selected !== $_selected) selected = $_selected;
