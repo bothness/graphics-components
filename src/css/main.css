@@ -17,6 +17,7 @@ body {
   --link: #206095;
   --link-hover: #003c57;
   background: var(--background, #fff);
+  height: auto;
 }
 .theme-wrapper {
   color: var(--text);

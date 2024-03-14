@@ -66,7 +66,7 @@
 <style>
   .tile {
     position: relative;
-    z-index: 0;
+    z-index: 1;
     overflow: hidden;
     box-shadow: 0 2px var(--muted, #4140424d);
   }
