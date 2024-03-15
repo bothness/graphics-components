@@ -39,6 +39,11 @@
    * @type {boolean}
    */
   export let disabled = false;
+  /**
+   * Visually hide the button text (for icon-only buttons)
+   * @type {boolean}
+   */
+  export let hideText = false;
 </script>
 
 {#if href}
@@ -57,15 +62,15 @@
       {#if iconPosition === "before"}
         <slot name="icon">
           {#if icon}
-            <Icon type="{icon}" marginRight />
+            <Icon type="{icon}" marginRight="{!hideText}" />
           {/if}
         </slot>
       {/if}
-      <span class="ons-btn__text"><slot /></span>
+      <span class="ons-btn__text" class:ons-u-vh="{hideText}"><slot /></span>
       {#if iconPosition === "after"}
         <slot name="icon">
           {#if icon}
-            <Icon type="{icon}" marginLeft />
+            <Icon type="{icon}" marginLeft="{!hideText}" />
           {/if}
         </slot>
       {/if}
@@ -86,15 +91,15 @@
       {#if iconPosition === "before"}
         <slot name="icon">
           {#if icon}
-            <Icon type="{icon}" marginRight />
+            <Icon type="{icon}" marginRight="{!hideText}" />
           {/if}
         </slot>
       {/if}
-      <span class="ons-btn__text"><slot /></span>
+      <span class="ons-btn__text" class:ons-u-vh="{hideText}"><slot /></span>
       {#if iconPosition === "after"}
         <slot name="icon">
           {#if icon}
-            <Icon type="{icon}" marginLeft />
+            <Icon type="{icon}" marginLeft="{!hideText}" />
           {/if}
         </slot>
       {/if}

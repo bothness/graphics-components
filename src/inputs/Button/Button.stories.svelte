@@ -55,3 +55,5 @@
 <Story name="Icon before" args="{{ text: 'Download', icon: 'download' }}" />
 
 <Story name="Icon after" args="{{ text: 'Continue', icon: 'arrow', iconPosition: 'after' }}" />
+
+<Story name="Icon only, hidden text" args="{{ text: 'Search', icon: 'search', hideText: true }}" />
