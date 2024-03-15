@@ -43,7 +43,7 @@
    * Visually hide the button text (for icon-only buttons)
    * @type {boolean}
    */
-  export let hideText = false;
+  export let hideLabel = false;
 </script>
 
 {#if href}
@@ -62,15 +62,15 @@
       {#if iconPosition === "before"}
         <slot name="icon">
           {#if icon}
-            <Icon type="{icon}" marginRight="{!hideText}" />
+            <Icon type="{icon}" marginRight="{!hideLabel}" />
           {/if}
         </slot>
       {/if}
-      <span class="ons-btn__text" class:ons-u-vh="{hideText}"><slot /></span>
+      <span class="ons-btn__text" class:ons-u-vh="{hideLabel}"><slot /></span>
       {#if iconPosition === "after"}
         <slot name="icon">
           {#if icon}
-            <Icon type="{icon}" marginLeft="{!hideText}" />
+            <Icon type="{icon}" marginLeft="{!hideLabel}" />
           {/if}
         </slot>
       {/if}
@@ -91,15 +91,15 @@
       {#if iconPosition === "before"}
         <slot name="icon">
           {#if icon}
-            <Icon type="{icon}" marginRight="{!hideText}" />
+            <Icon type="{icon}" marginRight="{!hideLabel}" />
           {/if}
         </slot>
       {/if}
-      <span class="ons-btn__text" class:ons-u-vh="{hideText}"><slot /></span>
+      <span class="ons-btn__text" class:ons-u-vh="{hideLabel}"><slot /></span>
       {#if iconPosition === "after"}
         <slot name="icon">
           {#if icon}
-            <Icon type="{icon}" marginLeft="{!hideText}" />
+            <Icon type="{icon}" marginLeft="{!hideLabel}" />
           {/if}
         </slot>
       {/if}
