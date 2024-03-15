@@ -89,6 +89,11 @@
    */
   export let width = 30;
   /**
+   * Hide the icon in the search box
+   * @type {boolean}
+   */
+  export let hideIcon = false;
+  /**
    * An array of colours for multi-select
    * @type {array}
    */
@@ -159,7 +164,7 @@
       itemId="{idKey}"
       label="{labelKey}"
       groupBy="{groupKey && clusterByGroup ? (item) => item[groupKey] : null}"
-      showChevron="{true}"
+      showChevron="{!hideIcon}"
       multiple="{multiple}"
       clearable="{clearable}"
       on:change="{handleChange}"
