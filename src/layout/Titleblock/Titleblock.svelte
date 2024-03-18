@@ -1,4 +1,5 @@
 <script>
+  import { contrastColor } from "../../js/utils";
   import Container from "../../wrappers/Container/Container.svelte";
   import Meta from "./Meta.svelte";
 
@@ -52,6 +53,13 @@
    * @type {string}
    */
   export let titleBadgeAriaLabel = null;
+  /**
+   * Set a colour for the title badge
+   * @type {string}
+   */
+  export let titleBadgeColor = "#003C57";
+
+  $: titleBadgeTextColor = contrastColor(titleBadgeColor);
 </script>
 
 <Container
@@ -68,8 +76,11 @@
           <h1 class="ons-u-fs-xxxl ons-u-mt-s ons-u-mb-m ons-u-pb-no ons-u-pt-no">
             {#if titleBadge}
               <span style="margin-right: 6px">{@html title}</span>
-              <span class="title-badge" aria-label="{titleBadgeAriaLabel ?? titleBadge}"
-                >{titleBadge}</span
+              <span
+                class="title-badge"
+                aria-label="{titleBadgeAriaLabel ?? titleBadge}"
+                style:background="{titleBadgeColor}"
+                style:color="{titleBadgeTextColor}">{titleBadge}</span
               >
             {:else}
               {@html title}
@@ -131,7 +142,6 @@
     font-size: 40%;
     font-weight: bold;
     color: white;
-    background-color: #003c57;
     padding: 2px 8px 4px 8px;
     border-radius: 4px;
   }
