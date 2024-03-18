@@ -46,6 +46,15 @@ export const format = (val, dp = null) => {
     : val.toLocaleString("en-GB");
 };
 
+export const formatter = (dp = null) => {
+  return Number.isInteger(dp)
+    ? new Intl.NumberFormat("en-GB", {
+        minimumFractionDigits: dp,
+        maximumFractionDigits: dp,
+      }).format
+    : new Intl.NumberFormat("en-GB").format;
+};
+
 export const ascending = (a, b) =>
   a == null || b == null ? NaN : a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
 

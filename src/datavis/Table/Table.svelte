@@ -1,5 +1,5 @@
 <script>
-  import { format, isNumeric, ascending, descending } from "../../js/utils.js";
+  import { formatter, isNumeric, ascending, descending } from "../../js/utils.js";
 
   /**
    * An optional title for the table
@@ -46,6 +46,7 @@
   let sort = columns.map((c) => "none");
 
   $: sortable = columns.map((d) => d.sortable).includes(true);
+  $: formatters = columns.map((d) => formatter(d.dp));
 </script>
 
 <div
@@ -121,16 +122,14 @@
     <tbody class="ons-table__body">
       {#each _data as row}
         <tr class="ons-table__row">
-          {#each columns as col}
+          {#each columns as col, i}
             <td
               class="ons-table__cell"
               class:ons-table__cell--numeric="{col.numeric}"
               data-th="{col.label}"
               >{@html col.numeric && isNumeric(row[col.key])
-                ? format(row[col.key], col.dp)
-                : row[col.key]
-                ? row[col.key]
-                : "&ndash;"}</td
+                ? formatters[i](row[col.key])
+                : row[col.key] || "&ndash;"}</td
             >
           {/each}
         </tr>
