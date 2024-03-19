@@ -33,6 +33,7 @@
   onDestroy(() => {
     if (sections) {
       $sections = $sections.filter((s) => s.id !== id);
+      if ($selected === id) $selected = $sections.length > 0 ? $sections[0].id : null;
     }
   });
 </script>
