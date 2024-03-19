@@ -114,7 +114,10 @@
             {/if}
             <ol class="ons-list ons-u-mb-m ons-list--dashed">
               {#each $sections as section}
-                <li class="ons-list__item" class:ons-list__item-indented="{section.subsection}">
+                <li
+                  class="ons-list__item"
+                  class:ons-list__item-indented="{section.dataset.subsection === 'true'}"
+                >
                   <a
                     href="#{section.id}"
                     class="ons-list__link"

@@ -37,7 +37,7 @@
 
   onMount(() => {
     if (sections && observer) {
-      $sections = [...$sections, { title, id, subsection }];
+      $sections = [...section.parentElement.childNodes].filter((c) => c.tagName === "SECTION");
       $observer.observe(section);
     }
   });
@@ -50,7 +50,14 @@
   });
 </script>
 
-<section id="{id}" class="{cls}" aria-label="{title}" bind:this="{section}">
+<section
+  id="{id}"
+  title="{title}"
+  data-subsection="{subsection}"
+  class="{cls}"
+  aria-label="{title}"
+  bind:this="{section}"
+>
   {#if title}
     {#if subsection}
       <h3 class="subsection-title ons-u-fs-m" class:ons-u-vh="{hideTitle}">{title}</h3>
