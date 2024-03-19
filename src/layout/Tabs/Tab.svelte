@@ -25,8 +25,8 @@
 
   onMount(() => {
     if (sections) {
-      if (!$selected) $selected = id;
-      $sections = [...$sections, { title, id, el }];
+      $sections = [...el.parentElement.childNodes].filter((c) => c.tagName === "SECTION");
+      if ($selected === null || $selected === undefined) $selected = $sections[0]?.id;
     }
   });
 
@@ -39,6 +39,7 @@
 
 <section
   id="{id}"
+  title="{title}"
   class="ons-tabs__panel"
   bind:this="{el}"
   class:ons-tabs__panel--hidden="{$selected !== id}"

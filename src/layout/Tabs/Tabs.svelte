@@ -29,8 +29,7 @@
     $_selected = id;
     [...$sections].forEach(
       (s) =>
-        (s.el.className =
-          s.id === id ? "ons-tabs__panel" : "ons-tabs__panel ons-tabs__panel--hidden")
+        (s.className = s.id === id ? "ons-tabs__panel" : "ons-tabs__panel ons-tabs__panel--hidden")
     );
     dispatch("change", { id });
   }
