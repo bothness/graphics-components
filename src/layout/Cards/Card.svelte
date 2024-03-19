@@ -31,31 +31,41 @@
   <div id="{id}" class="ons-card" aria-describedBy="{id}_text">
     {#if href && title}
       <a href="{href}" class="ons-card__link ons-u-db" class:ons-u-vh="{hideTitle}">
-        {#if image}
-          <img
-            class="ons-card__image ons-u-mb-s"
-            style:width="100%"
-            src="{image}"
-            alt="{imageAlt}"
-            loading="lazy"
-          />
-        {/if}
+        <slot name="image">
+          {#if image}
+            <img
+              class="ons-card__image ons-u-mb-s"
+              style:width="100%"
+              src="{image}"
+              alt="{imageAlt}"
+              loading="lazy"
+            />
+          {/if}
+        </slot>
+        <slot name="title">
+          <h3
+            class="ons-card__title ons-u-fs-m"
+            style:padding="{!noBackground && !image
+              ? "12px 16px 0"
+              : !noBackground
+              ? "0 16px"
+              : ""}"
+          >
+            {title}
+          </h3>
+        </slot>
+      </a>
+    {:else if title}
+      <slot name="title">
         <h3
           class="ons-card__title ons-u-fs-m"
-          style:padding="{!noBackground && !image ? "12px 16px 0" : !noBackground ? "0 16px" : ""}"
+          class:ons-u-vh="{hideTitle}"
+          style:padding="{!noBackground ? "8px 16px 0" : ""}"
+          style:margin-bottom="5px"
         >
           {title}
         </h3>
-      </a>
-    {:else if title}
-      <h3
-        class="ons-card__title ons-u-fs-m"
-        class:ons-u-vh="{hideTitle}"
-        style:padding="{!noBackground ? "8px 16px 0" : ""}"
-        style:margin-bottom="5px"
-      >
-        {title}
-      </h3>
+      </slot>
     {/if}
     <div id="{id}_text" class:tile__body="{!noBackground}">
       <slot />
