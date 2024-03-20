@@ -1,4 +1,8 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
   /**
    * A title for the element
    * @type {string}
@@ -9,9 +13,13 @@
    * @type {boolean}
    */
   export let open = false;
+
+  function doToggle(e) {
+    dispatch("toggle", { open: e.newState === "open", e });
+  }
 </script>
 
-<details class="ons-collapsible ons-js-collapsible" bind:open="{open}">
+<details class="ons-collapsible ons-js-collapsible" bind:open="{open}" on:toggle="{doToggle}">
   <summary
     class="ons-collapsible__heading ons-js-collapsible-heading"
     data-ga-action="{open ? 'Close panel' : 'Open panel'}"
