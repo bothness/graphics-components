@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { onMount, onDestroy, getContext, createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
 
@@ -54,13 +54,41 @@
    */
   export let compact = false;
 
-  function doChange(e) {
-    if (Array.isArray(group)) {
-      if (checked) group = [...group, value];
-      else group = group.filter((d) => d != value);
-    }
-    dispatch("change", e);
+  const checkboxes = getContext("checkboxes");
+
+  let el;
+
+  function findAncestor(el, cls) {
+    while ((el = el.parentElement) && !el.classList.contains(cls));
+    return el;
   }
+
+  function updateGroup() {
+    const newGroup = $checkboxes.filter((c) => c.checked).map((c) => c.id);
+    if (newGroup.join() !== group.join()) group = newGroup;
+  }
+
+  function doChange(e) {
+    if (Array.isArray(group) && Array.isArray($checkboxes)) {
+      updateGroup();
+    }
+    dispatch("change", { id, checked, group, e });
+  }
+
+  onMount(() => {
+    if (Array.isArray(group) && Array.isArray($checkboxes)) {
+      const root = findAncestor(el, "ons-checkboxes__items");
+      $checkboxes = [...root.getElementsByTagName("input")];
+      updateGroup();
+    }
+  });
+
+  onDestroy(() => {
+    if (Array.isArray(group) && Array.isArray($checkboxes)) {
+      $checkboxes = $checkboxes.filter((c) => c.id !== id);
+      updateGroup();
+    }
+  });
 </script>
 
 <span
@@ -79,6 +107,7 @@
       disabled="{disabled}"
       aria-disabled="{disabled}"
       on:change="{doChange}"
+      bind:this="{el}"
     />
     <label
       class="ons-checkbox__label"

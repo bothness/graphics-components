@@ -1,4 +1,6 @@
 <script>
+  import { setContext } from "svelte";
+  import { writable } from "svelte/store";
   import Checkbox from "../Checkbox/Checkbox.svelte";
 
   /**
@@ -18,6 +20,9 @@
    * @type {array}
    */
   export let value = [];
+
+  const checkboxes = writable([]);
+  setContext("checkboxes", checkboxes);
 </script>
 
 {#if label}
@@ -26,7 +31,7 @@
 <div class="ons-checkboxes__items">
   <slot />
   {#if items}
-    {#each items as item, i}
+    {#each items as item}
       <Checkbox {...item} bind:group="{value}" compact="{compact}" on:change />
     {/each}
   {/if}
