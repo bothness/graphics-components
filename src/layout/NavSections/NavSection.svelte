@@ -37,7 +37,9 @@
 
   onMount(() => {
     if (sections && observer) {
-      $sections = [...section.parentElement.childNodes].filter((c) => c.tagName === "SECTION");
+      $sections = [...section.parentElement.getElementsByTagName("section")].filter(
+        (c) => c.id && c.title
+      );
       $observer.observe(section);
     }
   });
