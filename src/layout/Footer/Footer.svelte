@@ -81,16 +81,19 @@
             {#if compact}
               <ul class="ons-list ons-u-mt-m ons-footer--rows ons-list--bare ons-list--inline">
                 <li class="ons-list__item">
-                  <a href="/help/accessibility" class="ons-list__link">{i18n("Accessibility")}</a>
+                  <a href="{baseurl}/help/accessibility" class="ons-list__link"
+                    >{i18n("Accessibility")}</a
+                  >
                 </li>
                 <li class="ons-list__item">
-                  <a href="/cookies" class="ons-list__link">{i18n("Cookies")}</a>
+                  <a href="{baseurl}/cookies" class="ons-list__link">{i18n("Cookies")}</a>
                 </li>
                 <li class="ons-list__item">
-                  <a href="/help/privacynotice" class="ons-list__link">{i18n("Privacy")}</a>
+                  <a href="{baseurl}/help/privacynotice" class="ons-list__link">{i18n("Privacy")}</a
+                  >
                 </li>
                 <li class="ons-list__item">
-                  <a href="/help/termsandconditions" class="ons-list__link"
+                  <a href="{baseurl}/help/termsandconditions" class="ons-list__link"
                     >{i18n("Terms and conditions")}</a
                   >
                 </li>
@@ -101,16 +104,16 @@
                   <h2 class="footer-nav__heading">{i18n("Help")}</h2>
                   <ul class="footer-nav__list">
                     <li class="footer-nav__item">
-                      <a href="/help/accessibility">{i18n("Accessibility")}</a>
+                      <a href="{baseurl}/help/accessibility">{i18n("Accessibility")}</a>
                     </li>
                     <li class="footer-nav__item">
-                      <a href="/cookies">{i18n("Cookies")}</a>
+                      <a href="{baseurl}/cookies">{i18n("Cookies")}</a>
                     </li>
                     <li class="footer-nav__item">
-                      <a href="/help/privacynotice">{i18n("Privacy")}</a>
+                      <a href="{baseurl}/help/privacynotice">{i18n("Privacy")}</a>
                     </li>
                     <li class="footer-nav__item">
-                      <a href="/help/termsandconditions">{i18n("Terms and conditions")}</a>
+                      <a href="{baseurl}/help/termsandconditions">{i18n("Terms and conditions")}</a>
                     </li>
                   </ul>
                 </div>
@@ -118,19 +121,19 @@
                   <h2 class="footer-nav__heading">{i18n("About ONS")}</h2>
                   <ul class="footer-nav__list">
                     <li class="footer-nav__item">
-                      <a href="/aboutus/whatwedo">{i18n("What we do")}</a>
+                      <a href="{baseurl}/aboutus/whatwedo">{i18n("What we do")}</a>
                     </li>
                     <li class="footer-nav__item">
-                      <a href="/aboutus/careers">{i18n("Careers")}</a>
+                      <a href="{baseurl}/aboutus/careers">{i18n("Careers")}</a>
                     </li>
                     <li class="footer-nav__item">
-                      <a href="/aboutus/contactus">{i18n("Contact us")}</a>
+                      <a href="{baseurl}/aboutus/contactus">{i18n("Contact us")}</a>
                     </li>
                     <li class="footer-nav__item">
-                      <a href="/news">{i18n("News")}</a>
+                      <a href="{baseurl}/news">{i18n("News")}</a>
                     </li>
                     <li class="footer-nav__item">
-                      <a href="/aboutus/transparencyandgovernance/freedomofinformationfoi"
+                      <a href="{baseurl}/aboutus/transparencyandgovernance/freedomofinformationfoi"
                         >{i18n("Freedom of Information")}</a
                       >
                     </li>
