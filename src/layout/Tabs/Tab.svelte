@@ -25,7 +25,9 @@
 
   onMount(() => {
     if (sections) {
-      $sections = [...el.parentElement.childNodes].filter((c) => c.tagName === "SECTION");
+      $sections = [...el.parentElement.getElementsByTagName("section")].filter(
+        (s) => s.dataset.type === "Tab"
+      );
       if ($selected === null || $selected === undefined) $selected = $sections[0]?.id;
     }
   });
@@ -41,6 +43,7 @@
 <section
   id="{id}"
   title="{title}"
+  data-type="Tab"
   class="ons-tabs__panel"
   bind:this="{el}"
   class:ons-tabs__panel--hidden="{$selected !== id}"

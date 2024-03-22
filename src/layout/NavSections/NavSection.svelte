@@ -38,7 +38,7 @@
   onMount(() => {
     if (sections && observer) {
       $sections = [...section.parentElement.getElementsByTagName("section")].filter(
-        (c) => c.id && c.title
+        (s) => s.dataset.type === "NavSection"
       );
       $observer.observe(section);
     }
@@ -55,6 +55,7 @@
 <section
   id="{id}"
   title="{title}"
+  data-type="NavSection"
   data-subsection="{subsection}"
   class="{cls}"
   aria-label="{title}"
