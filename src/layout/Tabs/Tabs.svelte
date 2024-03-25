@@ -54,10 +54,10 @@
             class:ons-tab--selected="{section.id === selected}"
             data-ga="click"
             data-ga-category="tabs"
-            data-ga-action="Show: {section.title}"
-            data-ga-label="Show: {section.title}"
+            data-ga-action="Show: {section.dataset.title}"
+            data-ga-label="Show: {section.dataset.title}"
             aria-selected="{section.id === selected ? 'true' : 'false'}"
-            on:click|preventDefault="{() => showSection(section.id)}">{section.title}</a
+            on:click|preventDefault="{() => showSection(section.id)}">{section.dataset.title}</a
           >
         </li>
       {/each}

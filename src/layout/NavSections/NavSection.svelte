@@ -54,7 +54,7 @@
 
 <section
   id="{id}"
-  title="{title}"
+  data-title="{title}"
   data-type="NavSection"
   data-subsection="{subsection}"
   class="{cls}"

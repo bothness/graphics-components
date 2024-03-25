@@ -42,7 +42,7 @@
 
 <section
   id="{id}"
-  title="{title}"
+  data-title="{title}"
   data-type="Tab"
   class="ons-tabs__panel"
   bind:this="{el}"

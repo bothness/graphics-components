@@ -123,7 +123,7 @@
                     class="ons-list__link"
                     class:ons-toc__link-active="{section.id === active}"
                   >
-                    {section.title}
+                    {section.dataset.title}
                   </a>
                 </li>
               {/each}
