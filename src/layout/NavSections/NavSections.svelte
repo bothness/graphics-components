@@ -69,6 +69,21 @@
   const observer = writable();
   setContext("observer", observer);
 
+  function formatSections(sections) {
+    const secs = [];
+    let sec = { subsections: [] };
+    for (const section of sections) {
+      if (section.dataset.subsection !== "true") {
+        if (sec.title || sec.subsections.length > 0) secs.push(sec);
+        sec = { id: section.id, title: section.dataset.title, subsections: [] };
+      } else {
+        sec.subsections.push({ id: section.id, title: section.dataset.title });
+      }
+    }
+    return [...secs, sec];
+  }
+  $: formattedSections = formatSections($sections);
+
   onMount(() => {
     if (!noContents) {
       $observer = new IntersectionObserver(
@@ -113,20 +128,36 @@
               </h2>
             {/if}
             <ol class="ons-list ons-u-mb-m ons-list--dashed">
-              {#each $sections as section}
-                <li
-                  class="ons-list__item"
-                  class:ons-list__item-indented="{section.dataset.subsection === 'true'}"
-                >
-                  <a
-                    href="#{section.id}"
-                    class="ons-list__link"
-                    class:ons-toc__link-active="{section.id === active}"
-                  >
-                    {section.dataset.title}
-                  </a>
-                </li>
-              {/each}
+              {#if formattedSections}
+                {#each formattedSections as section}
+                  <li class="ons-list__item">
+                    {#if section.id && section.title}
+                      <a
+                        href="#{section.id}"
+                        class="ons-list__link"
+                        class:ons-toc__link-active="{section.id === active}"
+                      >
+                        {section.title}
+                      </a>
+                    {/if}
+                    {#if section.subsections.length > 0}
+                      <ol class="ons-list ons-u-mb-no ons-list--dashed">
+                        {#each section.subsections as subsection}
+                          <li class="ons-list__item">
+                            <a
+                              href="#{subsection.id}"
+                              class="ons-list__link"
+                              class:ons-toc__link-active="{subsection.id === active}"
+                            >
+                              {subsection.title}
+                            </a>
+                          </li>
+                        {/each}
+                      </ol>
+                    {/if}
+                  </li>
+                {/each}
+              {/if}
             </ol>
           {/if}
           <slot name="after-nav" />
