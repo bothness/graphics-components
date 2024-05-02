@@ -2,6 +2,7 @@
   import { onMount, getContext } from "svelte";
   import Theme from "../../wrappers/Theme/Theme.svelte";
   import ONSLogo from "./ONSLogo.svelte";
+  import SkipLink from "../SkipLink/SkipLink.svelte";
 
   const page = getContext("page");
 
@@ -35,6 +36,11 @@
    * @type {boolean}
    */
   export let bilingual = true;
+  /**
+   * Set to false to disable skipLink (eg. if you need to move its location)
+   * @type {boolean}
+   */
+  export let skipLinkEnabled = true;
 
   let lang = "en";
   let baseurl = "//www.ons.gov.uk";
@@ -269,12 +275,13 @@
   }
 </script>
 
-<Theme theme="{theme}" overrides="{themeOverrides}">
-  {#if lang}
-    <header class="ons-header" role="banner">
-      <a class="skiplink" href="#main" tabindex="0">
-        {i18n("Skip to main content")}
-      </a>
+<header class="ons-header" role="banner">
+  {#if skipLinkEnabled}
+    <SkipLink />
+  {/if}
+  <slot name="before" />
+  <Theme theme="{theme}" overrides="{themeOverrides}">
+    {#if lang}
       <div id="pagePath" class="hide">{path}</div>
       <slot name="before" />
       {#if compact}
@@ -505,9 +512,9 @@
           </div>
         </div>
       {/if}
-    </header>
-  {/if}
-</Theme>
+    {/if}
+  </Theme>
+</header>
 
 <style>
   .ons-header__top {

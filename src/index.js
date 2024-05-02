@@ -29,6 +29,7 @@ export { default as PhaseBanner } from "./layout/PhaseBanner/PhaseBanner.svelte"
 export { default as Scroller } from "./layout/Scroller/Scroller.svelte";
 export { default as ScrollerSection } from "./layout/Scroller/ScrollerSection.svelte";
 export { default as Section } from "./layout/Section/Section.svelte";
+export { default as SkipLink } from "./layout/SkipLink/SkipLink.svelte";
 export { default as ShareButtons } from "./layout/ShareButtons/ShareButtons.svelte";
 export { default as Summary } from "./layout/Summary/Summary.svelte";
 export { default as Survey } from "./layout/Survey/Survey.svelte";
