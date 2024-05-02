@@ -1,6 +1,6 @@
 {
   "name": "@onsvisual/svelte-components",
-  "version": "0.1.70",
+  "version": "0.1.71",
   "type": "module",
   "private": false,
   "homepage": "https://onsvisual.github.io/svelte-components",
@@ -167,6 +167,7 @@
     "./layout/Scroller/ScrollerSection.svelte": "./dist/layout/Scroller/ScrollerSection.svelte",
     "./layout/Section/Section.svelte": "./dist/layout/Section/Section.svelte",
     "./layout/ShareButtons/ShareButtons.svelte": "./dist/layout/ShareButtons/ShareButtons.svelte",
+    "./layout/SkipLink/SkipLink.svelte": "./dist/layout/SkipLink/SkipLink.svelte",
     "./layout/Summary/Summary.svelte": "./dist/layout/Summary/Summary.svelte",
     "./layout/Survey/Survey.svelte": "./dist/layout/Survey/Survey.svelte",
     "./layout/Survey/init-survey": "./dist/layout/Survey/init-survey.js",
