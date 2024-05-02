@@ -283,7 +283,6 @@
   <Theme theme="{theme}" overrides="{themeOverrides}">
     {#if lang}
       <div id="pagePath" class="hide">{path}</div>
-      <slot name="before" />
       {#if compact}
         <div
           class="ons-header__top"
