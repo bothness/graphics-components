@@ -34,6 +34,11 @@
    * @type {"wide"|"wider"}
    */
   export let width = "wide";
+  /**
+   * Enable automatic pageView event on route changes
+   * @type {boolean}
+   */
+  export let pageViewEnabled = true;
 
   let live; // Don't run analytics unless page is live on ONS site (re-set in the onMount function)
   let showBanner = false;
@@ -119,7 +124,7 @@
       }
     }
   }
-  $: onPageChange($page);
+  $: if (pageViewEnabled) onPageChange($page);
 
   onMount(() => {
     live = true;
