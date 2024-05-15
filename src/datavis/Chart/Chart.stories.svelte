@@ -118,7 +118,7 @@
 />
 
 <Story
-  name="Bar, robo use-case"
+  name="Bar, robo-journalism case"
   args="{{
     section: {
       id: 'chart-density',
