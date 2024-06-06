@@ -8,6 +8,7 @@ export { default as Theme } from "./wrappers/Theme/Theme.svelte";
 
 // Layout
 export { default as Accordion } from "./layout/Accordion/Accordion.svelte";
+export { default as AccordionItem } from "./layout/Accordion/AccordionItem.svelte";
 export { default as AnalyticsBanner } from "./layout/AnalyticsBanner/AnalyticsBanner.svelte";
 export { analyticsEvent } from "./layout/AnalyticsBanner/AnalyticsBanner.svelte";
 export { default as Backlink } from "./layout/Backlink/Backlink.svelte";
