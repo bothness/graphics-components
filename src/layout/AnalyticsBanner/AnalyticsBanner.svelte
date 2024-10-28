@@ -46,6 +46,7 @@
   let message = "";
   let lang = $page && $page.url.host.startsWith("cy") ? "cy" : "en";
   let location = null; // For keeping track of navigation multi-page apps
+  let baseurl = "//www.ons.gov.uk";
 
   function hasCookiesPreferencesSet() {
     return -1 < document.cookie.indexOf("cookies_preferences_set=true");
@@ -166,7 +167,7 @@
   >
     {#if !showConfirm}
       <form
-        action="/cookies/accept-all"
+        action="{baseurl + '/cookies/accept-all'}"
         method="GET"
         id="global-cookie-message"
         aria-label="cookie banner"
@@ -185,7 +186,8 @@
                   )}
                 </p>
                 <p>
-                  {i18n("We would like to set")} <a href="/cookies">{i18n("additional cookies")}</a>
+                  {i18n("We would like to set")}
+                  <a href="{baseurl + '/cookies'}">{i18n("additional cookies")}</a>
                   {i18n(
                     "to remember your settings and understand how you use the site. This helps us to improve our services."
                   )}
@@ -219,7 +221,9 @@
               </button>
             </div>
             <div class="ons-grid__col">
-              <a class="ons-cookies-banner__link" href="/cookies">{i18n("View cookies")}</a>
+              <a class="ons-cookies-banner__link" href="{baseurl + '/cookies'}"
+                >{i18n("View cookies")}</a
+              >
             </div>
           </div>
         </div>
@@ -236,7 +240,8 @@
             <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">
               <span>{i18n(message)}</span>
               <span class="ons-cookies-banner__preferences-text"
-                >{i18n("You can")} <a href="/cookies">{i18n("change your cookie preferences")}</a>
+                >{i18n("You can")}
+                <a href="{baseurl + '/cookies'}">{i18n("change your cookie preferences")}</a>
                 {i18n("at any time")}.</span
               >
             </p>
