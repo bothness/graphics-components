@@ -112,7 +112,7 @@
    * @type {function}
    */
   export let itemFilter = (label, filterText, option) =>
-    label.match(new RegExp(`\\b${filterText}`, "i")) &&
+    label.match(new RegExp(`\\b${filterText.replace(/[^\w\s]/gi, "")}`, "i")) &&
     !(multiple && value?.length >= maxSelected) &&
     !(mode === "search" && filterText?.length < 3);
   /**
@@ -175,7 +175,7 @@
     >
       <div slot="item" let:item>
         {@html item[labelKey].replace(
-          new RegExp(`\\b${filterText}`, "i"),
+          new RegExp(`\\b${filterText.replace(/[^\w\s]/gi, "")}`, "i"),
           (str) => `<b>${str}</b>`
         )}
         {#if groupKey && !clusterByGroup}<span class="item-group">{item[groupKey]}</span>{/if}
