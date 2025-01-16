@@ -58,7 +58,21 @@
     }
   }
   $: setPaths(mounted, $page);
-  onMount(() => (mounted = true));
+  onMount(() => {
+    mounted = true;
+
+    /// Add keyboard event listeners
+    const navItems = document.querySelectorAll(".js-nav");
+    navItems.forEach((item) => {
+      item.addEventListener("keydown", handleKeydown);
+    });
+
+    return () => {
+      navItems.forEach((item) => {
+        item.removeEventListener("keydown", handleKeydown);
+      });
+    };
+  });
 
   let menuExpanded = false;
   let searchExpanded = false;
@@ -273,6 +287,111 @@
       menu[i].expanded = !menu[i].expanded;
     }
   }
+
+  function handleKeydown(event) {
+    const target = event.currentTarget;
+    // Find the currently focused expandable child link within the navigation item
+    const focusedExpandableChild = target.querySelector(".js-expandable__child a:focus");
+
+    // Find all child links in the current navigation item
+    const childLinks = Array.from(target.querySelectorAll(".js-expandable__child a"));
+
+    // Close any expanded items from mouse events
+    const allExpandedItems = document.querySelectorAll(".js-expandable-active");
+    allExpandedItems.forEach((item) => {
+      if (item !== target) {
+        item.classList.remove("js-expandable-active");
+        const content = item.querySelector(".js-expandable__content");
+        if (content) {
+          content.classList.add("js-nav-hidden");
+          content.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+
+    switch (event.key) {
+      case "Tab":
+        if (focusedExpandableChild) {
+          target.classList.remove("primary-nav__item--focus");
+        }
+        break;
+
+      case "Escape":
+        event.preventDefault();
+        target.classList.remove("primary-nav__item--focus");
+        const firstNavLink = target.closest(".js-nav").querySelector("a:first-child");
+        if (firstNavLink) {
+          firstNavLink.classList.add("hide-children");
+          firstNavLink.focus();
+          firstNavLink.addEventListener(
+            "focusout",
+            () => {
+              firstNavLink.classList.remove("hide-children");
+            },
+            { once: true }
+          );
+        }
+        break;
+
+      case "ArrowDown":
+        event.preventDefault();
+        if (!focusedExpandableChild) {
+          // If no child is focused, focus the first child. Needs to start from 0 as first child is link to primary nav.
+          const firstChild = childLinks[1];
+          if (firstChild) {
+            console.log("add focus");
+            target.classList.add("primary-nav__item--focus");
+            firstChild.focus({ focusVisible: true });
+          }
+        } else {
+          // Find the current index and move to the next child
+          const currentIndex = childLinks.indexOf(focusedExpandableChild);
+          if (currentIndex < childLinks.length - 1) {
+            childLinks[currentIndex + 1].focus();
+          }
+        }
+        break;
+
+      case "ArrowUp":
+        event.preventDefault();
+
+        if (focusedExpandableChild) {
+          const currentIndex = childLinks.indexOf(focusedExpandableChild);
+          if (currentIndex > 0) {
+            // Move to previous child
+            childLinks[currentIndex - 1].focus();
+          } else {
+            // If at first child, move focus back to main nav link
+            target.classList.remove("primary-nav__item--focus");
+            const mainLink = target.querySelector("a:first-child");
+            if (mainLink) {
+              mainLink.focus();
+            }
+          }
+        }
+        break;
+
+      case "ArrowRight":
+        event.preventDefault();
+        target.classList.remove("primary-nav__item--focus");
+        const nextNav = target.closest(".js-nav").nextElementSibling;
+        if (nextNav) {
+          const firstLink = nextNav.querySelector("a:first-child");
+          if (firstLink) firstLink.focus();
+        }
+        break;
+
+      case "ArrowLeft":
+        event.preventDefault();
+        target.classList.remove("primary-nav__item--focus");
+        const prevNav = target.closest(".js-nav").previousElementSibling;
+        if (prevNav) {
+          const firstLink = prevNav.querySelector("a:first-child");
+          if (firstLink) firstLink.focus();
+        }
+        break;
+    }
+  }
 </script>
 
 <header class="ons-header" role="banner">
@@ -340,6 +459,7 @@
           </div>
         </div>
         <div class="primary-nav print--hide">
+          <!-- Controls -->
           <nav aria-label="Header links">
             <ul class="nav--controls">
               <li class="nav--controls__item" class:menu-is-expanded="{menuExpanded}">
@@ -375,12 +495,15 @@
                 </a>
               </li>
             </ul>
+
+            <!-- Main Navigation -->
             <ul
               class="wrapper primary-nav__list"
               class:nav-main--hidden="{!menuExpanded}"
               id="nav-primary"
               aria-expanded="{menuExpanded}"
             >
+              <!-- Home Link -->
               <li class="primary-nav__item js-nav">
                 <a
                   class="primary-nav__link col col--md-7 col--lg-9"
@@ -388,6 +511,8 @@
                   style="color: #e5e6e7">{i18n("Home")}</a
                 >
               </li>
+
+              <!-- Menu Items -->
               {#each [...menu
                   .filter((d) => d.children)
                   .sort( (a, b) => a["label_" + lang].localeCompare(b["label_" + lang]) ), ...menu.filter((d) => !d.children)] as item, i}
@@ -405,7 +530,7 @@
                     >
                       <span aria-hidden="true" class="expansion-indicator"></span>
                       <span class="submenu-title">
-                        {item["label_" + lang]}
+                        {item[`label_${lang}`]}
                       </span>
                     </a>
                     <ul
@@ -416,15 +541,15 @@
                     >
                       <li class="primary-nav__child-item js-expandable__child hide--md">
                         <a class="primary-nav__child-link" tabindex="-1" href="{baseurl}{item.url}"
-                          >{item["label_" + lang]}</a
+                          >{item[`label_${lang}`]}</a
                         >
                       </li>
-                      {#each [...item.children].sort( (a, b) => a["label_" + lang].localeCompare(b["label_" + lang]) ) as child}
+                      {#each [...item.children].sort( (a, b) => a[`label_${lang}`].localeCompare(b[`label_${lang}`]) ) as child}
                         <li class="primary-nav__child-item js-expandable__child">
                           <a
                             class="primary-nav__child-link"
                             tabindex="-1"
-                            href="{baseurl}{child.url}">{child["label_" + lang]}</a
+                            href="{baseurl}{child.url}">{child[`label_${lang}`]}</a
                           >
                         </li>
                       {/each}
@@ -441,6 +566,8 @@
                   </li>
                 {/if}
               {/each}
+
+              <!-- Language Switcher -->
               <li class="hide--md primary-nav__language">
                 {#if lang == "en"}
                   <span>English (EN) | </span>
