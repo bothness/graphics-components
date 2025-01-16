@@ -6,4 +6,4 @@
   export let href = "#main";
 </script>
 
-<a class="ons-skip-to-content" href="{href}">Skip to content</a>
+<a class="ons-skip-to-content" href="{href}">Skip to main content</a>
