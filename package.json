@@ -1,6 +1,6 @@
 {
   "name": "@onsvisual/svelte-components",
-  "version": "0.1.80",
+  "version": "0.1.81",
   "type": "module",
   "private": false,
   "homepage": "https://onsvisual.github.io/svelte-components",
@@ -160,6 +160,7 @@
     "./layout/List/List.svelte": "./dist/layout/List/List.svelte",
     "./layout/NavSections/NavSection.svelte": "./dist/layout/NavSections/NavSection.svelte",
     "./layout/NavSections/NavSections.svelte": "./dist/layout/NavSections/NavSections.svelte",
+    "./layout/RelatedContent/RelatedContent.svelte": "./dist/layout/RelatedContent/RelatedContent.svelte",
     "./layout/NavSections/SectionBacklink.svelte": "./dist/layout/NavSections/SectionBacklink.svelte",
     "./layout/Notice/Notice.svelte": "./dist/layout/Notice/Notice.svelte",
     "./layout/PhaseBanner/PhaseBanner.svelte": "./dist/layout/PhaseBanner/PhaseBanner.svelte",
