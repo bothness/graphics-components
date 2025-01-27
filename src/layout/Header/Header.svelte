@@ -603,8 +603,8 @@
                 type="submit"
                 class="search__button col--md-3 col--lg-3"
                 id="nav-search-submit"
+                aria-label="{i18n('Search')}"
               >
-                <span class="hidden">{i18n("Search")}</span>
                 <span class="icon-search--light">
                   <svg
                     class="ons-svg-icon ons-svg-icon--m"
