@@ -580,12 +580,7 @@
             </ul>
           </nav>
         </div>
-        <div
-          class="search print--hide"
-          class:nav-search--hidden="{!searchExpanded}"
-          id="searchBar"
-          aria-expanded="{searchExpanded}"
-        >
+        <div class="search print--hide" class:nav-search--hidden="{!searchExpanded}" id="searchBar">
           <div class="wrapper" role="search">
             <form class="col-wrap search__form" action="{baseurl}/search">
               <label class="search__label col col--md-23 col--lg-24" for="nav-search"
