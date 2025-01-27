@@ -203,7 +203,7 @@
           </svg>
         {/if}
       </div>
-      <div slot="clear-icon" style:transform="translateY(2px)">
+      <div slot="clear-icon" style:transform="translateY(2px)" aria-label="Clear search">
         <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 14 14" width="18">
           <path
             fill="currentColor"
