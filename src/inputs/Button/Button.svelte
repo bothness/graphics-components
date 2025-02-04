@@ -62,6 +62,7 @@
     class:ons-btn--disabled="{disabled}"
     disabled="{disabled}"
     on:click="{(e) => dispatch('click', e)}"
+    aria-label="{arialabel}"
   >
     <span class="ons-btn__inner">
       {#if iconPosition === "before"}
