@@ -44,6 +44,11 @@
    * @type {boolean}
    */
   export let hideLabel = false;
+  /**
+   * aria label for button
+   * @type {string}
+   */
+  export let arialabel = "";
 </script>
 
 {#if href}
@@ -86,6 +91,7 @@
     class:ons-btn--disabled="{disabled}"
     disabled="{disabled}"
     on:click="{(e) => dispatch('click', e)}"
+    aria-label="{arialabel}"
   >
     <span class="ons-btn__inner">
       {#if iconPosition === "before"}
