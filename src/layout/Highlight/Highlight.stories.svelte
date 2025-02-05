@@ -3,7 +3,7 @@
 
   // @ts-ignore
   import componentDocs from "./docs/component.md?raw";
-  import Highlight from "./Highlight.stories.svelte";
+  import Highlight from "./Highlight.svelte";
   import { withComponentDocs } from "../../js/withParams.js";
 </script>
 
