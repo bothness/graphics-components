@@ -15,7 +15,7 @@
   export let id = "autocomplete";
   export let label = "Select an option";
   export let hideLabel = false;
-  export let mode = "default";
+  export let mode = "dropdown";
   export let clearable = true;
   export let autoClear = false;
   export let placeholder = mode === "search" ? "Enter text" : "Select one";

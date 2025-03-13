@@ -41,6 +41,7 @@ export { default as Titleblock } from "./layout/Titleblock/Titleblock.svelte";
 export { default as Twisty } from "./layout/Twisty/Twisty.svelte";
 
 // Inputs
+export { default as AccessibleSelect } from "./inputs/AccessibleSelect/AccessibleSelect.svelte";
 export { default as Button } from "./inputs/Button/Button.svelte";
 export { default as Checkbox } from "./inputs/Checkbox/Checkbox.svelte";
 export { default as Checkboxes } from "./inputs/Checkboxes/Checkboxes.svelte";
