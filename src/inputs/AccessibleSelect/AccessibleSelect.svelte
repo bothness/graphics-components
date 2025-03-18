@@ -15,7 +15,7 @@
   export let id = "autocomplete";
   export let label = "Select an option";
   export let hideLabel = false;
-  export let mode = "dropdown";
+  export let mode = "default";
   export let clearable = true;
   export let autoClear = false;
   export let placeholder = mode === "search" ? "Enter text" : "Select one";
@@ -94,29 +94,31 @@
   />
 </svelte:head>
 
-{#if label}<label for="{id}" style:display="{hideLabel ? "none" : null}">{label}</label>{/if}
-<div class="ons-autocomplete-wrapper">
-  <div
-    id="{id}-container"
-    class="ons-autocomplete"
-    class:hide-menu="{hideMenu}"
-    use:initAutocomplete
-  ></div>
-  {#if clearable && !autoClear && value}
-    <button
-      title="Clear selection"
-      aria-label="Clear selection"
-      on:click="{clearInput}"
-      class="ons-autocomplete-clear"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 14 14" width="18">
-        <path
-          fill="currentColor"
-          d="M13.6 1 l -0.71 -0.71 a 0.5 0.5 0 0 0 -0.71 0 l -5.25 5.25 l -5.25 -5.25 a 0.51 0.51 0 0 0 -0.71 0 l -0.71 0.71 a 0.5 0.5 0 0 0 0 0.71 l 5.25 5.25 l -5.25 5.25 a 0.5 0.5 0 0 0 0 0.71 l 0.71 0.71 a 0.5 0.5 0 0 0 0.71 0 l 5.25 -5.25 l 5.25 5.25 a 0.5 0.5 0 0 0 0.71 0 l 0.71 -0.71 a 0.5 0.5 0 0 0 0 -0.71 l -5.25 -5.25 l 5.25 -5.25 a 0.5 0.5 0 0 0 0 -0.71Z"
-        ></path>
-      </svg>
-    </button>
-  {/if}
+<div class="ons-field">
+  {#if label}<label for="{id}" class="ons-label" class:ons-u-vh="{hideLabel}">{label}</label>{/if}
+  <div class="ons-autocomplete-wrapper">
+    <div
+      id="{id}-container"
+      class="ons-autocomplete"
+      class:hide-menu="{hideMenu}"
+      use:initAutocomplete
+    ></div>
+    {#if clearable && !autoClear && value}
+      <button
+        title="Clear selection"
+        aria-label="Clear selection"
+        on:click="{clearInput}"
+        class="ons-autocomplete-clear"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 14 14" width="18">
+          <path
+            fill="currentColor"
+            d="M13.6 1 l -0.71 -0.71 a 0.5 0.5 0 0 0 -0.71 0 l -5.25 5.25 l -5.25 -5.25 a 0.51 0.51 0 0 0 -0.71 0 l -0.71 0.71 a 0.5 0.5 0 0 0 0 0.71 l 5.25 5.25 l -5.25 5.25 a 0.5 0.5 0 0 0 0 0.71 l 0.71 0.71 a 0.5 0.5 0 0 0 0.71 0 l 5.25 -5.25 l 5.25 5.25 a 0.5 0.5 0 0 0 0.71 0 l 0.71 -0.71 a 0.5 0.5 0 0 0 0 -0.71 l -5.25 -5.25 l 5.25 -5.25 a 0.5 0.5 0 0 0 0 -0.71Z"
+          ></path>
+        </svg>
+      </button>
+    {/if}
+  </div>
 </div>
 
 <style>
@@ -143,7 +145,7 @@
     display: none;
   }
   .ons-autocomplete :global(.autocomplete__input) {
-    border-radius: 4px !important;
+    border-radius: 3px !important;
     border-width: 1px !important;
     background: white;
   }
@@ -158,5 +160,12 @@
   .ons-autocomplete :global(.muted-text) {
     opacity: 0.8;
     font-size: smaller;
+  }
+  .ons-autocomplete-wrapper :global(*) {
+    font-size: 18px;
+  }
+  .ons-autocomplete-wrapper :global(.autocomplete__hint),
+  .ons-autocomplete-wrapper :global(.autocomplete__input) {
+    height: 40px;
   }
 </style>

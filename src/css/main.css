@@ -20,6 +20,7 @@ body {
   background: var(--background, #fff);
   height: auto;
 }
+
 .theme-wrapper {
   color: var(--text);
   background: var(--background);
@@ -27,18 +28,23 @@ body {
   --ons-color-text-light: var(--muted);
   --ons-color-borders: var(--muted);
 }
+
 a {
   color: var(--link, --ons-color-text-link);
 }
+
 a:hover {
   text-decoration: underline solid var(--link-hover, --ons-color-text-link-hover) 2px;
 }
+
 a:hover {
   color: var(--link-hover, --ons-color-text-link-hover);
 }
+
 .form-label-bold {
   color: var(--text, #222);
 }
+
 .form-control {
   background: none;
   border-color: var(--text, #222);
@@ -52,6 +58,15 @@ a:hover {
   margin: 0;
   padding: 0;
 }
+
 .ons-font-weight__normal {
   font-weight: normal;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: "OpenSans", "Helvetica Neue", arial, sans-serif;
 }

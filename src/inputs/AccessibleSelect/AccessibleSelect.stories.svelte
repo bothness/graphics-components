@@ -6,17 +6,6 @@
   import AccessibleSelect from "./AccessibleSelect.svelte";
   import { withComponentDocs } from "../../js/withParams.js";
   import options from "./options.js";
-
-  let searchValue;
-  let dropdownValue;
-
-  let multiSelected = [];
-
-  function multiSelect(option, mode = "add") {
-    if (mode === "add" && option && !multiSelected.includes(option))
-      multiSelected = [...multiSelected, option];
-    else if (mode === "remove" && option) multiSelected = multiSelected.filter((d) => d !== option);
-  }
 </script>
 
 <Meta
@@ -32,18 +21,22 @@
 />
 
 <Template let:args>
-  <AccessibleSelect
-    id="search"
-    label="Find an option"
-    mode="search"
-    options="{options}"
-    bind:value="{searchValue}"
-  />
+  <div style:padding="12px 12px 128px 12px">
+    <AccessibleSelect {...args} />
+  </div>
 </Template>
 
-<Story name="Search mode" args="{{ id: 'search', label: 'Find an option', groupKey: 'group' }}" />
+<Story
+  name="Default"
+  args="{{ id: 'default', label: 'Select an option', groupKey: 'group', options }}"
+/>
 
-<Story name="Dropdown mode">
+<Story
+  name="Search"
+  args="{{ id: 'search', mode: 'search', label: 'Find an option', groupKey: 'group', options }}"
+/>
+
+<!-- <Story name="Dropdown mode">
   <AccessibleSelect
     id="dropdown"
     mode="dropdown"
@@ -72,4 +65,4 @@
       >
     {/each}
   </p>
-</Story>
+</Story> -->
