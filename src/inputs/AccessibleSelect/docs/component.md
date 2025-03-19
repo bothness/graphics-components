@@ -21,3 +21,4 @@ This component is a Svelte wrapper for the GOV.UK [accessible-autocomplete](http
 </script>
 
 <AccessibleSelect {options} bind:value on:change="{handleChange}" />
+```

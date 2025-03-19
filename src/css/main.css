@@ -1,6 +1,6 @@
 @import url("https://cdn.ons.gov.uk/sdc/design-system/72.0.0/css/main.css");
 @import url("https://cdn.ons.gov.uk/dp-design-system/cc82c54/css/main.css");
-@import url("https://github.com/alphagov/accessible-autocomplete/blob/main/dist/accessible-autocomplete.min.css");
+@import url("https://cdn.jsdelivr.net/npm/accessible-autocomplete@3.0.1/dist/accessible-autocomplete.min.css");
 
 /* Overrides */
 .ons-page__content {
