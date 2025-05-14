@@ -52,16 +52,46 @@
     return -1 < document.cookie.indexOf("cookies_preferences_set=true");
   }
 
+  // extractValue extracts the value from a undecodeable json cookie string
+  function extractValue(key, extractionString) {
+    const extractionRegex = new RegExp(`'${key}':(.*?)[,}]`);
+    const match = extractionString.match(extractionRegex);
+    if (match) {
+      return match[1];
+    }
+
+    return null;
+  }
+
   // Check if usage cookies are allowed (for Google Analytics + Hotjar)
+  // note: this ported function returns the inverse truth value to the dp-renderer code that it's based on
+  // ----------------------
+  // getUsageCookieValue reads the legacy cookies_policy and ons_cookies_policy to determine the user's usage preference.
+  // The legacy policy takes precedence over the new policy. When no policy is found, the user is opted out by default.
   function getUsageCookieValue() {
-    var cookiesPolicyCookie = document.cookie.match(
+    // TODO: this is the legacy cookie (cookies_policy) handling and will be removed in due course
+    var legacyPolicyCookie = document.cookie.match(
       new RegExp("(^|;) ?cookies_policy=([^;]*)(;|$)")
     );
-    if (cookiesPolicyCookie) {
-      var decodedCookie = decodeURIComponent(cookiesPolicyCookie[2]);
+    if (legacyPolicyCookie) {
+      console.debug("legacy cookies_policy found");
+      var decodedCookie = decodeURIComponent(legacyPolicyCookie[2]);
       var cookieValue = JSON.parse(decodedCookie);
+      console.debug("usage is", cookieValue.usage);
       return cookieValue.usage;
     }
+
+    // ons_cookie_policy handler
+    var policyCookie = document.cookie.match("(?:^|; )ons_cookie_policy=({.*?})");
+    if (policyCookie) {
+      console.debug("ons_cookie_policy found");
+
+      var usageValue = extractValue("usage", policyCookie[1]);
+      console.debug("usage is", usageValue);
+
+      return usageValue === "true";
+    }
+    console.debug("no cookie found - opting out");
     return false;
   }
 
