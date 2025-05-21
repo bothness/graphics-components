@@ -70,7 +70,7 @@
    * Optional: Minimum query length to return results
    * @type {number}
    */
-  export let minLength = mode === "search" ? 3 : 1;
+  export let minLength = mode === "search" ? 1 : 0;
   /**
    * Optional: Override function for loading/filtering options based on the entered text
    * @type {function}

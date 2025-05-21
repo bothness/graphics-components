@@ -26,49 +26,29 @@
   </div>
 </Template>
 
+<Story name="Default" args="{{ id: 'default', label: 'Select an option', options }}" />
+
 <Story
-  name="Default"
-  args="{{ id: 'default', label: 'Select an option', groupKey: 'group', options }}"
+  name="Hidden label"
+  args="{{ id: 'hidden-label', label: 'Select an option', hideLabel: true, options }}"
 />
 
 <Story
-  name="Search"
+  name="Search mode"
   args="{{
     id: 'search',
     mode: 'search',
     label: 'Type to select',
-    groupKey: 'group',
     options,
   }}"
 />
 
-<!-- <Story name="Dropdown mode">
-  <AccessibleSelect
-    id="dropdown"
-    mode="dropdown"
-    options="{options}"
-    bind:value="{dropdownValue}"
-  />
-  <p>
-    Selected option:
-    {dropdownValue ? JSON.stringify(dropdownValue) : ""}
-  </p>
-</Story>
-
-<Story name="Multi-select">
-  <AccessibleSelect
-    id="multi"
-    options="{options}"
-    autoClear
-    on:change="{(e) => multiSelect(e.detail)}"
-  />
-
-  <p>
-    Selected options:
-    {#each multiSelected as option}
-      <button class="selected-option" on:click="{() => multiSelect(option, 'remove')}"
-        >&#10005; {option.label}</button
-      >
-    {/each}
-  </p>
-</Story> -->
+<Story
+  name="Options with group as suffix"
+  args="{{
+    id: 'group-suffix',
+    label: 'Select an option',
+    groupKey: 'group',
+    options,
+  }}"
+/>
