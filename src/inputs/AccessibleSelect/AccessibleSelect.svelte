@@ -47,7 +47,7 @@
    */
   export let placeholder = mode === "search" ? "Enter text" : "Select one";
   /**
-   * A prop to bind to for the selected value (will be an array for multi-select)
+   * A prop to bind to for the selected value
    * @type {object}
    */
   export let value = null;
@@ -93,7 +93,6 @@
   }
 
   function highlight(text, query = "") {
-    console.log(query);
     return text.replace(
       new RegExp(`\\b${query.replace(/[^\w\s]/gi, "")}`, "i"),
       (str) => `<b>${str}</b>`
@@ -101,19 +100,18 @@
   }
 
   function suggestionTemplate(result) {
-    const query = inputElement.value || "";
+    const query = inputElement?.value || "";
     return (
       result &&
       (groupKey
-        ? `${highlight(result[labelKey], query)} <span class="muted-text">${
+        ? `${highlight(result?.[labelKey] || "", query)} <span class="muted-text">${
             result[groupKey]
           }</span>`
-        : highlight(result[labelKey], query))
+        : highlight(result?.[labelKey] || "", query))
     );
   }
 
   async function select(option) {
-    console.log(option);
     value = option;
     dispatch("change", value);
     if (value && autoClear) {
@@ -148,6 +146,7 @@
       id,
       name: `${id}-input`,
       source: loadOptions,
+      defaultValue: value?.[labelKey] || "",
       autoselect: true,
       onConfirm: select,
       confirmOnBlur: false,

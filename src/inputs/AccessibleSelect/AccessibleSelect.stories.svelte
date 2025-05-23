@@ -26,7 +26,10 @@
   </div>
 </Template>
 
-<Story name="Default" args="{{ id: 'default', label: 'Select an option', options }}" />
+<Story
+  name="Default"
+  args="{{ id: 'default', value: options[0], label: 'Select an option', options }}"
+/>
 
 <Story
   name="Hidden label"
