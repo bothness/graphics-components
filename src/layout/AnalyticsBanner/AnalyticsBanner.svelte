@@ -49,7 +49,7 @@
   let baseurl = "//www.ons.gov.uk";
 
   function hasCookiesPreferencesSet() {
-    return -1 < document.cookie.indexOf("cookies_preferences_set=true");
+    return -1 < document.cookie.indexOf("ons_cookie_preferences_set=true");
   }
 
   // extractValue extracts the value from a undecodeable json cookie string
@@ -100,13 +100,13 @@
     let oneYearInSeconds = 60 * 60 * 24 * 365;
     let cookiesDomain = window.location.hostname;
     let cookiesPreference = !0;
-    let encodedCookiesPolicy = `%7B%22essential%22%3Atrue%2C%22usage%22%3A${
-      option == "all" ? "true" : "false"
-    }%7D`;
+    let acceptAllCookiesPolicy = `{'essential':true,'settings':true,'usage':true,'campaigns':true}`;
+    let rejectAllCookiesPolicy = `{'essential':true,'settings':false,'usage':false,'campaigns':false}`;
+    let cookiesPolicy = option == "all" ? acceptAllCookiesPolicy : rejectAllCookiesPolicy;
     let cookiesPath = "/";
 
-    document.cookie = `cookies_preferences_set=${cookiesPreference};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath};`;
-    document.cookie = `cookies_policy=${encodedCookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath};`;
+    document.cookie = `ons_cookie_message_displayed=${cookiesPreference};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath};`;
+    document.cookie = `ons_cookies_policy=${cookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath};`;
 
     message = `You have ${option == "all" ? "accepted" : "rejected"} all additional cookies.`;
     if (option == "all") usageCookies = true;
