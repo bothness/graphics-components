@@ -133,6 +133,7 @@
     inputElement.focus({ preventScroll: true });
     inputElement.blur();
     hideMenu = false;
+    dispatch("clear", value);
   }
 
   function handleScriptLoad() {
