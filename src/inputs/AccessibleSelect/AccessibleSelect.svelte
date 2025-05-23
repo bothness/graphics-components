@@ -130,7 +130,7 @@
     hideMenu = true;
     inputElement.value = "";
     await sleep(110);
-    inputElement.focus();
+    inputElement.focus({ preventScroll: true });
     inputElement.blur();
     hideMenu = false;
   }
