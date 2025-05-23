@@ -182,6 +182,7 @@
       ></div>
       {#if clearable && !autoClear && value}
         <button
+          type="reset"
           title="Clear selection"
           aria-label="Clear selection"
           on:click="{clearInput}"
