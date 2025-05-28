@@ -184,6 +184,7 @@
     "change your cookie preferences": "newid eich dewisiadau o ran cwcis",
     "at any time.": "ar unrhyw adeg.",
     Hide: "Cuddio",
+    "Hide this message": "Cuddio'r neges hon",
   };
   const i18n = (text) => (lang == "cy" && texts[text] ? texts[text] : text);
 </script>
@@ -280,6 +281,7 @@
             <button
               type="button"
               class="ons-btn ons-btn--secondary ons-btn--small ons-js-hide-button"
+              aria-label="{i18n('Hide this message')}"
               on:click="{() => (showBanner = false)}"
             >
               <span class="ons-btn__inner"><span class="ons-btn__text">{i18n("Hide")}</span> </span>
