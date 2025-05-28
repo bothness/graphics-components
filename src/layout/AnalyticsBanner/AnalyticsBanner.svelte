@@ -184,7 +184,7 @@
     "change your cookie preferences": "newid eich dewisiadau o ran cwcis",
     "at any time.": "ar unrhyw adeg.",
     Hide: "Cuddio",
-    "Hide this message": "Cuddio'r neges hon",
+    "Hide this message": "Cuddiwch y neges yma",
   };
   const i18n = (text) => (lang == "cy" && texts[text] ? texts[text] : text);
 </script>
