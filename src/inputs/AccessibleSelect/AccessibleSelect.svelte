@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
   const sleep = (ms = 1000) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -137,8 +137,10 @@
   }
 
   function handleScriptLoad() {
-    accessibleAutocomplete = window?.accessibleAutocomplete;
-    scriptLoaded = true;
+    if (!scriptLoaded && window?.accessibleAutocomplete) {
+      accessibleAutocomplete = window.accessibleAutocomplete;
+      scriptLoaded = true;
+    }
   }
 
   function initAutocomplete(element) {
@@ -164,6 +166,8 @@
     inputElement = document.getElementById(id);
     inputElement.addEventListener("blur", inputChange);
   }
+
+  onMount(handleScriptLoad);
 </script>
 
 <svelte:head>
