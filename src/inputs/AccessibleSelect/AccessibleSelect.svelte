@@ -1,4 +1,6 @@
 <script>
+  // @ts-nocheck
+
   import { onMount, createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
@@ -88,6 +90,22 @@
   export let scriptUrl =
     "https://cdn.ons.gov.uk/vendor/accessible-autocomplete/3.0.1/accessible-autocomplete.min.js";
 
+  // This clearing method is a bit of a hack, but no better options available at present
+  // https://github.com/alphagov/accessible-autocomplete/issues/390
+  /**
+   * Call this function externally to clear the input
+   * @type {function}
+   */
+  export async function clearInput() {
+    hideMenu = true;
+    inputElement.value = "";
+    await sleep(110);
+    inputElement.focus({ preventScroll: true });
+    inputElement.blur();
+    hideMenu = false;
+    dispatch("clear", value);
+  }
+
   function inputValueTemplate(result) {
     return result && result[labelKey];
   }
@@ -122,18 +140,6 @@
 
   function inputChange(e) {
     if (!e.target.value) select(null);
-  }
-
-  // This clearing method is a bit of a hack, but no better options available at present
-  // https://github.com/alphagov/accessible-autocomplete/issues/390
-  async function clearInput() {
-    hideMenu = true;
-    inputElement.value = "";
-    await sleep(110);
-    inputElement.focus({ preventScroll: true });
-    inputElement.blur();
-    hideMenu = false;
-    dispatch("clear", value);
   }
 
   function handleScriptLoad() {
