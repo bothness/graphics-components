@@ -19,6 +19,7 @@ body {
   --link-hover: #003c57;
   background: var(--background, #fff);
   height: auto;
+  font-size: 18px; /* Override for apparent bug in design system CSS */
 }
 .theme-wrapper {
   color: var(--text);
