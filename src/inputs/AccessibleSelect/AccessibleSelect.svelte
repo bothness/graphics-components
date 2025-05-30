@@ -78,9 +78,12 @@
    * @type {function}
    */
   export let loadOptions = (query, populateResults) => {
-    const filteredResults = options.filter((opt) =>
-      opt[labelKey].match(new RegExp(`\\b${query.replace(/[^\w\s]/gi, "")}`, "i"))
-    );
+    const filteredResults =
+      mode !== "search" && options.map((opt) => opt[labelKey]).includes(query)
+        ? options
+        : options.filter((opt) =>
+            opt[labelKey].match(new RegExp(`\\b${query.replace(/[^\w\s]/gi, "")}`, "i"))
+          );
     populateResults(filteredResults);
   };
   /**
