@@ -49,7 +49,7 @@
   let baseurl = "//www.ons.gov.uk";
 
   function hasCookiesPreferencesSet() {
-    return -1 < document.cookie.indexOf("ons_cookie_preferences_set=true");
+    return -1 < document.cookie.indexOf("ons_cookie_message_displayed=true");
   }
 
   // extractValue extracts the value from a undecodeable json cookie string
