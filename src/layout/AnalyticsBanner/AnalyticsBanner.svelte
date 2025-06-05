@@ -66,7 +66,7 @@
   // Check if usage cookies are allowed (for Google Analytics + Hotjar)
   // note: this ported function returns the inverse truth value to the dp-renderer code that it's based on
   // ----------------------
-  // getUsageCookieValue reads the legacy cookies_policy and ons_cookies_policy to determine the user's usage preference.
+  // getUsageCookieValue reads the legacy cookies_policy and ons_cookie_policy to determine the user's usage preference.
   // The legacy policy takes precedence over the new policy. When no policy is found, the user is opted out by default.
   function getUsageCookieValue() {
     // TODO: this is the legacy cookie (cookies_policy) handling and will be removed in due course
@@ -106,7 +106,7 @@
     let cookiesPath = "/";
 
     document.cookie = `ons_cookie_message_displayed=${cookiesPreference};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath};`;
-    document.cookie = `ons_cookies_policy=${cookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath};`;
+    document.cookie = `ons_cookie_policy=${cookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath};`;
 
     message = `You have ${option == "all" ? "accepted" : "rejected"} all additional cookies.`;
     if (option == "all") usageCookies = true;
