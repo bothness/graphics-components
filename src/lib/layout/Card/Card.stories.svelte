@@ -27,7 +27,7 @@
 
 <Story name="Cards with links" args={{ href: "#0" }} {template} />
 
-<Story name="Featured cards" args={{ mode: "featured" }} {template} />
+<Story name="Featured cards with baseline" args={{ mode: "featured", baseline: true }} {template} />
 
 <Story
 	name="Featured cards with image"

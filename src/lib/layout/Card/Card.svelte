@@ -32,6 +32,11 @@
 	 */
 	export let mode = "default";
 	/**
+	 * Include a border at the bottom of the card
+	 * @type {boolean}
+	 */
+	export let baseline = false;
+	/**
 	 * Optional: URL for title/image link
 	 * @type {string}
 	 */
@@ -58,9 +63,10 @@
 		class="ons-card ons-u-mb-no {cls}"
 		class:ons-card--feature={mode === "featured"}
 		class:ons-u-p-l={mode === "featured"}
+		class:ons-card--baseline={baseline}
 	>
 		{#if href}
-			<a href="#0" class="ons-card__link">
+			<a {href} class="ons-card__link">
 				<slot name="image">
 					{#if image}
 						<img
@@ -116,5 +122,8 @@
 	}
 	.ons-card > :global(p:last-of-type) {
 		margin-bottom: 0;
+	}
+	.ons-card--baseline {
+		border-bottom: 2px solid var(--ons-color-borders-light);
 	}
 </style>
