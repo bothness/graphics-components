@@ -1,6 +1,6 @@
 {
 	"name": "@onsvisual/svelte-components",
-	"version": "1.0.0-next.2",
+	"version": "1.0.0-next.3",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "npm run build:package && npm run build:docs",
@@ -33,7 +33,8 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
-		}
+		},
+		"./css/main.css": "./dist/css/main.css"
 	},
 	"peerDependencies": {
 		"parse-color": "^1.0.0",
