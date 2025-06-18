@@ -17,6 +17,11 @@
 	 * @type {boolean}
 	 */
 	export let marginBottom = true;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	let href = "";
 	let pageTitle = "";
@@ -27,7 +32,7 @@
 	});
 </script>
 
-<Container width="wide" {marginTop} {marginBottom}>
+<Container width="wide" {marginTop} {marginBottom} {cls}>
 	<h2 class="ons-u-fs-r--b ons-u-mb-2xs">{title}</h2>
 	<ul class="ons-list ons-list--inline ons-list--icons">
 		<li class="ons-list__item">

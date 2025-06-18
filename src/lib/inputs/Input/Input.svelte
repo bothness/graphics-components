@@ -68,9 +68,14 @@
 	 * @type {boolean}
 	 */
 	export let error = false;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<div class="ons-field">
+<div class="ons-field {cls}">
 	{#if label}
 		<label
 			class="ons-label"

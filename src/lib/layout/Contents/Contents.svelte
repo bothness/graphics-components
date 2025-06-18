@@ -19,9 +19,14 @@
 	 * @type {string}
 	 */
 	export let skipHref = "";
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<aside class="ons-table-of-contents-container" role="complementary">
+<aside class="ons-table-of-contents-container {cls}" role="complementary">
 	{#if skipHref}
 		<a class="ons-skip-to-content" href="#0">Skip to guide content</a>
 	{/if}

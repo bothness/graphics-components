@@ -18,6 +18,11 @@
 	 * @type {boolean}
 	 */
 	export let open = false;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	function doToggle(e) {
 		dispatch("toggle", { open: e.newState === "open", e });
@@ -25,7 +30,7 @@
 </script>
 
 <details
-	class="ons-details ons-js-details ons-details--initialised"
+	class="ons-details ons-js-details ons-details--initialised {cls}"
 	class:ons-details--open={open}
 	bind:open
 	on:toggle={doToggle}

@@ -136,6 +136,11 @@
 	 * @type {boolean}
 	 */
 	export let visible = false;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	const sections = writable([]);
 	setContext("sections", sections);
@@ -251,7 +256,7 @@
 	<div class="ons-u-mt-xl"></div>
 {/if}
 
-<svelte-scroller-outer {id} bind:this={outer} class:splitscreen>
+<svelte-scroller-outer {id} bind:this={outer} class={cls} class:splitscreen>
 	<svelte-scroller-background-container class="background-container" style="{style}{widthStyle}">
 		<svelte-scroller-background bind:this={background}>
 			<slot name="background" />

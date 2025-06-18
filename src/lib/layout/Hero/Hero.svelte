@@ -56,6 +56,11 @@
 	 */
 	export let height = null;
 	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
+	/**
 	 * Sets a predefined theme
 	 * @type {"light"|"dark"|"blue"|"paleblue"|"navyblue"|"grey"|null}
 	 */
@@ -74,7 +79,7 @@
 
 <Theme theme={theme === "blue" ? null : theme} overrides={themeOverrides} {background}>
 	<section
-		class="ons-hero"
+		class="ons-hero {cls}"
 		class:ons-hero--pale-blue={theme === "paleblue"}
 		class:ons-hero--navy-blue={theme === "navyblue"}
 		class:ons-hero--dark={theme === "blue"}

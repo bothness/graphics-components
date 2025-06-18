@@ -11,9 +11,14 @@
 	 * @type {object[]}
 	 */
 	export let items = [];
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<div aria-labelledby="alert" role="alert" tabindex="-1" class="ons-panel ons-panel--error">
+<div aria-labelledby="alert" role="alert" tabindex="-1" class="ons-panel ons-panel--error {cls}">
 	<div class="ons-panel__header">
 		<h2 id="alert" data-qa="error-header" class="ons-panel__title ons-u-fs-r--b">{title}</h2>
 	</div>

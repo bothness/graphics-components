@@ -14,10 +14,15 @@
 	 * @type {"default"|"inline"}
 	 */
 	export let mode = "default";
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
 <dl
-	class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless ons-u-mb-no {mode ===
+	class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless ons-u-mb-no {cls} {mode ===
 	'inline'
 		? 'ons-u-mt-s ons-u-mt-l@l'
 		: 'ons-u-cf'}"

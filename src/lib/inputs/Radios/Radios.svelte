@@ -35,9 +35,14 @@
 	 * @type {boolean}
 	 */
 	export let compact = false;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<fieldset class="ons-fieldset">
+<fieldset class="ons-fieldset {cls}">
 	{#if title}
 		<legend class="ons-fieldset__legend ons-u-mb-no">
 			<span class="ons-fieldset__legend-title ons-u-pb-no" class:ons-u-vh={hideTitle}>{title}</span>

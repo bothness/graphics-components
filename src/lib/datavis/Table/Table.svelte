@@ -39,12 +39,18 @@
 		Array.isArray(data) && data[0] ? Object.keys(data[0]).map((key) => ({ key, label: key })) : [];
 	let _data = [...data];
 	let sort = columns.map((c) => "none");
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	$: sortable = columns.map((d) => d.sortable).includes(true);
 	$: formatters = columns.map((d) => formatter(d.dp));
 </script>
 
 <div
+	class={cls}
 	style:overflow={typeof height === "number" ? "auto" : null}
 	style:height={typeof height === "number" ? `${height}px` : null}
 	style:display={typeof height !== "number" ? "contents" : null}

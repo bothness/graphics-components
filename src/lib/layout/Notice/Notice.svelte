@@ -4,10 +4,15 @@
 	 * @type {"info"|"success"|"error"|"warning"}
 	 */
 	export let mode = "info";
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
 <div
-	class="ons-panel ons-panel--no-title"
+	class="ons-panel ons-panel--no-title {cls}"
 	class:ons-panel--info={mode === "info"}
 	class:ons-panel--warn={mode === "warning"}
 	class:ons-panel--error={mode === "error"}

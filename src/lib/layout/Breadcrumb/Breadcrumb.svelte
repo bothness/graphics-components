@@ -17,6 +17,11 @@
 	 */
 	export let width = "wide";
 	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
+	/**
 	 * Overrides the base theme background (accepts any valid CSS background value)
 	 * @type {string|null}
 	 */
@@ -24,7 +29,7 @@
 </script>
 
 <Container {width} {background}>
-	<nav class="ons-breadcrumbs" aria-label="Breadcrumbs">
+	<nav class="ons-breadcrumbs {cls}" aria-label="Breadcrumbs">
 		<ol class="ons-breadcrumbs__items ons-u-fs-s">
 			{#each backHref ? [{ label: "Back", href: backHref }] : links as link}
 				<li class="ons-breadcrumbs__item">

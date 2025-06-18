@@ -27,7 +27,7 @@
 	 */
 	export let allowClientOverrides = false;
 	/**
-	 * Optional: Set a CSS class for the theme container
+	 * Optional: Set an additional CSS class for the theme container
 	 * @type {string}
 	 */
 	export let cls = "";

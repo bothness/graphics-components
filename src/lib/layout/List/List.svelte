@@ -11,10 +11,15 @@
 	 * @type {string[]|null}
 	 */
 	export let items = null;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
 {#if mode === "number"}
-	<ol class="ons-list">
+	<ol class="ons-list {cls}">
 		<slot>
 			{#if items}
 				{#each items as item}

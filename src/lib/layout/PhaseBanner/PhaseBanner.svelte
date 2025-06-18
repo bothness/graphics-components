@@ -9,9 +9,14 @@
 	 * @type {string}
 	 */
 	export let href = "https://www.ons.gov.uk/feedback";
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<div class="ons-phase-banner">
+<div class="ons-phase-banner {cls}">
 	<div class="ons-container">
 		<div
 			class="ons-grid ons-grid-flex ons-grid--gutterless ons-grid-flex--vertical-center ons-grid-flex--no-wrap"

@@ -14,9 +14,14 @@
 	 * @type {string}
 	 */
 	export let caption = "";
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<figure class="ons-image">
+<figure class="ons-image {cls}">
 	<img class="ons-image__img" {src} {alt} />
 	{#if caption}
 		<figcaption class="ons-image__caption">{caption}</figcaption>

@@ -53,6 +53,11 @@
 	 * @type {boolean}
 	 */
 	export let compact = false;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	const checkboxes = getContext("checkboxes");
 
@@ -96,7 +101,7 @@
 </script>
 
 <span
-	class="ons-checkboxes__item"
+	class="ons-checkboxes__item {cls}"
 	class:ons-checkboxes__item--ghost={variant === "ghost"}
 	class:ons-checkboxes__item--no-border={compact}
 >

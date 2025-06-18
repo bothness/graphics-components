@@ -43,11 +43,16 @@
 	 * @type {number}
 	 */
 	export let width = 30;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	$: remaining = charLimit && value.length ? charLimit - value.length : charLimit || null;
 </script>
 
-<div class="ons-field">
+<div class="ons-field {cls}">
 	{#if label}
 		<label
 			class="ons-label ons-label--with-description"

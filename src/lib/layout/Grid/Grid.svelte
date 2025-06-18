@@ -8,7 +8,7 @@
 	 */
 	export let id = "";
 	/**
-	 * Optional: Set a CSS class for the component
+	 * Optional: Set an additional CSS class for the component
 	 * @type {string}
 	 */
 	export let cls = "";

@@ -14,9 +14,14 @@
 	 * @type {object[]}
 	 */
 	export let related = [{ title, links }];
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<aside class="ons-related-content" aria-label="Related content">
+<aside class="ons-related-content {cls}" aria-label="Related content">
 	<slot />
 	{#each related as section}
 		<div class="ons-related-content__section">

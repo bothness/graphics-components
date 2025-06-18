@@ -33,9 +33,14 @@
 	 * @type {object[]}
 	 */
 	export let options = [];
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<div class="ons-field">
+<div class="ons-field {cls}">
 	{#if label}
 		<label class="ons-label" for={id} class:ons-u-vh={hideLabel}>{label}</label>
 	{/if}

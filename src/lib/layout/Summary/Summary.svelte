@@ -18,13 +18,18 @@
 	 * @type {object[]}
 	 */
 	export let items = [];
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	function handleChange(item) {
 		dispatch("change", { item });
 	}
 </script>
 
-<div class="ons-summary">
+<div class="ons-summary {cls}">
 	<div {id} class="ons-summary__group">
 		{#if title}<h2 class="ons-summary__group-title">{title}</h2>{/if}
 		<dl class="ons-summary__items">

@@ -36,9 +36,14 @@
 	 * @type {string}
 	 */
 	export let source = "";
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<Card {title} {href} mode="featured">
+<Card {title} {href} mode="featured" {cls}>
 	{#if value}
 		<p class="headline-figures__figure ons-u-fs-3xl ons-u-fs-2xl@m">{value}</p>
 	{/if}

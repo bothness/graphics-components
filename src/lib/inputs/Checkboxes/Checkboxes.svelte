@@ -30,12 +30,17 @@
 	 * @type {object[]}
 	 */
 	export let value = [];
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	const checkboxes = writable([]);
 	setContext("checkboxes", checkboxes);
 </script>
 
-<fieldset class="ons-fieldset">
+<fieldset class="ons-fieldset {cls}">
 	{#if title}
 		<legend class="ons-fieldset__legend ons-u-mb-no">
 			<span class="ons-fieldset__legend-title ons-u-pb-no" class:ons-u-vh={hideTitle}>{title}</span>

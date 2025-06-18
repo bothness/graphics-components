@@ -20,6 +20,11 @@
 	 * @type {string|null}
 	 */
 	export let selected = null;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	let el;
 
@@ -39,7 +44,7 @@
 </script>
 
 <section
-	class="ons-tabs"
+	class="ons-tabs {cls}"
 	class:ons-tabs__border={border}
 	class:ons-tabs__compact={compact}
 	bind:this={el}

@@ -14,7 +14,7 @@
 	 */
 	export let id = slugify(title);
 	/**
-	 * Optional: Set a CSS class for the section
+	 * Optional: Set an additional CSS class for the section
 	 * @type {string}
 	 */
 	export let cls = "";

@@ -7,7 +7,7 @@
 	 */
 	export let id = "";
 	/**
-	 * Optional: Set a CSS class for the container
+	 * Optional: Set an additional CSS class for the container
 	 * @type {string}
 	 */
 	export let cls = "";

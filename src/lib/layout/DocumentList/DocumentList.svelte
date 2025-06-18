@@ -5,9 +5,14 @@
 	 * @type {object[]|null}
 	 */
 	export let items = null;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<ul class="ons-document-list">
+<ul class="ons-document-list {cls}">
 	<slot />
 	{#if Array.isArray(items)}
 		{#each items as item}

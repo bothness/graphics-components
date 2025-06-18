@@ -54,6 +54,11 @@
 	 * @type {string}
 	 */
 	export let download = "";
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
 {#if href}
@@ -61,7 +66,7 @@
 		href={!disabled ? href : null}
 		role="button"
 		{download}
-		class="ons-btn ons-btn--link ons-js-submit-btn"
+		class="ons-btn ons-btn--link ons-js-submit-btn {cls}"
 		class:ons-btn--small={small}
 		class:ons-btn--secondary={variant === "secondary"}
 		class:ons-btn--ghost={variant === "ghost"}
@@ -91,7 +96,7 @@
 {:else}
 	<button
 		{type}
-		class="ons-btn"
+		class="ons-btn {cls}"
 		class:ons-btn--small={small}
 		class:ons-btn--secondary={variant === "secondary"}
 		class:ons-btn--ghost={variant === "ghost"}

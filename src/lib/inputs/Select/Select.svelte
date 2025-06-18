@@ -108,6 +108,11 @@
 		hideMenu = false;
 		dispatch("clear", value);
 	}
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	function inputValueTemplate(result) {
 		return result && result[labelKey];
@@ -183,7 +188,7 @@
 	<script src={scriptUrl} on:load={handleScriptLoad}></script>
 </svelte:head>
 
-<div class="ons-field">
+<div class="ons-field {cls}">
 	{#if label}<label for={id} class="ons-label" class:ons-u-vh={hideLabel}>{label}</label>{/if}
 	<div class="ons-autocomplete-wrapper">
 		{#if scriptLoaded}
