@@ -17,12 +17,12 @@
 	 */
 	export let mode = "dark";
 	/**
-	 * Optional margin above section
+	 * Adds margin above section
 	 * @type {boolean}
 	 */
 	export let marginTop = !!hr;
 	/**
-	 * Optional margin below section
+	 * Adds margin below section
 	 * @type {boolean}
 	 */
 	export let marginBottom = true;

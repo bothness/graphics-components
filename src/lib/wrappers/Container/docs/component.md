@@ -1,4 +1,6 @@
-A container to set the width, minimum height and theme of a block of content.
+A container to set the width and minimum height of a block of content.
+
+Note that the this component includes the `<Theme>` component internally, allowing colour themes to be applied directly without adding an additional wrapper around it.
 
 <!-- prettier-ignore -->
 ```html
@@ -6,5 +8,5 @@ A container to set the width, minimum height and theme of a block of content.
   import { Container } from "@onsvisual/svelte-components";
 </script>
 
-<Container width="{narrow|medium|wide|full}"> {child_components} </Container>
+<Container width="{narrow|medium|wide|wider|full}" theme="light">{child_components}</Container>
 ```

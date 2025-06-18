@@ -33,12 +33,12 @@
 	 */
 	export let caption = "";
 	/**
-	 * Optional margin above section
+	 * Adds margin above section
 	 * @type {boolean}
 	 */
 	export let marginTop = false;
 	/**
-	 * Optional margin below section
+	 * Adds margin below section
 	 * @type {boolean}
 	 */
 	export let marginBottom = true;

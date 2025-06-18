@@ -47,14 +47,14 @@
 </script>
 
 <svelte:head>
-	{#if global}
+	{#if global && (style || background)}
 		{@html "<st" +
 			`yle>:root{${style}background:${background || "var(--ons-color-page-light)"};color:var(--ons-color-text);</st` +
 			"yle>"}
 	{/if}
 </svelte:head>
 
-{#if global || (!theme && !background)}
+{#if global || !(theme || background)}
 	<slot />
 {:else}
 	<div class="ons-svelte-theme-wrapper {cls}" {style} style:background>
