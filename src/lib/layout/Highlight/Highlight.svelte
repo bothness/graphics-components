@@ -1,5 +1,4 @@
 <script>
-	import Theme from "$lib/wrappers/Theme/Theme.svelte";
 	import Container from "$lib/wrappers/Container/Container.svelte";
 
 	/**
@@ -54,23 +53,17 @@
 	export let marginBottom = true;
 </script>
 
-<Theme {theme} overrides={themeOverrides} {background}>
-	<Container {id} {cls} {width} {marginTop} {marginBottom}>
-		<section
-			class="ons-section__highlight ons-u-mt-xl ons-u-mb-xl"
-			class:ons-u-fs-l={bigText}
-			style:height={typeof height === "number"
-				? `${height}px`
-				: height === "full"
-					? "100vh"
-					: height}
-		>
-			<div>
-				<slot />
-			</div>
-		</section>
-	</Container>
-</Theme>
+<Container {id} {cls} {width} {marginTop} {marginBottom} {theme} {themeOverrides} {background}>
+	<section
+		class="ons-section__highlight ons-u-mt-xl ons-u-mb-xl"
+		class:ons-u-fs-l={bigText}
+		style:height={typeof height === "number" ? `${height}px` : height === "full" ? "100vh" : height}
+	>
+		<div>
+			<slot />
+		</div>
+	</section>
+</Container>
 
 <style>
 	.ons-section__highlight {
