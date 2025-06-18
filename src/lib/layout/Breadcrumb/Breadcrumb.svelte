@@ -16,9 +16,14 @@
 	 * @type {"narrow"|"medium"|"wide"|"wider"|"full"}
 	 */
 	export let width = "wide";
+	/**
+	 * Overrides the base theme background (accepts any valid CSS background value)
+	 * @type {string|null}
+	 */
+	export let background = null;
 </script>
 
-<Container {width}>
+<Container {width} {background}>
 	<nav class="ons-breadcrumbs" aria-label="Breadcrumbs">
 		<ol class="ons-breadcrumbs__items ons-u-fs-s">
 			{#each backHref ? [{ label: "Back", href: backHref }] : links as link}
