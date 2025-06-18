@@ -47,14 +47,21 @@ npm install @onsvisual/svelte-components --save-dev
 
 ## Using the components
 
-Checkout the [guides](?path=/docs/guides-using-these-docs--page), or dive straight into the docs to start using components.
+When using the components, you need to import both the desired component and the global CSS styles. In a SvelteKit project it is best to import the CSS in a top-level **+layout.svelte** file in your **src/routes** folder, which will apply it to all pages/components in the project.
 
 {/* prettier-ignore */}
 ```html
+<!-- +layout.svelte -->
 <script>
   import "@onsvisual/svelte-components/css/main.css";
+</script>
+
+<slot/>
+
+<!-- +page.svelte / Component.svelte -->
+<script>
   import { Section } from "@onsvisual/svelte-components";
 </script>
 
-<Section title="Hello world!">This is my first ONS Svelte component.</Section>
+<Section title="Hello world!">I am using an ONS Svelte component.</Section>
 ```
