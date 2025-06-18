@@ -30,7 +30,8 @@
 		width: "narrow",
 		title: "Page title",
 		lede: lipsum(1),
-		actionButton: { label: "Get started", href: "#0" }
+		actionButton: { label: "Get started", href: "#0" },
+		theme: "paleblue"
 	}}
 	{template}
 />

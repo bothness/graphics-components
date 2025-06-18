@@ -57,9 +57,9 @@
 	export let height = null;
 	/**
 	 * Sets a predefined theme
-	 * @type {"default"|"light"|"dark"|"blue"|"paleblue"|"navyblue"|"grey"|null}
+	 * @type {"light"|"dark"|"blue"|"paleblue"|"navyblue"|"grey"|null}
 	 */
-	export let theme = "default";
+	export let theme = null;
 	/**
 	 * Define additional props to override the base theme
 	 * @type {object}
@@ -72,11 +72,7 @@
 	export let background = null;
 </script>
 
-<Theme
-	theme={theme === "light" ? "light" : theme === "dark" ? "dark" : null}
-	overrides={themeOverrides}
-	{background}
->
+<Theme theme={theme === "blue" ? null : theme} overrides={themeOverrides} {background}>
 	<section
 		class="ons-hero"
 		class:ons-hero--pale-blue={theme === "paleblue"}

@@ -3,7 +3,7 @@
 
 	/**
 	 * Sets a base theme ("light", "dark" or null for no theme)
-	 * @type {"light"|"dark"|"paleblue"|"blue"|"navyblue"|null}
+	 * @type {"light"|"dark"|"paleblue"|"blue"|"navyblue"|"grey"|null}
 	 */
 	export let theme = null;
 	/**

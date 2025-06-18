@@ -65,5 +65,6 @@ const dark = {
 const paleblue = { ...light, "--ons-color-page-light": "--ons-color-ocean-blue-tint" };
 const blue = { ...dark, "--ons-color-page-light": "--ons-color-ocean-blue" };
 const navyblue = { ...dark, "--ons-color-page-light": "--ons-color-night-blue" };
+const grey = { ...light, "--ons-color-page-light": "--ons-color-grey-5" };
 
-export default { light, dark, paleblue, blue, navyblue };
+export default { light, dark, paleblue, blue, navyblue, grey };

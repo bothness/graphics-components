@@ -22,7 +22,7 @@
 	export let titleHref = "";
 	/**
 	 * Sets a predefined theme
-	 * @type {"light"|"dark"|"paleblue"|"blue"|"navyblue"|null}
+	 * @type {"light"|"dark"|"paleblue"|"blue"|"navyblue"|"grey"|null}
 	 */
 	export let theme = null;
 	/**
