@@ -17,6 +17,11 @@
 	 * @type {boolean}
 	 */
 	export let hideTitle = false;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 
 	let section;
 
@@ -35,7 +40,7 @@
 	});
 </script>
 
-<section data-id={id} bind:this={section}>
+<section data-id={id} bind:this={section} class={cls}>
 	<Container width="narrow">
 		<div class="ons-scroller-section">
 			{#if title}

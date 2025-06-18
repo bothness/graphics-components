@@ -26,9 +26,14 @@
 	 * @type {boolean}
 	 */
 	export let marginBottom = true;
+	/**
+	 * Optional: Set an additional CSS class for the component
+	 * @type {string}
+	 */
+	export let cls = "";
 </script>
 
-<Container {width} {marginTop} {marginBottom}>
+<Container {width} {marginTop} {marginBottom} {cls}>
 	<hr
 		class="ons-u-mt-no"
 		class:ons-u-vh={!hr}

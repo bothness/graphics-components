@@ -28,8 +28,8 @@
 	export let background = null;
 </script>
 
-<Container {width} {background}>
-	<nav class="ons-breadcrumbs {cls}" aria-label="Breadcrumbs">
+<Container {width} {background} {cls}>
+	<nav class="ons-breadcrumbs" aria-label="Breadcrumbs">
 		<ol class="ons-breadcrumbs__items ons-u-fs-s">
 			{#each backHref ? [{ label: "Back", href: backHref }] : links as link}
 				<li class="ons-breadcrumbs__item">
