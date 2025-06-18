@@ -1,6 +1,6 @@
 A component for defining a group of [checkbox](/docs/inputs-checkbox--docs) elements, whose checked values can be bound to Svelte variables, or grouped in an array.
 
-Based on [this ONS Design System component](https://service-manual.ons.gov.uk/design-system/components/checkboxes).
+Based on [this ONS Design System component](https://service-manual.ons.gov.uk/design-system/components/checkboxes). (Note: In some use cases, it may be preferable to use raw HTML `<input type="checkbox">` components and style these using CSS.)
 
 <!-- prettier-ignore -->
 ```html

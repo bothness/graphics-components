@@ -7,27 +7,32 @@
 	 * Unique ID input
 	 * @type {string}
 	 */
-	export let id;
+	export let id = "";
+	/**
+	 * Label for input
+	 * @type {string}
+	 */
+	export let label = "";
+	/**
+	 * Optional: Extended description for element
+	 * @type {string}
+	 */
+	export let description = "";
+	/**
+	 * Optional: Define the item as an object in the form {id, label, description?}
+	 * @type {object}
+	 */
+	export let item = { id, label, description };
 	/**
 	 * ID for radio group (required)
 	 * @type {string}
 	 */
 	export let groupId;
 	/**
-	 * Label for input
-	 * @type {string}
-	 */
-	export let label;
-	/**
-	 * Binding for ID of selected option
-	 * @type {string|null}
+	 * Binding selected option
+	 * @type {object|null}
 	 */
 	export let value = null;
-	/**
-	 * Optional: Extended description for element
-	 * @type {string}
-	 */
-	export let description = "";
 	/**
 	 * Compact mode (no border)
 	 * @type {boolean}
@@ -39,35 +44,39 @@
 	<span class="ons-radio" class:ons-radio--no-border={compact}>
 		<input
 			type="radio"
-			{id}
-			bind:group={value}
-			value={id}
+			id={item.id}
+			value={item}
 			name={groupId}
 			class="ons-radio__input ons-js-radio"
-			on:change={(e) => dispatch("change", e)}
+			on:change={(e) => {
+				if (e?.target?.checked) {
+					value = item;
+					dispatch("change", { value, e });
+				}
+			}}
 		/>
 		<label
 			class="ons-radio__label"
 			class:ons-label--with-description={description}
-			for={id}
-			id="{id}-label"
-			aria-describedby={description ? `${id}-label-description-hint` : null}
+			for={item.id}
+			id="{item.id}-label"
+			aria-describedby={item.description ? `${item.id}-label-description-hint` : null}
 		>
-			{label}
-			{#if description}
+			{item.label}
+			{#if item.description}
 				<span class="ons-label__aria-hidden-description" aria-hidden="true"
 					><span class="ons-label__description ons-radio__label--with-description">
-						{description}
+						{item.description}
 					</span></span
 				>
 			{/if}
 		</label>
-		{#if description}
+		{#if item.description}
 			<span
 				class="ons-label__visually-hidden-description ons-u-vh"
 				id="{id}-label-description-hint"
 			>
-				{description}
+				{item.description}
 			</span>
 		{/if}
 	</span>

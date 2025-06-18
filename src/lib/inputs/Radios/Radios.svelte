@@ -2,18 +2,28 @@
 	import Radio from "./Radio.svelte";
 
 	/**
+	 * Title/legend for parent <fieldset>
+	 * @type {string}
+	 */
+	export let title = "";
+	/**
+	 * Visually hide the title/legend
+	 * @type {boolean}
+	 */
+	export let hideTitle = false;
+	/**
 	 * Unique ID for radio group (required)
 	 * @type {string}
 	 */
 	export let id = "name";
 	/**
-	 * Label for grouped inputs
+	 * Descriptive "how to" label for inputs
 	 * @type {string}
 	 */
 	export let label = "";
 	/**
 	 * Binding for ID of selected option
-	 * @type {string|null}
+	 * @type {object|null}
 	 */
 	export let value = null;
 	/** Optional: Define the radios as an array of {id, label, description?}
@@ -27,20 +37,21 @@
 	export let compact = false;
 </script>
 
-{#if label}
-	<p class="ons-radios__label">{label}</p>
-{/if}
-<div class="ons-radios__items">
-	<slot />
-	{#each items as item}
-		<Radio
-			id={item.id}
-			label={item.label}
-			description={item.description}
-			groupId={id}
-			{compact}
-			bind:value
-			on:change
-		/>
-	{/each}
-</div>
+<fieldset class="ons-fieldset">
+	{#if title}
+		<legend class="ons-fieldset__legend ons-u-mb-no">
+			<span class="ons-fieldset__legend-title ons-u-pb-no" class:ons-u-vh={hideTitle}>{title}</span>
+		</legend>
+	{/if}
+	<div class="ons-input-items">
+		{#if label}
+			<p class="ons-radios__label">{label}</p>
+		{/if}
+		<div class="ons-radios__items">
+			<slot />
+			{#each items as item}
+				<Radio {item} groupId={id} {compact} bind:value on:change />
+			{/each}
+		</div>
+	</div>
+</fieldset>

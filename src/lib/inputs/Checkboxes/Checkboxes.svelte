@@ -4,7 +4,17 @@
 	import Checkbox from "../Checkbox/Checkbox.svelte";
 
 	/**
-	 * Label for grouped inputs
+	 * Title/legend for parent <fieldset>
+	 * @type {string}
+	 */
+	export let title = "";
+	/**
+	 * Visually hide the title/legend
+	 * @type {boolean}
+	 */
+	export let hideTitle = false;
+	/**
+	 * Descriptive "how to" label for inputs
 	 * @type {string}
 	 */
 	export let label = "";
@@ -25,14 +35,23 @@
 	setContext("checkboxes", checkboxes);
 </script>
 
-{#if label}
-	<p class="ons-checkboxes__label">{label}</p>
-{/if}
-<div class="ons-checkboxes__items">
-	<slot />
-	{#if Array.isArray(items)}
-		{#each items as item}
-			<Checkbox {...item} bind:group={value} {compact} on:change />
-		{/each}
+<fieldset class="ons-fieldset">
+	{#if title}
+		<legend class="ons-fieldset__legend ons-u-mb-no">
+			<span class="ons-fieldset__legend-title ons-u-pb-no" class:ons-u-vh={hideTitle}>{title}</span>
+		</legend>
 	{/if}
-</div>
+	<div class="ons-input-items">
+		{#if label}
+			<p class="ons-checkboxes__label">{label}</p>
+		{/if}
+		<div class="ons-checkboxes__items">
+			<slot />
+			{#if Array.isArray(items)}
+				{#each items as item}
+					<Checkbox {item} bind:group={value} {compact} on:change />
+				{/each}
+			{/if}
+		</div>
+	</div>
+</fieldset>

@@ -21,22 +21,14 @@
 	];
 </script>
 
-{#snippet template(args)}
-	<div style:padding="12px">
-		<Checkboxes {...args} />
-	</div>
-{/snippet}
+<Story name="Default" args={{ label: "Select items", items }} />
 
-<Story name="Default" args={{ label: "Select items", items }} {template} />
-
-<Story name="Compact without label" args={{ items, compact: true }} {template} />
+<Story name="Compact without label" args={{ items, compact: true }} />
 
 <Story name="Individually defined checkboxes" asChild parameters={withStoryDocs(exampleDocs)}>
-	<div style:padding="12px">
-		<Checkboxes label="Select items">
-			<Checkbox id="ice-cream" label="Ice cream" />
-			<Checkbox id="sprinkles" label="Sprinkles" description="Highly recommended!" />
-			<Checkbox id="disabled" label="Disabled option" disabled />
-		</Checkboxes>
-	</div>
+	<Checkboxes label="Select items">
+		<Checkbox id="ice-cream" label="Ice cream" />
+		<Checkbox id="sprinkles" label="Sprinkles" description="Highly recommended!" />
+		<Checkbox id="disabled" label="Disabled option" disabled />
+	</Checkboxes>
 </Story>

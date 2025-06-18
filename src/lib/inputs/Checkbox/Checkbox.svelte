@@ -9,45 +9,45 @@
 	 */
 	export let id;
 	/**
-	 * Optional: Name of checkbox group
-	 * @type {string}
-	 */
-	export let name = "";
-	/**
-	 * Value for input element (defaults to ID)
-	 * @type {string|object}
-	 */
-	export let value = id;
-	/**
 	 * Label for input
 	 * @type {string}
 	 */
 	export let label;
-	/**
-	 * Binding for checked state of input
-	 * @type {boolean}
-	 */
-	export let checked = false;
-	/**
-	 * Binding for checked state of input
-	 * @type {object[]|null}
-	 */
-	export let group = null;
 	/**
 	 * Optional: Extended description for element
 	 * @type {string}
 	 */
 	export let description = "";
 	/**
-	 * Set display mode of checkbox
-	 * @type {"default"|"ghost"}
+	 * Binding for checked state of input
+	 * @type {boolean}
 	 */
-	export let variant = "default";
+	export let checked = false;
 	/**
 	 * Option to disable input
 	 * @type {boolean}
 	 */
 	export let disabled = false;
+	/**
+	 * Optional: Define the item as an object in the form {id, label, description?}
+	 * @type {object}
+	 */
+	export let item = { id, label, description, checked, disabled };
+	/**
+	 * Optional: Name of checkbox group
+	 * @type {string}
+	 */
+	export let groupName = "";
+	/**
+	 * Binding for checked state of input
+	 * @type {object[]|null}
+	 */
+	export let group = null;
+	/**
+	 * Set display mode of checkbox
+	 * @type {"default"|"ghost"}
+	 */
+	export let variant = "default";
 	/**
 	 * Compact mode (no border)
 	 * @type {boolean}
@@ -64,15 +64,19 @@
 	}
 
 	function updateGroup() {
-		const newGroup = $checkboxes.filter((c) => c.checked).map((c) => c.id);
-		if (newGroup.join() !== group.join()) group = newGroup;
+		const groupIndex = {};
+		for (const g of group) groupIndex[g.id] = g;
+		const newGroupIds = $checkboxes.filter((c) => c.checked).map((c) => c?.id);
+		if (newGroupIds.length !== group.length)
+			group = newGroupIds.map((id) => groupIndex[id] || item);
 	}
 
 	function doChange(e) {
+		checked = item.checked;
 		if (Array.isArray(group) && Array.isArray($checkboxes)) {
 			updateGroup();
 		}
-		dispatch("change", { id, checked, group, e });
+		dispatch("change", { item, e });
 	}
 
 	onMount(() => {
@@ -99,38 +103,38 @@
 	<span class="ons-checkbox" class:ons-checkbox--no-border={compact}>
 		<input
 			type="checkbox"
-			{id}
-			{name}
-			{value}
-			bind:checked
+			id={item.id}
+			name={groupName}
+			value={item}
+			bind:checked={item.checked}
 			class="ons-checkbox__input ons-js-checkbox"
-			{disabled}
-			aria-disabled={disabled}
+			disabled={item.disabled}
+			aria-disabled={item.disabled}
 			on:change={doChange}
 			bind:this={el}
 		/>
 		<label
 			class="ons-checkbox__label"
-			class:ons-label--with-description={description}
-			for={id}
-			id="{id}-label"
-			aria-describedby={description ? `${id}-label-description-hint` : null}
+			class:ons-label--with-description={item.description}
+			for={item.id}
+			id="{item.id}-label"
+			aria-describedby={item.description ? `${item.id}-label-description-hint` : null}
 		>
-			{label}
-			{#if description}
+			{item.label}
+			{#if item.description}
 				<span class="ons-label__aria-hidden-description" aria-hidden="true"
 					><span class="ons-label__description ons-radio__label--with-description">
-						{description}
+						{item.description}
 					</span></span
 				>
 			{/if}
 		</label>
-		{#if description}
+		{#if item.description}
 			<span
 				class="ons-label__visually-hidden-description ons-u-vh"
-				id="{id}-label-description-hint"
+				id="{item.id}-label-description-hint"
 			>
-				{description}
+				{item.description}
 			</span>
 		{/if}
 	</span>
