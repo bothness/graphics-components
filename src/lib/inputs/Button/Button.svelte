@@ -1,6 +1,6 @@
 <script>
 	import { createEventDispatcher } from "svelte";
-	import Icon from "./Icon.svelte";
+	import Icon from "$lib/decorators/Icon/Icon.svelte";
 
 	const dispatch = createEventDispatcher();
 
@@ -26,7 +26,7 @@
 	export let small = false;
 	/**
 	 * Icon on button, eg. "arrow", "search"
-	 * @type {string}
+	 * @type {"arrow"|"external"|"signout"|"print"|"download"|"tick"|"search"}
 	 */
 	export let icon = "";
 	/**

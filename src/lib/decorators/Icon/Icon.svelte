@@ -1,6 +1,23 @@
 <script>
+	/**
+	 * Set the type of icon
+	 * @type {"arrow"|"external"|"signout"|"print"|"download"|"tick"|"search"}
+	 */
 	export let type = "arrow";
+	/**
+	 * Set the size of the icon
+	 * @type {"s"|"m"|"l"|"xl"|"2xl"|"3xl"|null}
+	 */
+	export let size = null;
+	/**
+	 * Add a small margin on the left of the icon
+	 * @type {boolean}
+	 */
 	export let marginLeft = false;
+	/**
+	 * Add a small margin on the right of the icon
+	 * @type {boolean}
+	 */
 	export let marginRight = false;
 
 	const paths = {
@@ -8,13 +25,13 @@
 			d: "m10 .2-.9.9c-.1.1-.1.4 0 .5l4 4H.6c-.2 0-.4.2-.4.4v1.2c0 .2.2.4.4.4h12.5l-3.9 3.7c-.2.2-.2.4 0 .6l.8.9c.2.2.4.2.6 0L16.8 7c.2-.2.2-.4 0-.6L10.7.3c-.3-.2-.5-.2-.7-.1z",
 			viewBox: "0 0 17 13"
 		},
-		externalLink: {
+		external: {
 			d: "M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z",
 			viewBox: "2 2 12 12"
 		},
 		signout: {
 			d: "M13.85,7.65l-2.5-2.5a.5.5,0,0,0-.71,0,.48.48,0,0,0-.15.36V7h-3a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3v1.5A.49.49,0,0,0,11,11a.48.48,0,0,0,.34-.14l2.51-2.5a.49.49,0,0,0,0-.68Z M8.5,14h-6a.5.5,0,0,1-.5-.5V2.5A.5.5,0,0,1,2.5,2h6a.5.5,0,0,1,.5.5V3a.5.5,0,0,1-.5.5h-5v9h5A.5.5,0,0,1,9,13v.5A.5.5,0,0,1,8.5,14Z",
-			viewBox: "0 0 12 12"
+			viewBox: "2 2 12 12"
 		},
 		print: {
 			d: "M17 4H3C1.3 4 0 5.2 0 6.8v5.5h4V16h12v-3.7h4V6.8C20 5.2 18.7 4 17 4zm-3 10H6V9h8v5zm3-6a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm-1-8H4v3h12V0z",
@@ -37,7 +54,7 @@
 
 {#if paths[type]}
 	<svg
-		class="ons-icon"
+		class="ons-icon {size ? `ons-icon--${size}` : ''}"
 		class:ons-u-ml-2xs={marginLeft}
 		class:ons-u-mr-2xs={marginRight}
 		viewBox={paths[type].viewBox}
