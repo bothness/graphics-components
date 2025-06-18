@@ -65,4 +65,5 @@ export { default as Em } from "./decorators/Em/Em.svelte";
 export { default as Indent } from "./decorators/Indent/Indent.svelte";
 
 // Data visualisation
+export { default as DataTile } from "./datavis/DataTile/DataTile.svelte";
 export { default as Table } from "./datavis/Table/Table.svelte";
