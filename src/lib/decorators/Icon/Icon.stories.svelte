@@ -22,4 +22,6 @@
 
 <Story name="Arrow icon" args={{ type: "arrow" }} />
 
+<Story name="Arrow pointing down" args={{ type: "arrow", rotation: 90 }} />
+
 <Story name="Search icon, large" args={{ type: "search", size: "3xl" }} />

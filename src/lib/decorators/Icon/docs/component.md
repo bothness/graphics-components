@@ -1,12 +1,10 @@
-A component to visually highlight text. Can be used for inline text or to provide a "badge".
-
-Consists of a `<mark>` element with a custom background color, where the highlighted text will automatically appear black or white to maximise contrast.
+Make use of pre-defined icons in your projects. The icon fill is set to `currentColor`, so will render in the same colour as the surrounding text.
 
 <!-- prettier-ignore -->
 ```html
 <script>
-  import { Em } from "@onsvisual/svelte-components";
+  import { Icon } from "@onsvisual/svelte-components";
 </script>
 
-<Em color="steelblue">Highlighted text</Em>
+<Icon type="arrow" size="3xl"/>
 ```
