@@ -21,9 +21,9 @@ import { Meta } from "@storybook/addon-docs/blocks";
   </a>
 </p>
 
-A library of ONS-branded Svelte components for projects large and small.
+A library of ONS-branded components for any Svelte or SvelteKit project.
 
-The components and styles in this library based on the [ONS Design System](https://service-manual.ons.gov.uk/design-system/), but with a number of tweaks and additions to make them suitable for a range of interactive data visualisation and data journalism projects.
+The components and styles in this library are built on the HTML and CSS of the [ONS Design System](https://service-manual.ons.gov.uk/design-system/), but with a number of tweaks and additions to make them suitable for a range of interactive data visualisation and data journalism projects.
 
 ## Installing the components
 
@@ -31,7 +31,7 @@ There are two ways to start a new project using these components.
 
 ### 1. Use a ready-made template
 
-When you start a project from one of the following templates, @onsvisual/svelte-components will already be installed:
+When you start a project with one of the following templates, @onsvisual/svelte-components will already be installed:
 
 - [sveltekit-starter](https://github.com/ONSvisual/sveltekit-starter)
 - [robo-article](https://github.com/ONSvisual/robo-article)
@@ -47,7 +47,7 @@ npm install @onsvisual/svelte-components --save-dev
 
 ## Using the components
 
-When using the components, you need to import both the desired component and the global CSS styles. In a SvelteKit project it is best to import the CSS in a top-level **+layout.svelte** file in your **src/routes** folder, which will apply it to all pages/components in the project.
+When using the components, you need to import both the desired component and the global CSS styles. In a SvelteKit project it is best to import the CSS in the top-level **+layout.svelte** file in your **src/routes** folder, which will apply it to all pages/components in the project.
 
 {/* prettier-ignore */}
 ```html
