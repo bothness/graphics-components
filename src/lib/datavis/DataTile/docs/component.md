@@ -1,6 +1,6 @@
-A component for presenting key facts and figures in a tile grid.
+A component for presenting key facts and figures as a grid of "cards".
 
-Note: This component will be extended to include bar charts and sparklines.
+Note: This component is experimental. Its attributes and options are likely to change. The intention is to include a range of simple chart types.
 
 <!-- prettier-ignore -->
 ```html
