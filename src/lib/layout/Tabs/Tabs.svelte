@@ -8,6 +8,7 @@
 
 	/**
 	 * Make tabs smaller/more compact
+	 * @type {boolean}
 	 */
 	export let compact = false;
 	/**
