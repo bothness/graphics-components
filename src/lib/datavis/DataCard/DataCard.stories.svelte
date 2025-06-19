@@ -1,13 +1,13 @@
 <script module>
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { withComponentDocs } from "../../js/withParams.js";
-	import DataTile from "./DataTile.svelte";
+	import DataCard from "./DataCard.svelte";
 	import componentDocs from "./docs/component.md?raw";
 	import data from "../demo-data/data-scatter.js";
 
 	const { Story } = defineMeta({
-		title: "Data visualisation/DataTile",
-		component: DataTile,
+		title: "Data visualisation/DataCard",
+		component: DataCard,
 		tags: ["autodocs"],
 		argTypes: {
 			mode: {

@@ -5,10 +5,10 @@ Note: This component is experimental. Its attributes and options are likely to c
 <!-- prettier-ignore -->
 ```html
 <script>
-  import { DataTile } from "@onsvisual/svelte-components";
+  import { DataCard } from "@onsvisual/svelte-components";
 </script>
 
-<DataTile
+<DataCard
   title="Consumer Price Index (CPI)",
   value="up 2.5%",
   caption="in 12 months to December 2024",

@@ -71,5 +71,5 @@ export { default as Icon } from "./decorators/Icon/Icon.svelte";
 export { default as Indent } from "./decorators/Indent/Indent.svelte";
 
 // Data visualisation
-export { default as DataTile } from "./datavis/DataTile/DataTile.svelte";
+export { default as DataCard } from "./datavis/DataCard/DataCard.svelte";
 export { default as Table } from "./datavis/Table/Table.svelte";
