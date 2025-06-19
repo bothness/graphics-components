@@ -20,6 +20,8 @@ export { default as Contents } from "./layout/Contents/Contents.svelte";
 export { default as DescriptionList } from "./layout/DescriptionList/DescriptionList.svelte";
 export { default as Details } from "./layout/Details/Details.svelte";
 export { default as Twisty } from "./layout/Details/Details.svelte"; // Alias for Details
+export { default as DocumentList } from "./layout/DocumentList/DocumentList.svelte";
+export { default as Document } from "./layout/DocumentList/Document.svelte";
 export { default as ErrorPage } from "./layout/ErrorPage/ErrorPage.svelte";
 export { default as Footer } from "./layout/Footer/Footer.svelte";
 export { default as Grid } from "./layout/Grid/Grid.svelte";
@@ -28,6 +30,7 @@ export { default as Header } from "./layout/Header/Header.svelte";
 export { default as Hero } from "./layout/Hero/Hero.svelte";
 export { default as Titleblock } from "./layout/Hero/Hero.svelte"; // Alias for Hero
 export { default as Highlight } from "./layout/Highlight/Highlight.svelte";
+export { default as Image } from "./layout/Image/Image.svelte";
 export { default as List } from "./layout/List/List.svelte";
 export { default as Li } from "./layout/List/Li.svelte";
 export { default as NavSection } from "./layout/NavSections/NavSection.svelte";
@@ -43,6 +46,8 @@ export { default as SkipLink } from "./layout/SkipLink/SkipLink.svelte";
 export { default as Summary } from "./layout/Summary/Summary.svelte";
 export { default as Tabs } from "./layout/Tabs/Tabs.svelte";
 export { default as Tab } from "./layout/Tabs/Tab.svelte";
+export { default as Timeline } from "./layout/Timeline/Timeline.svelte";
+export { default as TimelineItem } from "./layout/Timeline/TimelineItem.svelte";
 
 // Inputs
 export { default as Button } from "./inputs/Button/Button.svelte";
@@ -62,6 +67,7 @@ export { default as Textarea } from "./inputs/Textarea/Textarea.svelte";
 export { default as Blockquote } from "./decorators/Blockquote/Blockquote.svelte";
 export { default as Divider } from "./decorators/Divider/Divider.svelte";
 export { default as Em } from "./decorators/Em/Em.svelte";
+export { default as Icon } from "./decorators/Icon/Icon.svelte";
 export { default as Indent } from "./decorators/Indent/Indent.svelte";
 
 // Data visualisation
