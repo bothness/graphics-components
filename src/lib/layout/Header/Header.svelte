@@ -847,9 +847,13 @@
 							class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless"
 						>
 							<div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-								<a class="ons-header__title-link" href={titleHref}>
+								{#if titleHref}
+									<a class="ons-header__title-link" href={titleHref}>
+										<div class="ons-header__title">{title}</div>
+									</a>
+								{:else}
 									<div class="ons-header__title">{title}</div>
-								</a>
+								{/if}
 							</div>
 						</div>
 					</div>
