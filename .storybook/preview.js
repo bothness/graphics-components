@@ -12,7 +12,7 @@ const preview = {
 		options: {
 			storySort: {
 				order: [
-					"Intro",
+					"Introduction",
 					"Templates",
 					"Wrappers",
 					"Layout",
